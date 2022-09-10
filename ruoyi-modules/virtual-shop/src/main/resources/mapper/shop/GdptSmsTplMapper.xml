@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.GdptSmsTplMapper">
+    
+    <resultMap type="GdptSmsTpl" id="GdptSmsTplResult">
+        <result property="id"    column="ID"    />
+        <result property="title"    column="TITLE"    />
+        <result property="content"    column="CONTENT"    />
+        <result property="status"    column="STATUS"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+    </resultMap>
+
+    <sql id="selectGdptSmsTplVo">
+        select ID, TITLE, CONTENT, STATUS, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from GDPT_SMS_TPL
+    </sql>
+
+    <select id="selectGdptSmsTplList" parameterType="GdptSmsTpl" resultMap="GdptSmsTplResult">
+        <include refid="selectGdptSmsTplVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and TITLE = #{title}</if>
+            <if test="content != null  and content != ''"> and CONTENT = #{content}</if>
+            <if test="status != null  and status != ''"> and STATUS = #{status}</if>
+            <if test="revision != null "> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectGdptSmsTplById" parameterType="String" resultMap="GdptSmsTplResult">
+        <include refid="selectGdptSmsTplVo"/>
+        where ID = #{id}
+    </select>
+        
+    <insert id="insertGdptSmsTpl" parameterType="GdptSmsTpl">
+        insert into GDPT_SMS_TPL
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">ID,</if>
+            <if test="title != null">TITLE,</if>
+            <if test="content != null">CONTENT,</if>
+            <if test="status != null">STATUS,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null">#{title},</if>
+            <if test="content != null">#{content},</if>
+            <if test="status != null">#{status},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGdptSmsTpl" parameterType="GdptSmsTpl">
+        update GDPT_SMS_TPL
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null">TITLE = #{title},</if>
+            <if test="content != null">CONTENT = #{content},</if>
+            <if test="status != null">STATUS = #{status},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <delete id="deleteGdptSmsTplById" parameterType="String">
+        delete from GDPT_SMS_TPL where ID = #{id}
+    </delete>
+
+    <delete id="deleteGdptSmsTplByIds" parameterType="String">
+        delete from GDPT_SMS_TPL where ID in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,140 @@
+2022-09-04 21:44:12,431 INFO [dump-all-ok] application-dev.yml+DEFAULT_GROUP, 1650795994000, length=542, md5=aaa73b809cfd4d0058893aa13da57806
+
+2022-09-04 21:44:12,434 INFO [dump-all-ok] ruoyi-gateway-dev.yml+DEFAULT_GROUP, 1660798664000, length=1553, md5=50e4c0a3b24eb9d8a35db96264103e51
+
+2022-09-04 21:44:12,435 INFO [dump-all-ok] ruoyi-auth-dev.yml+DEFAULT_GROUP, 1614546418000, length=73, md5=b7354e1eb62c2d846d44a796d9ec6930
+
+2022-09-04 21:44:12,436 INFO [dump-all-ok] ruoyi-monitor-dev.yml+DEFAULT_GROUP, 1608568087000, length=144, md5=d8997d0707a2fd5d9fc4e8409da38129
+
+2022-09-04 21:44:12,439 INFO [dump-all-ok] ruoyi-system-dev.yml+DEFAULT_GROUP, 1611744145000, length=2254, md5=4be03596feef312964f75e02b8a6fdea
+
+2022-09-04 21:44:12,440 INFO [dump-all-ok] ruoyi-gen-dev.yml+DEFAULT_GROUP, 1661758831000, length=818, md5=69e83ad998818267767c7c8f6d96760e
+
+2022-09-04 21:44:12,442 INFO [dump-all-ok] ruoyi-job-dev.yml+DEFAULT_GROUP, 1656751545000, length=602, md5=d061016e18222409a706423bee7109c5
+
+2022-09-04 21:44:12,443 INFO [dump-all-ok] ruoyi-file-dev.yml+DEFAULT_GROUP, 1662089294000, length=367, md5=78bb6029f121ba4a1bca3ac088b4a787
+
+2022-09-04 21:44:12,444 INFO [dump-all-ok] sentinel-ruoyi-gateway+DEFAULT_GROUP, 1605830400000, length=715, md5=9f3a3069261598f74220bc47958ec252
+
+2022-09-04 21:44:12,445 INFO [dump-all-ok] vitual-shop-dev.yml+DEFAULT_GROUP, 1660223342000, length=642, md5=8527deadfdd16ab97817938f8ab3fa7b
+
+2022-09-04 21:44:12,446 INFO [dump-all-ok] shop-dev.yml+DEFAULT_GROUP, 1660223371000, length=643, md5=d3069f59edcf28a3a67a44b9bf5f4758
+
+2022-09-04 21:44:12,447 INFO [dump-all-ok] merchant-dev.yml+DEFAULT_GROUP, 1659942852000, length=604, md5=aa39d65eb1101214da593b13d86cfad1
+
+2022-09-04 21:44:12,448 INFO [dump-all-ok] mobile-dev.yml+DEFAULT_GROUP, 1660223385000, length=644, md5=77af955d3ff86b1e64543a3cf5b0537e
+
+2022-09-04 21:44:12,449 INFO [dump-all-ok] order-dev.yml+DEFAULT_GROUP, 1661704240000, length=770, md5=67396814786512cee6dccce9bf0c0087
+
+2022-09-04 22:18:54,561 INFO [dump-all-ok] application-dev.yml+DEFAULT_GROUP, 1650795994000, length=542, md5=aaa73b809cfd4d0058893aa13da57806
+
+2022-09-04 22:18:54,564 INFO [dump-all-ok] ruoyi-gateway-dev.yml+DEFAULT_GROUP, 1660798664000, length=1553, md5=50e4c0a3b24eb9d8a35db96264103e51
+
+2022-09-04 22:18:54,565 INFO [dump-all-ok] ruoyi-auth-dev.yml+DEFAULT_GROUP, 1614546418000, length=73, md5=b7354e1eb62c2d846d44a796d9ec6930
+
+2022-09-04 22:18:54,566 INFO [dump-all-ok] ruoyi-monitor-dev.yml+DEFAULT_GROUP, 1608568087000, length=144, md5=d8997d0707a2fd5d9fc4e8409da38129
+
+2022-09-04 22:18:54,568 INFO [dump-all-ok] ruoyi-system-dev.yml+DEFAULT_GROUP, 1611744145000, length=2254, md5=4be03596feef312964f75e02b8a6fdea
+
+2022-09-04 22:18:54,570 INFO [dump-all-ok] ruoyi-gen-dev.yml+DEFAULT_GROUP, 1661758831000, length=818, md5=69e83ad998818267767c7c8f6d96760e
+
+2022-09-04 22:18:54,572 INFO [dump-all-ok] ruoyi-job-dev.yml+DEFAULT_GROUP, 1656751545000, length=602, md5=d061016e18222409a706423bee7109c5
+
+2022-09-04 22:18:54,573 INFO [dump-all-ok] ruoyi-file-dev.yml+DEFAULT_GROUP, 1662089294000, length=367, md5=78bb6029f121ba4a1bca3ac088b4a787
+
+2022-09-04 22:18:54,574 INFO [dump-all-ok] sentinel-ruoyi-gateway+DEFAULT_GROUP, 1605830400000, length=715, md5=9f3a3069261598f74220bc47958ec252
+
+2022-09-04 22:18:54,576 INFO [dump-all-ok] vitual-shop-dev.yml+DEFAULT_GROUP, 1660223342000, length=642, md5=8527deadfdd16ab97817938f8ab3fa7b
+
+2022-09-04 22:18:54,577 INFO [dump-all-ok] shop-dev.yml+DEFAULT_GROUP, 1660223371000, length=643, md5=d3069f59edcf28a3a67a44b9bf5f4758
+
+2022-09-04 22:18:54,578 INFO [dump-all-ok] merchant-dev.yml+DEFAULT_GROUP, 1659942852000, length=604, md5=aa39d65eb1101214da593b13d86cfad1
+
+2022-09-04 22:18:54,579 INFO [dump-all-ok] mobile-dev.yml+DEFAULT_GROUP, 1660223385000, length=644, md5=77af955d3ff86b1e64543a3cf5b0537e
+
+2022-09-04 22:18:54,582 INFO [dump-all-ok] order-dev.yml+DEFAULT_GROUP, 1661704240000, length=770, md5=67396814786512cee6dccce9bf0c0087
+
+2022-09-04 22:21:16,408 INFO [dump-all-ok] application-dev.yml+DEFAULT_GROUP, 1650795994000, length=542, md5=aaa73b809cfd4d0058893aa13da57806
+
+2022-09-04 22:21:16,410 INFO [dump-all-ok] ruoyi-gateway-dev.yml+DEFAULT_GROUP, 1660798664000, length=1553, md5=50e4c0a3b24eb9d8a35db96264103e51
+
+2022-09-04 22:21:16,411 INFO [dump-all-ok] ruoyi-auth-dev.yml+DEFAULT_GROUP, 1614546418000, length=73, md5=b7354e1eb62c2d846d44a796d9ec6930
+
+2022-09-04 22:21:16,412 INFO [dump-all-ok] ruoyi-monitor-dev.yml+DEFAULT_GROUP, 1608568087000, length=144, md5=d8997d0707a2fd5d9fc4e8409da38129
+
+2022-09-04 22:21:16,414 INFO [dump-all-ok] ruoyi-system-dev.yml+DEFAULT_GROUP, 1611744145000, length=2254, md5=4be03596feef312964f75e02b8a6fdea
+
+2022-09-04 22:21:16,415 INFO [dump-all-ok] ruoyi-gen-dev.yml+DEFAULT_GROUP, 1661758831000, length=818, md5=69e83ad998818267767c7c8f6d96760e
+
+2022-09-04 22:21:16,416 INFO [dump-all-ok] ruoyi-job-dev.yml+DEFAULT_GROUP, 1656751545000, length=602, md5=d061016e18222409a706423bee7109c5
+
+2022-09-04 22:21:16,417 INFO [dump-all-ok] ruoyi-file-dev.yml+DEFAULT_GROUP, 1662089294000, length=367, md5=78bb6029f121ba4a1bca3ac088b4a787
+
+2022-09-04 22:21:16,418 INFO [dump-all-ok] sentinel-ruoyi-gateway+DEFAULT_GROUP, 1605830400000, length=715, md5=9f3a3069261598f74220bc47958ec252
+
+2022-09-04 22:21:16,419 INFO [dump-all-ok] vitual-shop-dev.yml+DEFAULT_GROUP, 1660223342000, length=642, md5=8527deadfdd16ab97817938f8ab3fa7b
+
+2022-09-04 22:21:16,420 INFO [dump-all-ok] shop-dev.yml+DEFAULT_GROUP, 1660223371000, length=643, md5=d3069f59edcf28a3a67a44b9bf5f4758
+
+2022-09-04 22:21:16,422 INFO [dump-all-ok] merchant-dev.yml+DEFAULT_GROUP, 1659942852000, length=604, md5=aa39d65eb1101214da593b13d86cfad1
+
+2022-09-04 22:21:16,422 INFO [dump-all-ok] mobile-dev.yml+DEFAULT_GROUP, 1660223385000, length=644, md5=77af955d3ff86b1e64543a3cf5b0537e
+
+2022-09-04 22:21:16,423 INFO [dump-all-ok] order-dev.yml+DEFAULT_GROUP, 1661704240000, length=770, md5=67396814786512cee6dccce9bf0c0087
+
+2022-09-04 22:30:05,509 INFO [dump-all-ok] application-dev.yml+DEFAULT_GROUP, 1650795994000, length=542, md5=aaa73b809cfd4d0058893aa13da57806
+
+2022-09-04 22:30:05,513 INFO [dump-all-ok] ruoyi-gateway-dev.yml+DEFAULT_GROUP, 1660798664000, length=1553, md5=50e4c0a3b24eb9d8a35db96264103e51
+
+2022-09-04 22:30:05,514 INFO [dump-all-ok] ruoyi-auth-dev.yml+DEFAULT_GROUP, 1614546418000, length=73, md5=b7354e1eb62c2d846d44a796d9ec6930
+
+2022-09-04 22:30:05,515 INFO [dump-all-ok] ruoyi-monitor-dev.yml+DEFAULT_GROUP, 1608568087000, length=144, md5=d8997d0707a2fd5d9fc4e8409da38129
+
+2022-09-04 22:30:05,517 INFO [dump-all-ok] ruoyi-system-dev.yml+DEFAULT_GROUP, 1611744145000, length=2254, md5=4be03596feef312964f75e02b8a6fdea
+
+2022-09-04 22:30:05,519 INFO [dump-all-ok] ruoyi-gen-dev.yml+DEFAULT_GROUP, 1661758831000, length=818, md5=69e83ad998818267767c7c8f6d96760e
+
+2022-09-04 22:30:05,520 INFO [dump-all-ok] ruoyi-job-dev.yml+DEFAULT_GROUP, 1656751545000, length=602, md5=d061016e18222409a706423bee7109c5
+
+2022-09-04 22:30:05,521 INFO [dump-all-ok] ruoyi-file-dev.yml+DEFAULT_GROUP, 1662089294000, length=367, md5=78bb6029f121ba4a1bca3ac088b4a787
+
+2022-09-04 22:30:05,522 INFO [dump-all-ok] sentinel-ruoyi-gateway+DEFAULT_GROUP, 1605830400000, length=715, md5=9f3a3069261598f74220bc47958ec252
+
+2022-09-04 22:30:05,523 INFO [dump-all-ok] vitual-shop-dev.yml+DEFAULT_GROUP, 1660223342000, length=642, md5=8527deadfdd16ab97817938f8ab3fa7b
+
+2022-09-04 22:30:05,524 INFO [dump-all-ok] shop-dev.yml+DEFAULT_GROUP, 1660223371000, length=643, md5=d3069f59edcf28a3a67a44b9bf5f4758
+
+2022-09-04 22:30:05,525 INFO [dump-all-ok] merchant-dev.yml+DEFAULT_GROUP, 1659942852000, length=604, md5=aa39d65eb1101214da593b13d86cfad1
+
+2022-09-04 22:30:05,525 INFO [dump-all-ok] mobile-dev.yml+DEFAULT_GROUP, 1660223385000, length=644, md5=77af955d3ff86b1e64543a3cf5b0537e
+
+2022-09-04 22:30:05,526 INFO [dump-all-ok] order-dev.yml+DEFAULT_GROUP, 1661704240000, length=770, md5=67396814786512cee6dccce9bf0c0087
+
+2022-09-04 23:39:29,812 INFO [dump-all-ok] application-dev.yml+DEFAULT_GROUP, 1650795994000, length=542, md5=aaa73b809cfd4d0058893aa13da57806
+
+2022-09-04 23:39:29,819 INFO [dump-all-ok] ruoyi-gateway-dev.yml+DEFAULT_GROUP, 1660798664000, length=1553, md5=50e4c0a3b24eb9d8a35db96264103e51
+
+2022-09-04 23:39:29,823 INFO [dump-all-ok] ruoyi-auth-dev.yml+DEFAULT_GROUP, 1614546418000, length=73, md5=b7354e1eb62c2d846d44a796d9ec6930
+
+2022-09-04 23:39:29,824 INFO [dump-all-ok] ruoyi-monitor-dev.yml+DEFAULT_GROUP, 1608568087000, length=144, md5=d8997d0707a2fd5d9fc4e8409da38129
+
+2022-09-04 23:39:29,826 INFO [dump-all-ok] ruoyi-system-dev.yml+DEFAULT_GROUP, 1611744145000, length=2254, md5=4be03596feef312964f75e02b8a6fdea
+
+2022-09-04 23:39:29,827 INFO [dump-all-ok] ruoyi-gen-dev.yml+DEFAULT_GROUP, 1661758831000, length=818, md5=69e83ad998818267767c7c8f6d96760e
+
+2022-09-04 23:39:29,828 INFO [dump-all-ok] ruoyi-job-dev.yml+DEFAULT_GROUP, 1656751545000, length=602, md5=d061016e18222409a706423bee7109c5
+
+2022-09-04 23:39:29,829 INFO [dump-all-ok] ruoyi-file-dev.yml+DEFAULT_GROUP, 1662089294000, length=367, md5=78bb6029f121ba4a1bca3ac088b4a787
+
+2022-09-04 23:39:29,830 INFO [dump-all-ok] sentinel-ruoyi-gateway+DEFAULT_GROUP, 1605830400000, length=715, md5=9f3a3069261598f74220bc47958ec252
+
+2022-09-04 23:39:29,830 INFO [dump-all-ok] vitual-shop-dev.yml+DEFAULT_GROUP, 1660223342000, length=642, md5=8527deadfdd16ab97817938f8ab3fa7b
+
+2022-09-04 23:39:29,832 INFO [dump-all-ok] shop-dev.yml+DEFAULT_GROUP, 1660223371000, length=643, md5=d3069f59edcf28a3a67a44b9bf5f4758
+
+2022-09-04 23:39:29,833 INFO [dump-all-ok] merchant-dev.yml+DEFAULT_GROUP, 1659942852000, length=604, md5=aa39d65eb1101214da593b13d86cfad1
+
+2022-09-04 23:39:29,834 INFO [dump-all-ok] mobile-dev.yml+DEFAULT_GROUP, 1660223385000, length=644, md5=77af955d3ff86b1e64543a3cf5b0537e
+
+2022-09-04 23:39:29,835 INFO [dump-all-ok] order-dev.yml+DEFAULT_GROUP, 1661704240000, length=770, md5=67396814786512cee6dccce9bf0c0087
+

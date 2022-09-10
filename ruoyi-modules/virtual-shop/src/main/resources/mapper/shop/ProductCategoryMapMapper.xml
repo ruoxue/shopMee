@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.ProductCategoryMapMapper">
+    
+    <resultMap type="ProductCategoryMap" id="ProductCategoryMapResult">
+        <result property="id"    column="id"    />
+        <result property="shopId"    column="shop_id"    />
+        <result property="categoryId"    column="category_id"    />
+        <result property="goodsId"    column="goods_id"    />
+        <result property="status"    column="status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectProductCategoryMapVo">
+        select id, shop_id, category_id, goods_id, status, create_time, update_time from product_category_map
+    </sql>
+
+    <select id="selectProductCategoryMapList" parameterType="ProductCategoryMap" resultMap="ProductCategoryMapResult">
+        <include refid="selectProductCategoryMapVo"/>
+        <where>  
+            <if test="shopId != null "> and shop_id = #{shopId}</if>
+            <if test="categoryId != null "> and category_id = #{categoryId}</if>
+            <if test="goodsId != null "> and goods_id = #{goodsId}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectProductCategoryMapById" parameterType="String" resultMap="ProductCategoryMapResult">
+        <include refid="selectProductCategoryMapVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertProductCategoryMap" parameterType="ProductCategoryMap" useGeneratedKeys="true" keyProperty="id">
+        insert into product_category_map
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="shopId != null">shop_id,</if>
+            <if test="categoryId != null">category_id,</if>
+            <if test="goodsId != null">goods_id,</if>
+            <if test="status != null">status,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="shopId != null">#{shopId},</if>
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="goodsId != null">#{goodsId},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProductCategoryMap" parameterType="ProductCategoryMap">
+        update product_category_map
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="shopId != null">shop_id = #{shopId},</if>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="goodsId != null">goods_id = #{goodsId},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProductCategoryMapById" parameterType="String">
+        delete from product_category_map where id = #{id}
+    </delete>
+
+    <delete id="deleteProductCategoryMapByIds" parameterType="String">
+        delete from product_category_map where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

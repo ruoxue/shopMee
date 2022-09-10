@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.ProductSpecTitleMapper">
+    
+    <resultMap type="ProductSpecTitle" id="ProductSpecTitleResult">
+        <result property="id"    column="id"    />
+        <result property="shopId"    column="shop_id"    />
+        <result property="goodsId"    column="goods_id"    />
+        <result property="title"    column="title"    />
+        <result property="displayOrder"    column="display_order"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectProductSpecTitleVo">
+        select id, shop_id, goods_id, title, display_order, create_time, update_time from product_spec_title
+    </sql>
+
+    <select id="selectProductSpecTitleList" parameterType="ProductSpecTitle" resultMap="ProductSpecTitleResult">
+        <include refid="selectProductSpecTitleVo"/>
+        <where>  
+            <if test="shopId != null "> and shop_id = #{shopId}</if>
+            <if test="goodsId != null  and goodsId != ''"> and goods_id = #{goodsId}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="displayOrder != null "> and display_order = #{displayOrder}</if>
+        </where>
+    </select>
+    
+    <select id="selectProductSpecTitleById" parameterType="String" resultMap="ProductSpecTitleResult">
+        <include refid="selectProductSpecTitleVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertProductSpecTitle" parameterType="ProductSpecTitle" useGeneratedKeys="true" keyProperty="id">
+        insert into product_spec_title
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="shopId != null">shop_id,</if>
+            <if test="goodsId != null and goodsId != ''">goods_id,</if>
+            <if test="title != null and title != ''">title,</if>
+            <if test="displayOrder != null">display_order,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="shopId != null">#{shopId},</if>
+            <if test="goodsId != null and goodsId != ''">#{goodsId},</if>
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="displayOrder != null">#{displayOrder},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProductSpecTitle" parameterType="ProductSpecTitle">
+        update product_spec_title
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="shopId != null">shop_id = #{shopId},</if>
+            <if test="goodsId != null and goodsId != ''">goods_id = #{goodsId},</if>
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="displayOrder != null">display_order = #{displayOrder},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProductSpecTitleById" parameterType="String">
+        delete from product_spec_title where id = #{id}
+    </delete>
+
+    <delete id="deleteProductSpecTitleByIds" parameterType="String">
+        delete from product_spec_title where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.order.mapper.PayChannelMapper">
+    
+    <resultMap type="PayChannel" id="PayChannelResult">
+        <result property="id"    column="id"    />
+        <result property="code"    column="code"    />
+        <result property="name"    column="name"    />
+        <result property="config"    column="config"    />
+        <result property="privateKey"    column="private_key"    />
+        <result property="alipayPublicKey"    column="alipay_public_key"    />
+        <result property="appCertContent"    column="app_cert_content"    />
+        <result property="alipayPublicCertContent"    column="alipay_public_cert_content"    />
+    </resultMap>
+
+    <sql id="selectPayChannelVo">
+        select id, code, name, config, private_key, alipay_public_key, app_cert_content, alipay_public_cert_content from pay_channel
+    </sql>
+
+    <select id="selectPayChannelList" parameterType="PayChannel" resultMap="PayChannelResult">
+        <include refid="selectPayChannelVo"/>
+        <where>  
+            <if test="code != null  and code != ''"> and code = #{code}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="config != null  and config != ''"> and config = #{config}</if>
+            <if test="privateKey != null  and privateKey != ''"> and private_key = #{privateKey}</if>
+            <if test="alipayPublicKey != null  and alipayPublicKey != ''"> and alipay_public_key = #{alipayPublicKey}</if>
+            <if test="appCertContent != null  and appCertContent != ''"> and app_cert_content = #{appCertContent}</if>
+            <if test="alipayPublicCertContent != null  and alipayPublicCertContent != ''"> and alipay_public_cert_content = #{alipayPublicCertContent}</if>
+        </where>
+    </select>
+    
+    <select id="selectPayChannelById" parameterType="Long" resultMap="PayChannelResult">
+        <include refid="selectPayChannelVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertPayChannel" parameterType="PayChannel">
+        insert into pay_channel
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="code != null and code != ''">code,</if>
+            <if test="name != null">name,</if>
+            <if test="config != null">config,</if>
+            <if test="privateKey != null">private_key,</if>
+            <if test="alipayPublicKey != null">alipay_public_key,</if>
+            <if test="appCertContent != null">app_cert_content,</if>
+            <if test="alipayPublicCertContent != null">alipay_public_cert_content,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="code != null and code != ''">#{code},</if>
+            <if test="name != null">#{name},</if>
+            <if test="config != null">#{config},</if>
+            <if test="privateKey != null">#{privateKey},</if>
+            <if test="alipayPublicKey != null">#{alipayPublicKey},</if>
+            <if test="appCertContent != null">#{appCertContent},</if>
+            <if test="alipayPublicCertContent != null">#{alipayPublicCertContent},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePayChannel" parameterType="PayChannel">
+        update pay_channel
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="code != null and code != ''">code = #{code},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="config != null">config = #{config},</if>
+            <if test="privateKey != null">private_key = #{privateKey},</if>
+            <if test="alipayPublicKey != null">alipay_public_key = #{alipayPublicKey},</if>
+            <if test="appCertContent != null">app_cert_content = #{appCertContent},</if>
+            <if test="alipayPublicCertContent != null">alipay_public_cert_content = #{alipayPublicCertContent},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePayChannelById" parameterType="Long">
+        delete from pay_channel where id = #{id}
+    </delete>
+
+    <delete id="deletePayChannelByIds" parameterType="String">
+        delete from pay_channel where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

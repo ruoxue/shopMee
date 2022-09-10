@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mobile.mapper.BuyerCartMapper">
+    
+    <resultMap type="BuyerCart" id="BuyerCartResult">
+        <result property="userId"    column="USER_ID"    />
+        <result property="sellerId"    column="SELLER_ID"    />
+        <result property="cartId"    column="CART_ID"    />
+        <result property="totalPrice"    column="TOTAL_PRICE"    />
+        <result property="payablePrice"    column="PAYABLE_PRICE"    />
+        <result property="cartStatus"    column="CART_STATUS"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+    </resultMap>
+
+    <sql id="selectBuyerCartVo">
+        select USER_ID, SELLER_ID, CART_ID, TOTAL_PRICE, PAYABLE_PRICE, CART_STATUS, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from BUYER_CART
+    </sql>
+
+    <select id="selectBuyerCartList" parameterType="BuyerCart" resultMap="BuyerCartResult">
+        <include refid="selectBuyerCartVo"/>
+        <where>  
+            <if test="userId != null  and userId != ''"> and USER_ID = #{userId}</if>
+            <if test="sellerId != null  and sellerId != ''"> and SELLER_ID = #{sellerId}</if>
+            <if test="totalPrice != null "> and TOTAL_PRICE = #{totalPrice}</if>
+            <if test="payablePrice != null "> and PAYABLE_PRICE = #{payablePrice}</if>
+            <if test="cartStatus != null  and cartStatus != ''"> and CART_STATUS = #{cartStatus}</if>
+            <if test="revision != null "> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectBuyerCartByCartId" parameterType="String" resultMap="BuyerCartResult">
+        <include refid="selectBuyerCartVo"/>
+        where CART_ID = #{cartId}
+    </select>
+        
+    <insert id="insertBuyerCart" parameterType="BuyerCart">
+        insert into BUYER_CART
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">USER_ID,</if>
+            <if test="sellerId != null and sellerId != ''">SELLER_ID,</if>
+            <if test="cartId != null">CART_ID,</if>
+            <if test="totalPrice != null">TOTAL_PRICE,</if>
+            <if test="payablePrice != null">PAYABLE_PRICE,</if>
+            <if test="cartStatus != null">CART_STATUS,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="sellerId != null and sellerId != ''">#{sellerId},</if>
+            <if test="cartId != null">#{cartId},</if>
+            <if test="totalPrice != null">#{totalPrice},</if>
+            <if test="payablePrice != null">#{payablePrice},</if>
+            <if test="cartStatus != null">#{cartStatus},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBuyerCart" parameterType="BuyerCart">
+        update BUYER_CART
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">USER_ID = #{userId},</if>
+            <if test="sellerId != null and sellerId != ''">SELLER_ID = #{sellerId},</if>
+            <if test="totalPrice != null">TOTAL_PRICE = #{totalPrice},</if>
+            <if test="payablePrice != null">PAYABLE_PRICE = #{payablePrice},</if>
+            <if test="cartStatus != null">CART_STATUS = #{cartStatus},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+        </trim>
+        where CART_ID = #{cartId}
+    </update>
+
+    <delete id="deleteBuyerCartByCartId" parameterType="String">
+        delete from BUYER_CART where CART_ID = #{cartId}
+    </delete>
+
+    <delete id="deleteBuyerCartByCartIds" parameterType="String">
+        delete from BUYER_CART where CART_ID in 
+        <foreach item="cartId" collection="array" open="(" separator="," close=")">
+            #{cartId}
+        </foreach>
+    </delete>
+</mapper>

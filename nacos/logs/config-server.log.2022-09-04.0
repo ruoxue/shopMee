@@ -1,0 +1,1070 @@
+2022-09-04 19:46:41,747 INFO notifyConnectTimeout:200
+
+2022-09-04 19:46:41,784 INFO notifySocketTimeout:8000
+
+2022-09-04 19:46:41,784 INFO isHealthCheck:true
+
+2022-09-04 19:46:41,784 INFO maxHealthCheckFailCount:12
+
+2022-09-04 19:46:41,784 INFO maxContent:10485760
+
+2022-09-04 19:46:41,785 INFO spring.datasource.platform:mysql
+
+2022-09-04 19:47:14,897 WARN DumpService start
+
+2022-09-04 19:47:14,900 INFO start clear all config-info.
+
+2022-09-04 19:47:14,937 INFO clear all config-info success.
+
+2022-09-04 19:47:14,937 WARN clear all config-info-tenant failed.
+
+2022-09-04 20:08:14,967 INFO notifyConnectTimeout:200
+
+2022-09-04 20:08:14,987 INFO notifySocketTimeout:8000
+
+2022-09-04 20:08:14,987 INFO isHealthCheck:true
+
+2022-09-04 20:08:14,987 INFO maxHealthCheckFailCount:12
+
+2022-09-04 20:08:14,987 INFO maxContent:10485760
+
+2022-09-04 20:08:14,988 INFO spring.datasource.platform:mysql
+
+2022-09-04 20:08:35,131 WARN DumpService start
+
+2022-09-04 20:08:35,135 INFO start clear all config-info.
+
+2022-09-04 20:08:35,136 WARN clear all config-info failed.
+
+2022-09-04 20:08:35,136 WARN clear all config-info-tenant failed.
+
+2022-09-04 20:09:01,441 INFO notifyConnectTimeout:200
+
+2022-09-04 20:09:01,465 INFO notifySocketTimeout:8000
+
+2022-09-04 20:09:01,465 INFO isHealthCheck:true
+
+2022-09-04 20:09:01,465 INFO maxHealthCheckFailCount:12
+
+2022-09-04 20:09:01,466 INFO maxContent:10485760
+
+2022-09-04 20:09:01,467 INFO spring.datasource.platform:mysql
+
+2022-09-04 20:09:28,395 WARN DumpService start
+
+2022-09-04 20:09:28,405 INFO start clear all config-info.
+
+2022-09-04 20:09:28,406 WARN clear all config-info failed.
+
+2022-09-04 20:09:28,406 WARN clear all config-info-tenant failed.
+
+2022-09-04 20:10:04,275 INFO notifyConnectTimeout:200
+
+2022-09-04 20:10:04,294 INFO notifySocketTimeout:8000
+
+2022-09-04 20:10:04,294 INFO isHealthCheck:true
+
+2022-09-04 20:10:04,294 INFO maxHealthCheckFailCount:12
+
+2022-09-04 20:10:04,294 INFO maxContent:10485760
+
+2022-09-04 20:10:14,769 INFO use local db service for init
+
+2022-09-04 20:10:17,065 WARN Lexical error at line 4, column 66.  Encountered: <EOF> after : "".
+
+2022-09-04 20:10:17,081 WARN Syntax error: Encountered "*" at line 1, column 1.
+
+2022-09-04 20:10:17,216 WARN Table/View 'CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,364 WARN Table/View 'HIS_CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,430 WARN Table/View 'CONFIG_INFO_BETA' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,445 WARN Table/View 'CONFIG_INFO_TAG' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,458 WARN Table/View 'CONFIG_INFO_AGGR' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,480 WARN Table/View 'APP_LIST' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,506 WARN Table/View 'APP_CONFIGDATA_RELATION_SUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,521 WARN Table/View 'APP_CONFIGDATA_RELATION_PUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,583 WARN Table/View 'CONFIG_TAGS_RELATION' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,629 WARN Table/View 'GROUP_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,643 WARN Table/View 'TENANT_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,659 WARN Table/View 'TENANT_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,688 WARN Table/View 'USERS' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,702 WARN Table/View 'ROLES' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,722 WARN Table/View 'PERMISSIONS' already exists in Schema 'NACOS'.
+
+2022-09-04 20:10:17,903 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'SQL220818083027800' defined on 'USERS'.
+
+2022-09-04 20:10:17,923 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'UK_USERNAME_ROLE' defined on 'ROLES'.
+
+2022-09-04 20:10:17,925 WARN Lexical error at line 4, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 20:10:17,926 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 20:10:17,926 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 20:10:17,927 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 20:10:17,927 INFO use StandaloneDatabaseOperateImpl
+
+2022-09-04 20:10:18,017 WARN DumpService start
+
+2022-09-04 20:10:18,021 INFO start clear all config-info.
+
+2022-09-04 20:10:18,028 WARN clear all config-info failed.
+
+2022-09-04 20:10:18,028 WARN clear all config-info-tenant failed.
+
+2022-09-04 20:10:18,156 INFO start clear all config-info-beta.
+
+2022-09-04 20:10:18,161 WARN clear all config-info-beta failed.
+
+2022-09-04 20:10:18,161 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 20:10:18,200 INFO start clear all config-info-tag.
+
+2022-09-04 20:10:18,200 WARN clear all config-info-tag failed.
+
+2022-09-04 20:10:18,200 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 20:10:59,048 INFO notifyConnectTimeout:200
+
+2022-09-04 20:10:59,071 INFO notifySocketTimeout:8000
+
+2022-09-04 20:10:59,071 INFO isHealthCheck:true
+
+2022-09-04 20:10:59,071 INFO maxHealthCheckFailCount:12
+
+2022-09-04 20:10:59,071 INFO maxContent:10485760
+
+2022-09-04 20:10:59,072 INFO spring.datasource.platform:mysql
+
+2022-09-04 20:11:23,361 WARN DumpService start
+
+2022-09-04 20:11:23,374 INFO start clear all config-info.
+
+2022-09-04 20:11:23,375 WARN clear all config-info failed.
+
+2022-09-04 20:11:23,376 WARN clear all config-info-tenant failed.
+
+2022-09-04 20:11:52,649 INFO notifyConnectTimeout:200
+
+2022-09-04 20:11:52,666 INFO notifySocketTimeout:8000
+
+2022-09-04 20:11:52,666 INFO isHealthCheck:true
+
+2022-09-04 20:11:52,666 INFO maxHealthCheckFailCount:12
+
+2022-09-04 20:11:52,667 INFO maxContent:10485760
+
+2022-09-04 20:12:01,775 INFO use local db service for init
+
+2022-09-04 20:12:03,111 WARN Lexical error at line 4, column 66.  Encountered: <EOF> after : "".
+
+2022-09-04 20:12:03,125 WARN Syntax error: Encountered "*" at line 1, column 1.
+
+2022-09-04 20:12:03,253 WARN Table/View 'CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,399 WARN Table/View 'HIS_CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,447 WARN Table/View 'CONFIG_INFO_BETA' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,468 WARN Table/View 'CONFIG_INFO_TAG' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,486 WARN Table/View 'CONFIG_INFO_AGGR' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,506 WARN Table/View 'APP_LIST' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,522 WARN Table/View 'APP_CONFIGDATA_RELATION_SUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,536 WARN Table/View 'APP_CONFIGDATA_RELATION_PUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,555 WARN Table/View 'CONFIG_TAGS_RELATION' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,583 WARN Table/View 'GROUP_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,602 WARN Table/View 'TENANT_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,621 WARN Table/View 'TENANT_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,645 WARN Table/View 'USERS' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,658 WARN Table/View 'ROLES' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,676 WARN Table/View 'PERMISSIONS' already exists in Schema 'NACOS'.
+
+2022-09-04 20:12:03,826 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'SQL220818083027800' defined on 'USERS'.
+
+2022-09-04 20:12:03,844 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'UK_USERNAME_ROLE' defined on 'ROLES'.
+
+2022-09-04 20:12:03,845 WARN Lexical error at line 4, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 20:12:03,846 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 20:12:03,846 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 20:12:03,847 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 20:12:03,848 INFO use StandaloneDatabaseOperateImpl
+
+2022-09-04 20:12:03,956 WARN DumpService start
+
+2022-09-04 20:12:03,959 INFO start clear all config-info.
+
+2022-09-04 20:12:03,960 WARN clear all config-info failed.
+
+2022-09-04 20:12:03,961 WARN clear all config-info-tenant failed.
+
+2022-09-04 20:12:04,095 INFO start clear all config-info-beta.
+
+2022-09-04 20:12:04,095 WARN clear all config-info-beta failed.
+
+2022-09-04 20:12:04,095 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 20:12:04,136 INFO start clear all config-info-tag.
+
+2022-09-04 20:12:04,136 WARN clear all config-info-tag failed.
+
+2022-09-04 20:12:04,136 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 20:29:24,178 INFO notifyConnectTimeout:200
+
+2022-09-04 20:29:24,196 INFO notifySocketTimeout:8000
+
+2022-09-04 20:29:24,197 INFO isHealthCheck:true
+
+2022-09-04 20:29:24,197 INFO maxHealthCheckFailCount:12
+
+2022-09-04 20:29:24,198 INFO maxContent:10485760
+
+2022-09-04 20:29:32,625 INFO use local db service for init
+
+2022-09-04 20:29:34,244 ERROR Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+
+java.sql.SQLException: Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.seeNextException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$LoginCallable.call(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$LoginCallable.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.apache.derby.iapi.error.StandardException: Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	... 15 common frames omitted
+Caused by: org.apache.derby.iapi.error.StandardException: Another instance of Derby may have already booted the database /Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.privGetJBMSLockOnDB(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.getJBMSLockOnDB(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore$6.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.raw.RawStore.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager$5.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.access.RAMAccessManager.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase$5.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.db.BasicDatabase.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.bootStore(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.bootService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startProviderService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.findProviderAndStartService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startPersistentService(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection$4.run(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection$4.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.jdbc.EmbedConnection.startPersistentService(Unknown Source)
+	... 12 common frames omitted
+2022-09-04 21:32:19,715 INFO notifyConnectTimeout:200
+
+2022-09-04 21:32:19,734 INFO notifySocketTimeout:8000
+
+2022-09-04 21:32:19,734 INFO isHealthCheck:true
+
+2022-09-04 21:32:19,735 INFO maxHealthCheckFailCount:12
+
+2022-09-04 21:32:19,735 INFO maxContent:10485760
+
+2022-09-04 21:32:19,740 INFO spring.datasource.platform:mysql
+
+2022-09-04 21:32:40,196 WARN DumpService start
+
+2022-09-04 21:32:40,207 INFO start clear all config-info.
+
+2022-09-04 21:32:40,209 WARN clear all config-info failed.
+
+2022-09-04 21:32:40,209 WARN clear all config-info-tenant failed.
+
+2022-09-04 21:33:03,844 INFO notifyConnectTimeout:200
+
+2022-09-04 21:33:03,862 INFO notifySocketTimeout:8000
+
+2022-09-04 21:33:03,863 INFO isHealthCheck:true
+
+2022-09-04 21:33:03,863 INFO maxHealthCheckFailCount:12
+
+2022-09-04 21:33:03,863 INFO maxContent:10485760
+
+2022-09-04 21:33:14,904 INFO use local db service for init
+
+2022-09-04 21:33:16,589 ERROR Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+
+java.sql.SQLException: Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.seeNextException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$LoginCallable.call(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$LoginCallable.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.apache.derby.iapi.error.StandardException: Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	... 15 common frames omitted
+Caused by: org.apache.derby.iapi.error.StandardException: Another instance of Derby may have already booted the database /Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.privGetJBMSLockOnDB(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.getJBMSLockOnDB(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore$6.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.raw.RawStore.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager$5.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.access.RAMAccessManager.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase$5.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.db.BasicDatabase.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.bootStore(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.bootService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startProviderService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.findProviderAndStartService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startPersistentService(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection$4.run(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection$4.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.jdbc.EmbedConnection.startPersistentService(Unknown Source)
+	... 12 common frames omitted
+2022-09-04 21:34:06,759 INFO notifyConnectTimeout:200
+
+2022-09-04 21:34:06,785 INFO notifySocketTimeout:8000
+
+2022-09-04 21:34:06,786 INFO isHealthCheck:true
+
+2022-09-04 21:34:06,786 INFO maxHealthCheckFailCount:12
+
+2022-09-04 21:34:06,786 INFO maxContent:10485760
+
+2022-09-04 21:34:16,210 INFO use local db service for init
+
+2022-09-04 21:34:18,055 ERROR Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+
+java.sql.SQLException: Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.seeNextException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$LoginCallable.call(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$LoginCallable.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.apache.derby.iapi.error.StandardException: Failed to start database '/Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data' with class loader org.springframework.boot.loader.LaunchedURLClassLoader@685f4c2e, see the next exception for details.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	... 15 common frames omitted
+Caused by: org.apache.derby.iapi.error.StandardException: Another instance of Derby may have already booted the database /Users/mi/Downloads/RuoYi-Cloud-master/nacos/data/derby-data.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.privGetJBMSLockOnDB(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.getJBMSLockOnDB(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore$6.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.raw.RawStore.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager$5.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.store.access.RAMAccessManager.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase$5.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.db.BasicDatabase.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.bootStore(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.bootService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startProviderService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.findProviderAndStartService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startPersistentService(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection$4.run(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection$4.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.derby.impl.jdbc.EmbedConnection.startPersistentService(Unknown Source)
+	... 12 common frames omitted
+2022-09-04 21:39:00,597 INFO notifyConnectTimeout:200
+
+2022-09-04 21:39:00,609 INFO notifySocketTimeout:8000
+
+2022-09-04 21:39:00,610 INFO isHealthCheck:true
+
+2022-09-04 21:39:00,610 INFO maxHealthCheckFailCount:12
+
+2022-09-04 21:39:00,610 INFO maxContent:10485760
+
+2022-09-04 21:39:22,711 INFO use local db service for init
+
+2022-09-04 21:39:24,828 WARN Lexical error at line 4, column 66.  Encountered: <EOF> after : "".
+
+2022-09-04 21:39:24,841 WARN Syntax error: Encountered "*" at line 1, column 1.
+
+2022-09-04 21:39:24,974 WARN Table/View 'CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,114 WARN Table/View 'HIS_CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,172 WARN Table/View 'CONFIG_INFO_BETA' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,194 WARN Table/View 'CONFIG_INFO_TAG' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,213 WARN Table/View 'CONFIG_INFO_AGGR' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,234 WARN Table/View 'APP_LIST' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,253 WARN Table/View 'APP_CONFIGDATA_RELATION_SUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,268 WARN Table/View 'APP_CONFIGDATA_RELATION_PUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,287 WARN Table/View 'CONFIG_TAGS_RELATION' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,318 WARN Table/View 'GROUP_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,336 WARN Table/View 'TENANT_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,356 WARN Table/View 'TENANT_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,385 WARN Table/View 'USERS' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,398 WARN Table/View 'ROLES' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,416 WARN Table/View 'PERMISSIONS' already exists in Schema 'NACOS'.
+
+2022-09-04 21:39:25,626 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'SQL220818083027800' defined on 'USERS'.
+
+2022-09-04 21:39:25,648 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'UK_USERNAME_ROLE' defined on 'ROLES'.
+
+2022-09-04 21:39:25,649 WARN Lexical error at line 4, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 21:39:25,649 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 21:39:25,650 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 21:39:25,651 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 21:39:25,651 INFO use StandaloneDatabaseOperateImpl
+
+2022-09-04 21:39:25,760 WARN DumpService start
+
+2022-09-04 21:39:25,761 INFO start clear all config-info.
+
+2022-09-04 21:39:25,763 WARN clear all config-info failed.
+
+2022-09-04 21:39:25,763 WARN clear all config-info-tenant failed.
+
+2022-09-04 21:39:25,909 INFO start clear all config-info-beta.
+
+2022-09-04 21:39:25,909 WARN clear all config-info-beta failed.
+
+2022-09-04 21:39:25,909 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 21:39:25,947 INFO start clear all config-info-tag.
+
+2022-09-04 21:39:25,947 WARN clear all config-info-tag failed.
+
+2022-09-04 21:39:25,947 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 21:41:07,882 INFO notifyConnectTimeout:200
+
+2022-09-04 21:41:07,897 INFO notifySocketTimeout:8000
+
+2022-09-04 21:41:07,898 INFO isHealthCheck:true
+
+2022-09-04 21:41:07,898 INFO maxHealthCheckFailCount:12
+
+2022-09-04 21:41:07,898 INFO maxContent:10485760
+
+2022-09-04 21:41:07,899 INFO spring.datasource.platform:mysql
+
+2022-09-04 21:41:30,253 WARN DumpService start
+
+2022-09-04 21:41:30,259 INFO start clear all config-info.
+
+2022-09-04 21:41:30,260 WARN clear all config-info failed.
+
+2022-09-04 21:41:30,261 WARN clear all config-info-tenant failed.
+
+2022-09-04 21:44:02,317 INFO notifyConnectTimeout:200
+
+2022-09-04 21:44:02,336 INFO notifySocketTimeout:8000
+
+2022-09-04 21:44:02,336 INFO isHealthCheck:true
+
+2022-09-04 21:44:02,336 INFO maxHealthCheckFailCount:12
+
+2022-09-04 21:44:02,337 INFO maxContent:10485760
+
+2022-09-04 21:44:02,337 INFO spring.datasource.platform:mysql
+
+2022-09-04 21:44:12,310 WARN DumpService start
+
+2022-09-04 21:44:12,311 INFO start clear all config-info.
+
+2022-09-04 21:44:12,312 WARN clear all config-info failed.
+
+2022-09-04 21:44:12,312 WARN clear all config-info-tenant failed.
+
+2022-09-04 21:44:12,449 INFO [all-dump] 32 / 32
+
+2022-09-04 21:44:12,449 INFO start clear all config-info-beta.
+
+2022-09-04 21:44:12,450 WARN clear all config-info-beta failed.
+
+2022-09-04 21:44:12,450 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 21:44:12,454 INFO start clear all config-info-tag.
+
+2022-09-04 21:44:12,454 WARN clear all config-info-tag failed.
+
+2022-09-04 21:44:12,455 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 22:18:40,342 INFO notifyConnectTimeout:200
+
+2022-09-04 22:18:40,359 INFO notifySocketTimeout:8000
+
+2022-09-04 22:18:40,360 INFO isHealthCheck:true
+
+2022-09-04 22:18:40,360 INFO maxHealthCheckFailCount:12
+
+2022-09-04 22:18:40,360 INFO maxContent:10485760
+
+2022-09-04 22:18:40,361 INFO spring.datasource.platform:mysql
+
+2022-09-04 22:18:54,303 WARN DumpService start
+
+2022-09-04 22:18:54,307 INFO start clear all config-info.
+
+2022-09-04 22:18:54,347 INFO clear all config-info success.
+
+2022-09-04 22:18:54,348 WARN clear all config-info-tenant failed.
+
+2022-09-04 22:18:54,582 INFO [all-dump] 32 / 32
+
+2022-09-04 22:18:54,582 INFO start clear all config-info-beta.
+
+2022-09-04 22:18:54,583 WARN clear all config-info-beta failed.
+
+2022-09-04 22:18:54,583 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 22:18:54,587 INFO start clear all config-info-tag.
+
+2022-09-04 22:18:54,587 WARN clear all config-info-tag failed.
+
+2022-09-04 22:18:54,588 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 22:19:59,575 INFO notifyConnectTimeout:200
+
+2022-09-04 22:19:59,591 INFO notifySocketTimeout:8000
+
+2022-09-04 22:19:59,591 INFO isHealthCheck:true
+
+2022-09-04 22:19:59,591 INFO maxHealthCheckFailCount:12
+
+2022-09-04 22:19:59,591 INFO maxContent:10485760
+
+2022-09-04 22:20:08,458 INFO use local db service for init
+
+2022-09-04 22:20:09,828 WARN Lexical error at line 4, column 66.  Encountered: <EOF> after : "".
+
+2022-09-04 22:20:09,920 WARN Syntax error: Encountered "*" at line 1, column 1.
+
+2022-09-04 22:20:10,092 WARN Table/View 'CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,232 WARN Table/View 'HIS_CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,299 WARN Table/View 'CONFIG_INFO_BETA' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,317 WARN Table/View 'CONFIG_INFO_TAG' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,333 WARN Table/View 'CONFIG_INFO_AGGR' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,355 WARN Table/View 'APP_LIST' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,373 WARN Table/View 'APP_CONFIGDATA_RELATION_SUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,390 WARN Table/View 'APP_CONFIGDATA_RELATION_PUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,410 WARN Table/View 'CONFIG_TAGS_RELATION' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,438 WARN Table/View 'GROUP_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,456 WARN Table/View 'TENANT_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,486 WARN Table/View 'TENANT_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,556 WARN Table/View 'USERS' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,615 WARN Table/View 'ROLES' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,647 WARN Table/View 'PERMISSIONS' already exists in Schema 'NACOS'.
+
+2022-09-04 22:20:10,945 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'SQL220818083027800' defined on 'USERS'.
+
+2022-09-04 22:20:10,975 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'UK_USERNAME_ROLE' defined on 'ROLES'.
+
+2022-09-04 22:20:10,977 WARN Lexical error at line 4, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 22:20:10,978 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 22:20:10,979 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 22:20:10,981 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 22:20:10,981 INFO use StandaloneDatabaseOperateImpl
+
+2022-09-04 22:20:11,099 WARN DumpService start
+
+2022-09-04 22:20:11,101 INFO start clear all config-info.
+
+2022-09-04 22:20:11,118 INFO clear all config-info success.
+
+2022-09-04 22:20:11,118 WARN clear all config-info-tenant failed.
+
+2022-09-04 22:20:11,238 INFO start clear all config-info-beta.
+
+2022-09-04 22:20:11,238 WARN clear all config-info-beta failed.
+
+2022-09-04 22:20:11,238 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 22:20:11,271 INFO start clear all config-info-tag.
+
+2022-09-04 22:20:11,271 WARN clear all config-info-tag failed.
+
+2022-09-04 22:20:11,271 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 22:21:07,484 INFO notifyConnectTimeout:200
+
+2022-09-04 22:21:07,492 INFO notifySocketTimeout:8000
+
+2022-09-04 22:21:07,492 INFO isHealthCheck:true
+
+2022-09-04 22:21:07,492 INFO maxHealthCheckFailCount:12
+
+2022-09-04 22:21:07,493 INFO maxContent:10485760
+
+2022-09-04 22:21:07,493 INFO spring.datasource.platform:mysql
+
+2022-09-04 22:21:16,248 WARN DumpService start
+
+2022-09-04 22:21:16,249 INFO start clear all config-info.
+
+2022-09-04 22:21:16,250 WARN clear all config-info failed.
+
+2022-09-04 22:21:16,250 WARN clear all config-info-tenant failed.
+
+2022-09-04 22:21:16,423 INFO [all-dump] 32 / 32
+
+2022-09-04 22:21:16,424 INFO start clear all config-info-beta.
+
+2022-09-04 22:21:16,424 WARN clear all config-info-beta failed.
+
+2022-09-04 22:21:16,424 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 22:21:16,428 INFO start clear all config-info-tag.
+
+2022-09-04 22:21:16,429 WARN clear all config-info-tag failed.
+
+2022-09-04 22:21:16,430 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 22:24:22,351 INFO notifyConnectTimeout:200
+
+2022-09-04 22:24:22,371 INFO notifySocketTimeout:8000
+
+2022-09-04 22:24:22,371 INFO isHealthCheck:true
+
+2022-09-04 22:24:22,371 INFO maxHealthCheckFailCount:12
+
+2022-09-04 22:24:22,372 INFO maxContent:10485760
+
+2022-09-04 22:24:22,372 INFO spring.datasource.platform:mysql
+
+2022-09-04 22:25:26,866 INFO notifyConnectTimeout:200
+
+2022-09-04 22:25:26,882 INFO notifySocketTimeout:8000
+
+2022-09-04 22:25:26,882 INFO isHealthCheck:true
+
+2022-09-04 22:25:26,883 INFO maxHealthCheckFailCount:12
+
+2022-09-04 22:25:26,883 INFO maxContent:10485760
+
+2022-09-04 22:25:26,885 INFO spring.datasource.platform:mysql
+
+2022-09-04 22:27:22,165 INFO notifyConnectTimeout:200
+
+2022-09-04 22:27:22,176 INFO notifySocketTimeout:8000
+
+2022-09-04 22:27:22,177 INFO isHealthCheck:true
+
+2022-09-04 22:27:22,177 INFO maxHealthCheckFailCount:12
+
+2022-09-04 22:27:22,177 INFO maxContent:10485760
+
+2022-09-04 22:29:01,998 INFO notifyConnectTimeout:200
+
+2022-09-04 22:29:02,011 INFO notifySocketTimeout:8000
+
+2022-09-04 22:29:02,014 INFO isHealthCheck:true
+
+2022-09-04 22:29:02,014 INFO maxHealthCheckFailCount:12
+
+2022-09-04 22:29:02,014 INFO maxContent:10485760
+
+2022-09-04 22:29:12,634 INFO use local db service for init
+
+2022-09-04 22:29:14,249 WARN Lexical error at line 4, column 66.  Encountered: <EOF> after : "".
+
+2022-09-04 22:29:14,270 WARN Syntax error: Encountered "*" at line 1, column 1.
+
+2022-09-04 22:29:14,401 WARN Table/View 'CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,528 WARN Table/View 'HIS_CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,580 WARN Table/View 'CONFIG_INFO_BETA' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,598 WARN Table/View 'CONFIG_INFO_TAG' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,614 WARN Table/View 'CONFIG_INFO_AGGR' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,639 WARN Table/View 'APP_LIST' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,657 WARN Table/View 'APP_CONFIGDATA_RELATION_SUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,676 WARN Table/View 'APP_CONFIGDATA_RELATION_PUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,694 WARN Table/View 'CONFIG_TAGS_RELATION' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,727 WARN Table/View 'GROUP_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,743 WARN Table/View 'TENANT_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,758 WARN Table/View 'TENANT_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,781 WARN Table/View 'USERS' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,795 WARN Table/View 'ROLES' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,811 WARN Table/View 'PERMISSIONS' already exists in Schema 'NACOS'.
+
+2022-09-04 22:29:14,987 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'SQL220818083027800' defined on 'USERS'.
+
+2022-09-04 22:29:15,009 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'UK_USERNAME_ROLE' defined on 'ROLES'.
+
+2022-09-04 22:29:15,010 WARN Lexical error at line 4, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 22:29:15,011 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 22:29:15,011 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 22:29:15,011 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 22:29:15,011 INFO use StandaloneDatabaseOperateImpl
+
+2022-09-04 22:29:15,124 WARN DumpService start
+
+2022-09-04 22:29:15,128 INFO start clear all config-info.
+
+2022-09-04 22:29:15,158 INFO clear all config-info success.
+
+2022-09-04 22:29:15,158 WARN clear all config-info-tenant failed.
+
+2022-09-04 22:29:15,436 INFO start clear all config-info-beta.
+
+2022-09-04 22:29:15,437 WARN clear all config-info-beta failed.
+
+2022-09-04 22:29:15,437 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 22:29:15,513 INFO start clear all config-info-tag.
+
+2022-09-04 22:29:15,513 WARN clear all config-info-tag failed.
+
+2022-09-04 22:29:15,513 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 22:29:56,415 INFO notifyConnectTimeout:200
+
+2022-09-04 22:29:56,425 INFO notifySocketTimeout:8000
+
+2022-09-04 22:29:56,426 INFO isHealthCheck:true
+
+2022-09-04 22:29:56,426 INFO maxHealthCheckFailCount:12
+
+2022-09-04 22:29:56,426 INFO maxContent:10485760
+
+2022-09-04 22:29:56,427 INFO spring.datasource.platform:mysql
+
+2022-09-04 22:30:05,371 WARN DumpService start
+
+2022-09-04 22:30:05,372 INFO start clear all config-info.
+
+2022-09-04 22:30:05,373 WARN clear all config-info failed.
+
+2022-09-04 22:30:05,373 WARN clear all config-info-tenant failed.
+
+2022-09-04 22:30:05,527 INFO [all-dump] 32 / 32
+
+2022-09-04 22:30:05,527 INFO start clear all config-info-beta.
+
+2022-09-04 22:30:05,527 WARN clear all config-info-beta failed.
+
+2022-09-04 22:30:05,527 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 22:30:05,531 INFO start clear all config-info-tag.
+
+2022-09-04 22:30:05,531 WARN clear all config-info-tag failed.
+
+2022-09-04 22:30:05,531 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 23:29:05,173 INFO notifyConnectTimeout:200
+
+2022-09-04 23:29:05,203 INFO notifySocketTimeout:8000
+
+2022-09-04 23:29:05,203 INFO isHealthCheck:true
+
+2022-09-04 23:29:05,204 INFO maxHealthCheckFailCount:12
+
+2022-09-04 23:29:05,204 INFO maxContent:10485760
+
+2022-09-04 23:29:05,206 INFO spring.datasource.platform:mysql
+
+2022-09-04 23:29:29,268 WARN DumpService start
+
+2022-09-04 23:29:29,274 INFO start clear all config-info.
+
+2022-09-04 23:29:29,302 INFO clear all config-info success.
+
+2022-09-04 23:29:29,303 WARN clear all config-info-tenant failed.
+
+2022-09-04 23:32:40,937 INFO notifyConnectTimeout:200
+
+2022-09-04 23:32:40,961 INFO notifySocketTimeout:8000
+
+2022-09-04 23:32:40,961 INFO isHealthCheck:true
+
+2022-09-04 23:32:40,961 INFO maxHealthCheckFailCount:12
+
+2022-09-04 23:32:40,962 INFO maxContent:10485760
+
+2022-09-04 23:32:51,917 INFO use local db service for init
+
+2022-09-04 23:32:54,204 WARN Lexical error at line 4, column 66.  Encountered: <EOF> after : "".
+
+2022-09-04 23:32:54,222 WARN Syntax error: Encountered "*" at line 1, column 1.
+
+2022-09-04 23:32:54,383 WARN Table/View 'CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,507 WARN Table/View 'HIS_CONFIG_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,558 WARN Table/View 'CONFIG_INFO_BETA' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,581 WARN Table/View 'CONFIG_INFO_TAG' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,596 WARN Table/View 'CONFIG_INFO_AGGR' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,617 WARN Table/View 'APP_LIST' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,633 WARN Table/View 'APP_CONFIGDATA_RELATION_SUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,648 WARN Table/View 'APP_CONFIGDATA_RELATION_PUBS' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,662 WARN Table/View 'CONFIG_TAGS_RELATION' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,694 WARN Table/View 'GROUP_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,711 WARN Table/View 'TENANT_CAPACITY' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,724 WARN Table/View 'TENANT_INFO' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,751 WARN Table/View 'USERS' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,764 WARN Table/View 'ROLES' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,777 WARN Table/View 'PERMISSIONS' already exists in Schema 'NACOS'.
+
+2022-09-04 23:32:54,981 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'SQL220818083027800' defined on 'USERS'.
+
+2022-09-04 23:32:54,999 WARN The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'UK_USERNAME_ROLE' defined on 'ROLES'.
+
+2022-09-04 23:32:54,999 WARN Lexical error at line 4, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 23:32:55,000 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 23:32:55,001 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 23:32:55,001 WARN Lexical error at line 1, column 13.  Encountered: "`" (96), after : "".
+
+2022-09-04 23:32:55,001 INFO use StandaloneDatabaseOperateImpl
+
+2022-09-04 23:32:55,090 WARN DumpService start
+
+2022-09-04 23:32:55,093 INFO start clear all config-info.
+
+2022-09-04 23:32:55,094 WARN clear all config-info failed.
+
+2022-09-04 23:32:55,095 WARN clear all config-info-tenant failed.
+
+2022-09-04 23:32:55,227 INFO start clear all config-info-beta.
+
+2022-09-04 23:32:55,229 WARN clear all config-info-beta failed.
+
+2022-09-04 23:32:55,230 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 23:32:55,272 INFO start clear all config-info-tag.
+
+2022-09-04 23:32:55,272 WARN clear all config-info-tag failed.
+
+2022-09-04 23:32:55,272 WARN clear all config-info-tag-tenant failed.
+
+2022-09-04 23:39:20,650 INFO notifyConnectTimeout:200
+
+2022-09-04 23:39:20,662 INFO notifySocketTimeout:8000
+
+2022-09-04 23:39:20,663 INFO isHealthCheck:true
+
+2022-09-04 23:39:20,663 INFO maxHealthCheckFailCount:12
+
+2022-09-04 23:39:20,663 INFO maxContent:10485760
+
+2022-09-04 23:39:20,664 INFO spring.datasource.platform:mysql
+
+2022-09-04 23:39:29,618 WARN DumpService start
+
+2022-09-04 23:39:29,622 INFO start clear all config-info.
+
+2022-09-04 23:39:29,623 WARN clear all config-info failed.
+
+2022-09-04 23:39:29,623 WARN clear all config-info-tenant failed.
+
+2022-09-04 23:39:29,835 INFO [all-dump] 32 / 32
+
+2022-09-04 23:39:29,835 INFO start clear all config-info-beta.
+
+2022-09-04 23:39:29,835 WARN clear all config-info-beta failed.
+
+2022-09-04 23:39:29,835 WARN clear all config-info-beta-tenant failed.
+
+2022-09-04 23:39:29,841 INFO start clear all config-info-tag.
+
+2022-09-04 23:39:29,841 WARN clear all config-info-tag failed.
+
+2022-09-04 23:39:29,841 WARN clear all config-info-tag-tenant failed.
+

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mobile.mapper.MerUserMapper">
+    
+    <resultMap type="MerUser" id="MerUserResult">
+        <result property="merId"    column="MER_ID"    />
+        <result property="merName"    column="MER_NAME"    />
+        <result property="nickName"    column="NICK_NAME"    />
+        <result property="merIntro"    column="MER_INTRO"    />
+        <result property="avatar"    column="AVATAR"    />
+        <result property="email"    column="EMAIL"    />
+        <result property="phone"    column="PHONE"    />
+        <result property="merPass"    column="MER_PASS"    />
+        <result property="passSalt"    column="PASS_SALT"    />
+        <result property="merStatus"    column="MER_STATUS"    />
+        <result property="merScore"    column="MER_SCORE"    />
+        <result property="totalCostAmt"    column="TOTAL_COST_AMT"    />
+        <result property="lastLoginTime"    column="LAST_LOGIN_TIME"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+    </resultMap>
+
+    <sql id="selectMerUserVo">
+        select MER_ID, MER_NAME, NICK_NAME, MER_INTRO, AVATAR, EMAIL, PHONE, MER_PASS, PASS_SALT, MER_STATUS, MER_SCORE, TOTAL_COST_AMT, LAST_LOGIN_TIME, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from MER_USER
+    </sql>
+
+    <select id="selectMerUserList" parameterType="MerUser" resultMap="MerUserResult">
+        <include refid="selectMerUserVo"/>
+        <where>  
+            <if test="merName != null  and merName != ''"> and MER_NAME like concat('%', #{merName}, '%')</if>
+            <if test="nickName != null  and nickName != ''"> and NICK_NAME like concat('%', #{nickName}, '%')</if>
+            <if test="merIntro != null  and merIntro != ''"> and MER_INTRO = #{merIntro}</if>
+            <if test="avatar != null  and avatar != ''"> and AVATAR = #{avatar}</if>
+            <if test="email != null  and email != ''"> and EMAIL = #{email}</if>
+            <if test="phone != null  and phone != ''"> and PHONE = #{phone}</if>
+            <if test="merPass != null  and merPass != ''"> and MER_PASS = #{merPass}</if>
+            <if test="passSalt != null  and passSalt != ''"> and PASS_SALT = #{passSalt}</if>
+            <if test="merStatus != null  and merStatus != ''"> and MER_STATUS = #{merStatus}</if>
+            <if test="merScore != null "> and MER_SCORE = #{merScore}</if>
+            <if test="totalCostAmt != null "> and TOTAL_COST_AMT = #{totalCostAmt}</if>
+            <if test="lastLoginTime != null "> and LAST_LOGIN_TIME = #{lastLoginTime}</if>
+            <if test="revision != null "> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectMerUserByMerId" parameterType="Long" resultMap="MerUserResult">
+        <include refid="selectMerUserVo"/>
+        where MER_ID = #{merId}
+    </select>
+        
+    <insert id="insertMerUser" parameterType="MerUser">
+        insert into MER_USER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="merId != null">MER_ID,</if>
+            <if test="merName != null and merName != ''">MER_NAME,</if>
+            <if test="nickName != null">NICK_NAME,</if>
+            <if test="merIntro != null">MER_INTRO,</if>
+            <if test="avatar != null">AVATAR,</if>
+            <if test="email != null">EMAIL,</if>
+            <if test="phone != null">PHONE,</if>
+            <if test="merPass != null">MER_PASS,</if>
+            <if test="passSalt != null">PASS_SALT,</if>
+            <if test="merStatus != null">MER_STATUS,</if>
+            <if test="merScore != null">MER_SCORE,</if>
+            <if test="totalCostAmt != null">TOTAL_COST_AMT,</if>
+            <if test="lastLoginTime != null">LAST_LOGIN_TIME,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="merId != null">#{merId},</if>
+            <if test="merName != null and merName != ''">#{merName},</if>
+            <if test="nickName != null">#{nickName},</if>
+            <if test="merIntro != null">#{merIntro},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="email != null">#{email},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="merPass != null">#{merPass},</if>
+            <if test="passSalt != null">#{passSalt},</if>
+            <if test="merStatus != null">#{merStatus},</if>
+            <if test="merScore != null">#{merScore},</if>
+            <if test="totalCostAmt != null">#{totalCostAmt},</if>
+            <if test="lastLoginTime != null">#{lastLoginTime},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMerUser" parameterType="MerUser">
+        update MER_USER
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="merName != null and merName != ''">MER_NAME = #{merName},</if>
+            <if test="nickName != null">NICK_NAME = #{nickName},</if>
+            <if test="merIntro != null">MER_INTRO = #{merIntro},</if>
+            <if test="avatar != null">AVATAR = #{avatar},</if>
+            <if test="email != null">EMAIL = #{email},</if>
+            <if test="phone != null">PHONE = #{phone},</if>
+            <if test="merPass != null">MER_PASS = #{merPass},</if>
+            <if test="passSalt != null">PASS_SALT = #{passSalt},</if>
+            <if test="merStatus != null">MER_STATUS = #{merStatus},</if>
+            <if test="merScore != null">MER_SCORE = #{merScore},</if>
+            <if test="totalCostAmt != null">TOTAL_COST_AMT = #{totalCostAmt},</if>
+            <if test="lastLoginTime != null">LAST_LOGIN_TIME = #{lastLoginTime},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+        </trim>
+        where MER_ID = #{merId}
+    </update>
+
+    <delete id="deleteMerUserByMerId" parameterType="Long">
+        delete from MER_USER where MER_ID = #{merId}
+    </delete>
+
+    <delete id="deleteMerUserByMerIds" parameterType="String">
+        delete from MER_USER where MER_ID in 
+        <foreach item="merId" collection="array" open="(" separator="," close=")">
+            #{merId}
+        </foreach>
+    </delete>
+</mapper>

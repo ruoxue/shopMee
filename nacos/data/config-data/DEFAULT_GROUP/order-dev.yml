@@ -1,0 +1,32 @@
+# spring配置
+spring: 
+  redis:
+    host: localhost
+    port: 6379
+    password: 
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ry_cloud?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+# mybatis配置
+mybatis:
+    # 搜索指定包别名
+    typeAliasesPackage: com.ruoyi.order.domain
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+    mapperLocations: classpath:mapper/order/*.xml
+
+# swagger配置
+swagger:
+  title: 代码生成接口文档
+  license: Powered By ruoyi
+  licenseUrl: https://ruoyi.vip
+feign:
+  httpclient:
+    enabled: true
+meal:
+  pay:
+    payNotifyUrl: https://ruoyi.vip
+    refundNotifyUrl: https://ruoyi.vip
+    payReturnUrl: https://ruoyi.vip

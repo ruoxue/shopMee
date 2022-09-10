@@ -1,0 +1,96 @@
+2022-09-04 19:47:02,068 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 19:47:02,071 WARN [serverlist] self ip Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true, version=2.1.1}} not in serverlist [Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true}}]
+
+2022-09-04 20:08:22,739 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 20:08:22,741 WARN [serverlist] self ip Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true, version=2.1.1}} not in serverlist [Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true}}]
+
+2022-09-04 20:09:15,376 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 20:09:15,377 WARN [serverlist] self ip Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true, version=2.1.1}} not in serverlist [Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true}}]
+
+2022-09-04 20:10:13,740 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 20:10:13,742 WARN [serverlist] self ip Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true, version=2.1.1}} not in serverlist [Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true}}]
+
+2022-09-04 20:10:18,279 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 20:11:10,459 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 20:11:10,463 WARN [serverlist] self ip Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true, version=2.1.1}} not in serverlist [Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true}}]
+
+2022-09-04 20:12:00,750 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 20:12:00,753 WARN [serverlist] self ip Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true, version=2.1.1}} not in serverlist [Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true}}]
+
+2022-09-04 20:12:04,227 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 20:29:31,607 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 20:29:31,611 WARN [serverlist] self ip Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true, version=2.1.1}} not in serverlist [Member{ip='fe80', port=0, state=UP, extendInfo={raftPort=-1000, readyToUpgrade=true}}]
+
+2022-09-04 21:32:27,358 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 21:33:13,782 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 21:34:15,134 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 21:39:21,385 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 21:39:26,037 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 21:39:38,529 INFO This node is ready to provide external services
+
+2022-09-04 21:41:17,252 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 21:44:10,430 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 21:44:12,490 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 21:44:23,676 INFO This node is ready to provide external services
+
+2022-09-04 22:18:50,983 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 22:18:54,649 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 22:19:08,839 INFO This node is ready to provide external services
+
+2022-09-04 22:20:07,295 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 22:20:11,355 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 22:20:22,816 INFO This node is ready to provide external services
+
+2022-09-04 22:21:14,611 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 22:21:16,456 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 22:21:26,776 INFO This node is ready to provide external services
+
+2022-09-04 22:29:11,151 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 22:29:15,775 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 22:29:29,448 INFO This node is ready to provide external services
+
+2022-09-04 22:30:03,584 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 22:30:05,557 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 22:30:19,478 INFO This node is ready to provide external services
+
+2022-09-04 23:29:15,917 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 23:32:50,811 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 23:32:55,393 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 23:33:08,436 INFO This node is ready to provide external services
+
+2022-09-04 23:39:27,790 INFO Current addressing mode selection : StandaloneMemberLookup
+
+2022-09-04 23:39:29,927 WARN [ClusterRpcClientProxy] success to refresh cluster rpc client on start up,members =[] 
+
+2022-09-04 23:39:41,140 INFO This node is ready to provide external services
+

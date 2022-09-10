@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.PayCommitMapper">
+    
+    <resultMap type="PayCommit" id="PayCommitResult">
+        <result property="id"    column="id"    />
+        <result property="url"    column="url"    />
+        <result property="name"    column="name"    />
+        <result property="param"    column="param"    />
+        <result property="merchant"    column="merchant"    />
+        <result property="local"    column="local"    />
+        <result property="status"    column="status"    />
+        <result property="rate"    column="rate"    />
+    </resultMap>
+
+    <sql id="selectPayCommitVo">
+        select id, url, name, param, merchant, local, status, rate from pay_commit
+    </sql>
+
+    <select id="selectPayCommitList" parameterType="PayCommit" resultMap="PayCommitResult">
+        <include refid="selectPayCommitVo"/>
+        <where>  
+            <if test="url != null  and url != ''"> and url = #{url}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="param != null  and param != ''"> and param = #{param}</if>
+            <if test="merchant != null  and merchant != ''"> and merchant = #{merchant}</if>
+            <if test="local != null  and local != ''"> and local = #{local}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="rate != null "> and rate = #{rate}</if>
+        </where>
+        order by rate
+    </select>
+    
+    <select id="selectPayCommitById" parameterType="Long" resultMap="PayCommitResult">
+        <include refid="selectPayCommitVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertPayCommit" parameterType="PayCommit" useGeneratedKeys="true" keyProperty="id">
+        insert into pay_commit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="url != null">url,</if>
+            <if test="name != null">name,</if>
+            <if test="param != null">param,</if>
+            <if test="merchant != null">merchant,</if>
+            <if test="local != null">local,</if>
+            <if test="status != null">status,</if>
+            <if test="rate != null">rate,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="url != null">#{url},</if>
+            <if test="name != null">#{name},</if>
+            <if test="param != null">#{param},</if>
+            <if test="merchant != null">#{merchant},</if>
+            <if test="local != null">#{local},</if>
+            <if test="status != null">#{status},</if>
+            <if test="rate != null">#{rate},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePayCommit" parameterType="PayCommit">
+        update pay_commit
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="url != null">url = #{url},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="param != null">param = #{param},</if>
+            <if test="merchant != null">merchant = #{merchant},</if>
+            <if test="local != null">local = #{local},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="rate != null">rate = #{rate},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePayCommitById" parameterType="Long">
+        delete from pay_commit where id = #{id}
+    </delete>
+
+    <delete id="deletePayCommitByIds" parameterType="String">
+        delete from pay_commit where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

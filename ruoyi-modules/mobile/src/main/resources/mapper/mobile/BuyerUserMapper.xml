@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mobile.mapper.BuyerUserMapper">
+    
+    <resultMap type="BuyerUser" id="BuyerUserResult">
+        <result property="userId"    column="USER_ID"    />
+        <result property="userName"    column="USER_NAME"    />
+        <result property="nickName"    column="NICK_NAME"    />
+        <result property="userIntro"    column="USER_INTRO"    />
+        <result property="avatar"    column="AVATAR"    />
+        <result property="email"    column="EMAIL"    />
+        <result property="phone"    column="PHONE"    />
+        <result property="userPass"    column="USER_PASS"    />
+        <result property="passSalt"    column="PASS_SALT"    />
+        <result property="userStatus"    column="USER_STATUS"    />
+        <result property="userScore"    column="USER_SCORE"    />
+        <result property="totalCostAmt"    column="TOTAL_COST_AMT"    />
+        <result property="lastLoginTime"    column="LAST_LOGIN_TIME"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+    </resultMap>
+
+    <sql id="selectBuyerUserVo">
+        select USER_ID, USER_NAME, NICK_NAME, USER_INTRO, AVATAR, EMAIL, PHONE, USER_PASS, PASS_SALT, USER_STATUS, USER_SCORE, TOTAL_COST_AMT, LAST_LOGIN_TIME, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from BUYER_USER
+    </sql>
+
+    <select id="selectBuyerUserList" parameterType="BuyerUser" resultMap="BuyerUserResult">
+        <include refid="selectBuyerUserVo"/>
+        <where>  
+            <if test="userName != null  and userName != ''"> and USER_NAME like concat('%', #{userName}, '%')</if>
+            <if test="nickName != null  and nickName != ''"> and NICK_NAME like concat('%', #{nickName}, '%')</if>
+            <if test="userIntro != null  and userIntro != ''"> and USER_INTRO = #{userIntro}</if>
+            <if test="avatar != null  and avatar != ''"> and AVATAR = #{avatar}</if>
+            <if test="email != null  and email != ''"> and EMAIL = #{email}</if>
+            <if test="phone != null  and phone != ''"> and PHONE = #{phone}</if>
+            <if test="userPass != null  and userPass != ''"> and USER_PASS = #{userPass}</if>
+            <if test="passSalt != null  and passSalt != ''"> and PASS_SALT = #{passSalt}</if>
+            <if test="userStatus != null  and userStatus != ''"> and USER_STATUS = #{userStatus}</if>
+            <if test="userScore != null "> and USER_SCORE = #{userScore}</if>
+            <if test="totalCostAmt != null "> and TOTAL_COST_AMT = #{totalCostAmt}</if>
+            <if test="lastLoginTime != null "> and LAST_LOGIN_TIME = #{lastLoginTime}</if>
+            <if test="revision != null "> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectBuyerUserByUserId" parameterType="String" resultMap="BuyerUserResult">
+        <include refid="selectBuyerUserVo"/>
+        where USER_ID = #{userId}
+    </select>
+        
+    <insert id="insertBuyerUser" parameterType="BuyerUser">
+        insert into BUYER_USER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">USER_ID,</if>
+            <if test="userName != null and userName != ''">USER_NAME,</if>
+            <if test="nickName != null">NICK_NAME,</if>
+            <if test="userIntro != null">USER_INTRO,</if>
+            <if test="avatar != null">AVATAR,</if>
+            <if test="email != null">EMAIL,</if>
+            <if test="phone != null">PHONE,</if>
+            <if test="userPass != null">USER_PASS,</if>
+            <if test="passSalt != null">PASS_SALT,</if>
+            <if test="userStatus != null">USER_STATUS,</if>
+            <if test="userScore != null">USER_SCORE,</if>
+            <if test="totalCostAmt != null">TOTAL_COST_AMT,</if>
+            <if test="lastLoginTime != null">LAST_LOGIN_TIME,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="userName != null and userName != ''">#{userName},</if>
+            <if test="nickName != null">#{nickName},</if>
+            <if test="userIntro != null">#{userIntro},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="email != null">#{email},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="userPass != null">#{userPass},</if>
+            <if test="passSalt != null">#{passSalt},</if>
+            <if test="userStatus != null">#{userStatus},</if>
+            <if test="userScore != null">#{userScore},</if>
+            <if test="totalCostAmt != null">#{totalCostAmt},</if>
+            <if test="lastLoginTime != null">#{lastLoginTime},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBuyerUser" parameterType="BuyerUser">
+        update BUYER_USER
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userName != null and userName != ''">USER_NAME = #{userName},</if>
+            <if test="nickName != null">NICK_NAME = #{nickName},</if>
+            <if test="userIntro != null">USER_INTRO = #{userIntro},</if>
+            <if test="avatar != null">AVATAR = #{avatar},</if>
+            <if test="email != null">EMAIL = #{email},</if>
+            <if test="phone != null">PHONE = #{phone},</if>
+            <if test="userPass != null">USER_PASS = #{userPass},</if>
+            <if test="passSalt != null">PASS_SALT = #{passSalt},</if>
+            <if test="userStatus != null">USER_STATUS = #{userStatus},</if>
+            <if test="userScore != null">USER_SCORE = #{userScore},</if>
+            <if test="totalCostAmt != null">TOTAL_COST_AMT = #{totalCostAmt},</if>
+            <if test="lastLoginTime != null">LAST_LOGIN_TIME = #{lastLoginTime},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+        </trim>
+        where USER_ID = #{userId}
+    </update>
+
+    <delete id="deleteBuyerUserByUserId" parameterType="String">
+        delete from BUYER_USER where USER_ID = #{userId}
+    </delete>
+
+    <delete id="deleteBuyerUserByUserIds" parameterType="String">
+        delete from BUYER_USER where USER_ID in 
+        <foreach item="userId" collection="array" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mobile.mapper.ProductMapper">
+    
+    <resultMap type="Product" id="ProductResult">
+        <result property="id"    column="id"    />
+        <result property="shopId"    column="shop_id"    />
+        <result property="displayOrder"    column="display_order"    />
+        <result property="type"    column="type"    />
+        <result property="title"    column="title"    />
+        <result property="subTitle"    column="sub_title"    />
+        <result property="shortTitle"    column="short_title"    />
+        <result property="status"    column="status"    />
+        <result property="putawayTime"    column="putaway_time"    />
+        <result property="video"    column="video"    />
+        <result property="videoThumb"    column="video_thumb"    />
+        <result property="thumb"    column="thumb"    />
+        <result property="thumbs"    column="thumbs"    />
+        <result property="price"    column="price"    />
+        <result property="originalPrice"    column="original_price"    />
+        <result property="costPrice"    column="cost_price"    />
+        <result property="priceHide"    column="price_hide"    />
+        <result property="minPrice"    column="min_price"    />
+        <result property="maxPrice"    column="max_price"    />
+        <result property="hasOption"    column="has_option"    />
+        <result property="productCode"    column="product_code"    />
+        <result property="productSn"    column="product_sn"    />
+        <result property="stock"    column="stock"    />
+        <result property="stockWarning"    column="stock_warning"    />
+        <result property="stockHide"    column="stock_hide"    />
+        <result property="stockCnf"    column="stock_cnf"    />
+        <result property="salesCount"    column="sales_count"    />
+        <result property="salesHide"    column="sales_hide"    />
+        <result property="virtualSales"    column="virtual_sales"    />
+        <result property="unit"    column="unit"    />
+        <result property="weight"    column="weight"    />
+        <result property="volume"    column="volume"    />
+        <result property="autoComplete"    column="auto_complete"    />
+        <result property="dispatchType"    column="dispatch_type"    />
+        <result property="dispatchPrice"    column="dispatch_price"    />
+        <result property="dispatchId"    column="dispatch_id"    />
+        <result property="dispatchMode"    column="dispatch_mode"    />
+        <result property="defaultDispatchMode"    column="default_dispatch_mode"    />
+        <result property="dispatchHide"    column="dispatch_hide"    />
+        <result property="isBuyNumLimit"    column="is_buy_num_limit"    />
+        <result property="maxBuyTotal"    column="max_buy_total"    />
+        <result property="maxBuyOnce"    column="max_buy_once"    />
+        <result property="minBuy"    column="min_buy"    />
+        <result property="content"    column="content"    />
+        <result property="viewCount"    column="view_count"    />
+        <result property="isRefundSupport"    column="is_refund_support"    />
+        <result property="relatedGoods"    column="related_goods"    />
+        <result property="auditStatus"    column="audit_status"    />
+        <result property="refuseReason"    column="refuse_reason"    />
+        <result property="version"    column="version"    />
+        <result property="selloutTime"    column="sellout_time"    />
+        <result property="deleteTime"    column="delete_time"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="endTime"    column="end_time"    />
+    </resultMap>
+
+    <sql id="selectProductVo">
+        select id, shop_id, display_order, type, title, sub_title, short_title, status, putaway_time, video, video_thumb, thumb, thumbs, price, original_price, cost_price, price_hide, min_price, max_price, has_option, product_code, product_sn, stock, stock_warning, stock_hide, stock_cnf, sales_count, sales_hide, virtual_sales, unit, weight, volume, auto_complete, dispatch_type, dispatch_price, dispatch_id, dispatch_mode, default_dispatch_mode, dispatch_hide, is_buy_num_limit, max_buy_total, max_buy_once, min_buy, content, view_count, is_refund_support, related_goods, audit_status, refuse_reason, version, sellout_time, delete_time, create_time, update_time, end_time from product
+    </sql>
+
+    <select id="selectProductList" parameterType="Product" resultMap="ProductResult">
+        <include refid="selectProductVo"/>
+        <where>  
+            <if test="shopId != null "> and shop_id = #{shopId}</if>
+            <if test="displayOrder != null "> and display_order = #{displayOrder}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="subTitle != null  and subTitle != ''"> and sub_title = #{subTitle}</if>
+            <if test="shortTitle != null  and shortTitle != ''"> and short_title = #{shortTitle}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="putawayTime != null "> and putaway_time = #{putawayTime}</if>
+            <if test="video != null  and video != ''"> and video = #{video}</if>
+            <if test="videoThumb != null  and videoThumb != ''"> and video_thumb = #{videoThumb}</if>
+            <if test="thumb != null  and thumb != ''"> and thumb = #{thumb}</if>
+            <if test="thumbs != null  and thumbs != ''"> and thumbs = #{thumbs}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="originalPrice != null "> and original_price = #{originalPrice}</if>
+            <if test="costPrice != null "> and cost_price = #{costPrice}</if>
+            <if test="priceHide != null "> and price_hide = #{priceHide}</if>
+            <if test="minPrice != null "> and min_price = #{minPrice}</if>
+            <if test="maxPrice != null "> and max_price = #{maxPrice}</if>
+            <if test="hasOption != null "> and has_option = #{hasOption}</if>
+            <if test="productCode != null  and productCode != ''"> and product_code = #{productCode}</if>
+            <if test="productSn != null  and productSn != ''"> and product_sn = #{productSn}</if>
+            <if test="stock != null  and stock != ''"> and stock = #{stock}</if>
+            <if test="stockWarning != null "> and stock_warning = #{stockWarning}</if>
+            <if test="stockHide != null "> and stock_hide = #{stockHide}</if>
+            <if test="stockCnf != null "> and stock_cnf = #{stockCnf}</if>
+            <if test="salesCount != null "> and sales_count = #{salesCount}</if>
+            <if test="salesHide != null "> and sales_hide = #{salesHide}</if>
+            <if test="virtualSales != null "> and virtual_sales = #{virtualSales}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="weight != null  and weight != ''"> and weight = #{weight}</if>
+            <if test="volume != null  and volume != ''"> and volume = #{volume}</if>
+            <if test="autoComplete != null "> and auto_complete = #{autoComplete}</if>
+            <if test="dispatchType != null "> and dispatch_type = #{dispatchType}</if>
+            <if test="dispatchPrice != null "> and dispatch_price = #{dispatchPrice}</if>
+            <if test="dispatchId != null "> and dispatch_id = #{dispatchId}</if>
+            <if test="dispatchMode != null  and dispatchMode != ''"> and dispatch_mode = #{dispatchMode}</if>
+            <if test="defaultDispatchMode != null  and defaultDispatchMode != ''"> and default_dispatch_mode = #{defaultDispatchMode}</if>
+            <if test="dispatchHide != null "> and dispatch_hide = #{dispatchHide}</if>
+            <if test="isBuyNumLimit != null "> and is_buy_num_limit = #{isBuyNumLimit}</if>
+            <if test="maxBuyTotal != null "> and max_buy_total = #{maxBuyTotal}</if>
+            <if test="maxBuyOnce != null "> and max_buy_once = #{maxBuyOnce}</if>
+            <if test="minBuy != null "> and min_buy = #{minBuy}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="viewCount != null "> and view_count = #{viewCount}</if>
+            <if test="isRefundSupport != null "> and is_refund_support = #{isRefundSupport}</if>
+            <if test="relatedGoods != null  and relatedGoods != ''"> and related_goods = #{relatedGoods}</if>
+            <if test="auditStatus != null "> and audit_status = #{auditStatus}</if>
+            <if test="refuseReason != null  and refuseReason != ''"> and refuse_reason = #{refuseReason}</if>
+            <if test="version != null "> and version = #{version}</if>
+            <if test="selloutTime != null "> and sellout_time = #{selloutTime}</if>
+            <if test="deleteTime != null "> and delete_time = #{deleteTime}</if>
+            <if test="endTime != null "> and end_time = #{endTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectProductById" parameterType="Long" resultMap="ProductResult">
+        <include refid="selectProductVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertProduct" parameterType="Product" useGeneratedKeys="true" keyProperty="id">
+        insert into product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="shopId != null">shop_id,</if>
+            <if test="displayOrder != null">display_order,</if>
+            <if test="type != null">type,</if>
+            <if test="title != null and title != ''">title,</if>
+            <if test="subTitle != null and subTitle != ''">sub_title,</if>
+            <if test="shortTitle != null and shortTitle != ''">short_title,</if>
+            <if test="status != null">status,</if>
+            <if test="putawayTime != null">putaway_time,</if>
+            <if test="video != null and video != ''">video,</if>
+            <if test="videoThumb != null and videoThumb != ''">video_thumb,</if>
+            <if test="thumb != null and thumb != ''">thumb,</if>
+            <if test="thumbs != null">thumbs,</if>
+            <if test="price != null">price,</if>
+            <if test="originalPrice != null">original_price,</if>
+            <if test="costPrice != null">cost_price,</if>
+            <if test="priceHide != null">price_hide,</if>
+            <if test="minPrice != null">min_price,</if>
+            <if test="maxPrice != null">max_price,</if>
+            <if test="hasOption != null">has_option,</if>
+            <if test="productCode != null and productCode != ''">product_code,</if>
+            <if test="productSn != null and productSn != ''">product_sn,</if>
+            <if test="stock != null and stock != ''">stock,</if>
+            <if test="stockWarning != null">stock_warning,</if>
+            <if test="stockHide != null">stock_hide,</if>
+            <if test="stockCnf != null">stock_cnf,</if>
+            <if test="salesCount != null">sales_count,</if>
+            <if test="salesHide != null">sales_hide,</if>
+            <if test="virtualSales != null">virtual_sales,</if>
+            <if test="unit != null and unit != ''">unit,</if>
+            <if test="weight != null and weight != ''">weight,</if>
+            <if test="volume != null and volume != ''">volume,</if>
+            <if test="autoComplete != null">auto_complete,</if>
+            <if test="dispatchType != null">dispatch_type,</if>
+            <if test="dispatchPrice != null">dispatch_price,</if>
+            <if test="dispatchId != null">dispatch_id,</if>
+            <if test="dispatchMode != null">dispatch_mode,</if>
+            <if test="defaultDispatchMode != null">default_dispatch_mode,</if>
+            <if test="dispatchHide != null">dispatch_hide,</if>
+            <if test="isBuyNumLimit != null">is_buy_num_limit,</if>
+            <if test="maxBuyTotal != null">max_buy_total,</if>
+            <if test="maxBuyOnce != null">max_buy_once,</if>
+            <if test="minBuy != null">min_buy,</if>
+            <if test="content != null and content != ''">content,</if>
+            <if test="viewCount != null">view_count,</if>
+            <if test="isRefundSupport != null">is_refund_support,</if>
+            <if test="relatedGoods != null and relatedGoods != ''">related_goods,</if>
+            <if test="auditStatus != null">audit_status,</if>
+            <if test="refuseReason != null and refuseReason != ''">refuse_reason,</if>
+            <if test="version != null">version,</if>
+            <if test="selloutTime != null">sellout_time,</if>
+            <if test="deleteTime != null">delete_time,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="endTime != null">end_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="shopId != null">#{shopId},</if>
+            <if test="displayOrder != null">#{displayOrder},</if>
+            <if test="type != null">#{type},</if>
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="subTitle != null and subTitle != ''">#{subTitle},</if>
+            <if test="shortTitle != null and shortTitle != ''">#{shortTitle},</if>
+            <if test="status != null">#{status},</if>
+            <if test="putawayTime != null">#{putawayTime},</if>
+            <if test="video != null and video != ''">#{video},</if>
+            <if test="videoThumb != null and videoThumb != ''">#{videoThumb},</if>
+            <if test="thumb != null and thumb != ''">#{thumb},</if>
+            <if test="thumbs != null">#{thumbs},</if>
+            <if test="price != null">#{price},</if>
+            <if test="originalPrice != null">#{originalPrice},</if>
+            <if test="costPrice != null">#{costPrice},</if>
+            <if test="priceHide != null">#{priceHide},</if>
+            <if test="minPrice != null">#{minPrice},</if>
+            <if test="maxPrice != null">#{maxPrice},</if>
+            <if test="hasOption != null">#{hasOption},</if>
+            <if test="productCode != null and productCode != ''">#{productCode},</if>
+            <if test="productSn != null and productSn != ''">#{productSn},</if>
+            <if test="stock != null and stock != ''">#{stock},</if>
+            <if test="stockWarning != null">#{stockWarning},</if>
+            <if test="stockHide != null">#{stockHide},</if>
+            <if test="stockCnf != null">#{stockCnf},</if>
+            <if test="salesCount != null">#{salesCount},</if>
+            <if test="salesHide != null">#{salesHide},</if>
+            <if test="virtualSales != null">#{virtualSales},</if>
+            <if test="unit != null and unit != ''">#{unit},</if>
+            <if test="weight != null and weight != ''">#{weight},</if>
+            <if test="volume != null and volume != ''">#{volume},</if>
+            <if test="autoComplete != null">#{autoComplete},</if>
+            <if test="dispatchType != null">#{dispatchType},</if>
+            <if test="dispatchPrice != null">#{dispatchPrice},</if>
+            <if test="dispatchId != null">#{dispatchId},</if>
+            <if test="dispatchMode != null">#{dispatchMode},</if>
+            <if test="defaultDispatchMode != null">#{defaultDispatchMode},</if>
+            <if test="dispatchHide != null">#{dispatchHide},</if>
+            <if test="isBuyNumLimit != null">#{isBuyNumLimit},</if>
+            <if test="maxBuyTotal != null">#{maxBuyTotal},</if>
+            <if test="maxBuyOnce != null">#{maxBuyOnce},</if>
+            <if test="minBuy != null">#{minBuy},</if>
+            <if test="content != null and content != ''">#{content},</if>
+            <if test="viewCount != null">#{viewCount},</if>
+            <if test="isRefundSupport != null">#{isRefundSupport},</if>
+            <if test="relatedGoods != null and relatedGoods != ''">#{relatedGoods},</if>
+            <if test="auditStatus != null">#{auditStatus},</if>
+            <if test="refuseReason != null and refuseReason != ''">#{refuseReason},</if>
+            <if test="version != null">#{version},</if>
+            <if test="selloutTime != null">#{selloutTime},</if>
+            <if test="deleteTime != null">#{deleteTime},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="endTime != null">#{endTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProduct" parameterType="Product">
+        update product
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="shopId != null">shop_id = #{shopId},</if>
+            <if test="displayOrder != null">display_order = #{displayOrder},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="subTitle != null and subTitle != ''">sub_title = #{subTitle},</if>
+            <if test="shortTitle != null and shortTitle != ''">short_title = #{shortTitle},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="putawayTime != null">putaway_time = #{putawayTime},</if>
+            <if test="video != null and video != ''">video = #{video},</if>
+            <if test="videoThumb != null and videoThumb != ''">video_thumb = #{videoThumb},</if>
+            <if test="thumb != null and thumb != ''">thumb = #{thumb},</if>
+            <if test="thumbs != null">thumbs = #{thumbs},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="originalPrice != null">original_price = #{originalPrice},</if>
+            <if test="costPrice != null">cost_price = #{costPrice},</if>
+            <if test="priceHide != null">price_hide = #{priceHide},</if>
+            <if test="minPrice != null">min_price = #{minPrice},</if>
+            <if test="maxPrice != null">max_price = #{maxPrice},</if>
+            <if test="hasOption != null">has_option = #{hasOption},</if>
+            <if test="productCode != null and productCode != ''">product_code = #{productCode},</if>
+            <if test="productSn != null and productSn != ''">product_sn = #{productSn},</if>
+            <if test="stock != null and stock != ''">stock = #{stock},</if>
+            <if test="stockWarning != null">stock_warning = #{stockWarning},</if>
+            <if test="stockHide != null">stock_hide = #{stockHide},</if>
+            <if test="stockCnf != null">stock_cnf = #{stockCnf},</if>
+            <if test="salesCount != null">sales_count = #{salesCount},</if>
+            <if test="salesHide != null">sales_hide = #{salesHide},</if>
+            <if test="virtualSales != null">virtual_sales = #{virtualSales},</if>
+            <if test="unit != null and unit != ''">unit = #{unit},</if>
+            <if test="weight != null and weight != ''">weight = #{weight},</if>
+            <if test="volume != null and volume != ''">volume = #{volume},</if>
+            <if test="autoComplete != null">auto_complete = #{autoComplete},</if>
+            <if test="dispatchType != null">dispatch_type = #{dispatchType},</if>
+            <if test="dispatchPrice != null">dispatch_price = #{dispatchPrice},</if>
+            <if test="dispatchId != null">dispatch_id = #{dispatchId},</if>
+            <if test="dispatchMode != null">dispatch_mode = #{dispatchMode},</if>
+            <if test="defaultDispatchMode != null">default_dispatch_mode = #{defaultDispatchMode},</if>
+            <if test="dispatchHide != null">dispatch_hide = #{dispatchHide},</if>
+            <if test="isBuyNumLimit != null">is_buy_num_limit = #{isBuyNumLimit},</if>
+            <if test="maxBuyTotal != null">max_buy_total = #{maxBuyTotal},</if>
+            <if test="maxBuyOnce != null">max_buy_once = #{maxBuyOnce},</if>
+            <if test="minBuy != null">min_buy = #{minBuy},</if>
+            <if test="content != null and content != ''">content = #{content},</if>
+            <if test="viewCount != null">view_count = #{viewCount},</if>
+            <if test="isRefundSupport != null">is_refund_support = #{isRefundSupport},</if>
+            <if test="relatedGoods != null and relatedGoods != ''">related_goods = #{relatedGoods},</if>
+            <if test="auditStatus != null">audit_status = #{auditStatus},</if>
+            <if test="refuseReason != null and refuseReason != ''">refuse_reason = #{refuseReason},</if>
+            <if test="version != null">version = #{version},</if>
+            <if test="selloutTime != null">sellout_time = #{selloutTime},</if>
+            <if test="deleteTime != null">delete_time = #{deleteTime},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="endTime != null">end_time = #{endTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProductById" parameterType="Long">
+        delete from product where id = #{id}
+    </delete>
+
+    <delete id="deleteProductByIds" parameterType="String">
+        delete from product where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

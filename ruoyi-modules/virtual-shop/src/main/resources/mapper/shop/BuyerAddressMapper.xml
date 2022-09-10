@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.BuyerAddressMapper">
+    
+    <resultMap type="BuyerAddress" id="BuyerAddressResult">
+        <result property="addressId"    column="ADDRESS_ID"    />
+        <result property="addressName"    column="ADDRESS_NAME"    />
+        <result property="seqNumber"    column="SEQ_NUMBER"    />
+        <result property="province"    column="PROVINCE"    />
+        <result property="city"    column="CITY"    />
+        <result property="county"    column="COUNTY"    />
+        <result property="street"    column="STREET"    />
+        <result property="lastDetail"    column="LAST_DETAIL"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+    </resultMap>
+
+    <sql id="selectBuyerAddressVo">
+        select ADDRESS_ID, ADDRESS_NAME, SEQ_NUMBER, PROVINCE, CITY, COUNTY, STREET, LAST_DETAIL, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from BUYER_ADDRESS
+    </sql>
+
+    <select id="selectBuyerAddressList" parameterType="BuyerAddress" resultMap="BuyerAddressResult">
+        <include refid="selectBuyerAddressVo"/>
+        <where>  
+            <if test="addressName != null  and addressName != ''"> and ADDRESS_NAME like concat('%', #{addressName}, '%')</if>
+            <if test="seqNumber != null "> and SEQ_NUMBER = #{seqNumber}</if>
+            <if test="province != null  and province != ''"> and PROVINCE = #{province}</if>
+            <if test="city != null  and city != ''"> and CITY = #{city}</if>
+            <if test="county != null  and county != ''"> and COUNTY = #{county}</if>
+            <if test="street != null  and street != ''"> and STREET = #{street}</if>
+            <if test="lastDetail != null  and lastDetail != ''"> and LAST_DETAIL = #{lastDetail}</if>
+            <if test="revision != null "> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectBuyerAddressByAddressId" parameterType="String" resultMap="BuyerAddressResult">
+        <include refid="selectBuyerAddressVo"/>
+        where ADDRESS_ID = #{addressId}
+    </select>
+        
+    <insert id="insertBuyerAddress" parameterType="BuyerAddress">
+        insert into BUYER_ADDRESS
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="addressId != null">ADDRESS_ID,</if>
+            <if test="addressName != null">ADDRESS_NAME,</if>
+            <if test="seqNumber != null">SEQ_NUMBER,</if>
+            <if test="province != null">PROVINCE,</if>
+            <if test="city != null">CITY,</if>
+            <if test="county != null">COUNTY,</if>
+            <if test="street != null">STREET,</if>
+            <if test="lastDetail != null">LAST_DETAIL,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="addressId != null">#{addressId},</if>
+            <if test="addressName != null">#{addressName},</if>
+            <if test="seqNumber != null">#{seqNumber},</if>
+            <if test="province != null">#{province},</if>
+            <if test="city != null">#{city},</if>
+            <if test="county != null">#{county},</if>
+            <if test="street != null">#{street},</if>
+            <if test="lastDetail != null">#{lastDetail},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBuyerAddress" parameterType="BuyerAddress">
+        update BUYER_ADDRESS
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="addressName != null">ADDRESS_NAME = #{addressName},</if>
+            <if test="seqNumber != null">SEQ_NUMBER = #{seqNumber},</if>
+            <if test="province != null">PROVINCE = #{province},</if>
+            <if test="city != null">CITY = #{city},</if>
+            <if test="county != null">COUNTY = #{county},</if>
+            <if test="street != null">STREET = #{street},</if>
+            <if test="lastDetail != null">LAST_DETAIL = #{lastDetail},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+        </trim>
+        where ADDRESS_ID = #{addressId}
+    </update>
+
+    <delete id="deleteBuyerAddressByAddressId" parameterType="String">
+        delete from BUYER_ADDRESS where ADDRESS_ID = #{addressId}
+    </delete>
+
+    <delete id="deleteBuyerAddressByAddressIds" parameterType="String">
+        delete from BUYER_ADDRESS where ADDRESS_ID in 
+        <foreach item="addressId" collection="array" open="(" separator="," close=")">
+            #{addressId}
+        </foreach>
+    </delete>
+</mapper>

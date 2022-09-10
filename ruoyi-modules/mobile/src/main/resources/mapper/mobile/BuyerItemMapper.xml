@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mobile.mapper.BuyerItemMapper">
+    
+    <resultMap type="BuyerItem" id="BuyerItemResult">
+        <result property="orderId"    column="ORDER_ID"    />
+        <result property="cartId"    column="CART_ID"    />
+        <result property="itemId"    column="ITEM_ID"    />
+        <result property="skuId"    column="SKU_ID"    />
+        <result property="skuTitle"    column="SKU_TITLE"    />
+        <result property="skuIntro"    column="SKU_INTRO"    />
+        <result property="price"    column="PRICE"    />
+        <result property="salePrice"    column="SALE_PRICE"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+    </resultMap>
+
+    <sql id="selectBuyerItemVo">
+        select ORDER_ID, CART_ID, ITEM_ID, SKU_ID, SKU_TITLE, SKU_INTRO, PRICE, SALE_PRICE, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from BUYER_ITEM
+    </sql>
+
+    <select id="selectBuyerItemList" parameterType="BuyerItem" resultMap="BuyerItemResult">
+        <include refid="selectBuyerItemVo"/>
+        <where>  
+            <if test="skuId != null  and skuId != ''"> and SKU_ID = #{skuId}</if>
+            <if test="skuTitle != null  and skuTitle != ''"> and SKU_TITLE = #{skuTitle}</if>
+            <if test="skuIntro != null  and skuIntro != ''"> and SKU_INTRO = #{skuIntro}</if>
+            <if test="price != null "> and PRICE = #{price}</if>
+            <if test="salePrice != null "> and SALE_PRICE = #{salePrice}</if>
+            <if test="revision != null "> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectBuyerItemByOrderId" parameterType="String" resultMap="BuyerItemResult">
+        <include refid="selectBuyerItemVo"/>
+        where ORDER_ID = #{orderId}
+    </select>
+        
+    <insert id="insertBuyerItem" parameterType="BuyerItem">
+        insert into BUYER_ITEM
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">ORDER_ID,</if>
+            <if test="cartId != null">CART_ID,</if>
+            <if test="itemId != null">ITEM_ID,</if>
+            <if test="skuId != null">SKU_ID,</if>
+            <if test="skuTitle != null">SKU_TITLE,</if>
+            <if test="skuIntro != null">SKU_INTRO,</if>
+            <if test="price != null">PRICE,</if>
+            <if test="salePrice != null">SALE_PRICE,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">#{orderId},</if>
+            <if test="cartId != null">#{cartId},</if>
+            <if test="itemId != null">#{itemId},</if>
+            <if test="skuId != null">#{skuId},</if>
+            <if test="skuTitle != null">#{skuTitle},</if>
+            <if test="skuIntro != null">#{skuIntro},</if>
+            <if test="price != null">#{price},</if>
+            <if test="salePrice != null">#{salePrice},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBuyerItem" parameterType="BuyerItem">
+        update BUYER_ITEM
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="cartId != null">CART_ID = #{cartId},</if>
+            <if test="itemId != null">ITEM_ID = #{itemId},</if>
+            <if test="skuId != null">SKU_ID = #{skuId},</if>
+            <if test="skuTitle != null">SKU_TITLE = #{skuTitle},</if>
+            <if test="skuIntro != null">SKU_INTRO = #{skuIntro},</if>
+            <if test="price != null">PRICE = #{price},</if>
+            <if test="salePrice != null">SALE_PRICE = #{salePrice},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+        </trim>
+        where ORDER_ID = #{orderId}
+    </update>
+
+    <delete id="deleteBuyerItemByOrderId" parameterType="String">
+        delete from BUYER_ITEM where ORDER_ID = #{orderId}
+    </delete>
+
+    <delete id="deleteBuyerItemByOrderIds" parameterType="String">
+        delete from BUYER_ITEM where ORDER_ID in 
+        <foreach item="orderId" collection="array" open="(" separator="," close=")">
+            #{orderId}
+        </foreach>
+    </delete>
+</mapper>

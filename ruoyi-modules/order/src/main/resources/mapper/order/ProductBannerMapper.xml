@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.order.mapper.ProductBannerMapper">
+    
+    <resultMap type="ProductBanner" id="ProductBannerResult">
+        <result property="tenantId"    column="TENANT_ID"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+        <result property="id"    column="id"    />
+        <result property="url"    column="url"    />
+    </resultMap>
+
+    <sql id="selectProductBannerVo">
+        select TENANT_ID, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, id, url from product_banner
+    </sql>
+
+    <select id="selectProductBannerList" parameterType="ProductBanner" resultMap="ProductBannerResult">
+        <include refid="selectProductBannerVo"/>
+        <where>  
+            <if test="tenantId != null  and tenantId != ''"> and TENANT_ID = #{tenantId}</if>
+            <if test="revision != null  and revision != ''"> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+            <if test="url != null  and url != ''"> and url = #{url}</if>
+        </where>
+    </select>
+    
+    <select id="selectProductBannerById" parameterType="Long" resultMap="ProductBannerResult">
+        <include refid="selectProductBannerVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertProductBanner" parameterType="ProductBanner" useGeneratedKeys="true" keyProperty="id">
+        insert into product_banner
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="tenantId != null">TENANT_ID,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+            <if test="url != null">url,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="tenantId != null">#{tenantId},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+            <if test="url != null">#{url},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProductBanner" parameterType="ProductBanner">
+        update product_banner
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="tenantId != null">TENANT_ID = #{tenantId},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+            <if test="url != null">url = #{url},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProductBannerById" parameterType="Long">
+        delete from product_banner where id = #{id}
+    </delete>
+
+    <delete id="deleteProductBannerByIds" parameterType="String">
+        delete from product_banner where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

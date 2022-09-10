@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.ProductSkuMapper">
+    
+    <resultMap type="ProductSku" id="ProductSkuResult">
+        <result property="id"    column="id"    />
+        <result property="shopId"    column="shop_id"    />
+        <result property="goodsId"    column="goods_id"    />
+        <result property="title"    column="title"    />
+        <result property="thumb"    column="thumb"    />
+        <result property="price"    column="price"    />
+        <result property="costPrice"    column="cost_price"    />
+        <result property="originalPrice"    column="original_price"    />
+        <result property="productCode"    column="product_code"    />
+        <result property="productSn"    column="product_sn"    />
+        <result property="stock"    column="stock"    />
+        <result property="stockWarning"    column="stock_warning"    />
+        <result property="salesCount"    column="sales_count"    />
+        <result property="weight"    column="weight"    />
+        <result property="volume"    column="volume"    />
+        <result property="specOptionIds"    column="spec_option_ids"    />
+        <result property="displayOrder"    column="display_order"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectProductSkuVo">
+        select id, shop_id, goods_id, title, thumb, price, cost_price, original_price, product_code, product_sn, stock, stock_warning, sales_count, weight, volume, spec_option_ids, display_order, create_time, update_time from product_sku
+    </sql>
+
+    <select id="selectProductSkuList" parameterType="ProductSku" resultMap="ProductSkuResult">
+        <include refid="selectProductSkuVo"/>
+        <where>  
+            <if test="shopId != null "> and shop_id = #{shopId}</if>
+            <if test="goodsId != null  and goodsId != ''"> and goods_id = #{goodsId}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="thumb != null  and thumb != ''"> and thumb = #{thumb}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="costPrice != null "> and cost_price = #{costPrice}</if>
+            <if test="originalPrice != null "> and original_price = #{originalPrice}</if>
+            <if test="productCode != null  and productCode != ''"> and product_code = #{productCode}</if>
+            <if test="productSn != null  and productSn != ''"> and product_sn = #{productSn}</if>
+            <if test="stock != null  and stock != ''"> and stock = #{stock}</if>
+            <if test="stockWarning != null "> and stock_warning = #{stockWarning}</if>
+            <if test="salesCount != null "> and sales_count = #{salesCount}</if>
+            <if test="weight != null  and weight != ''"> and weight = #{weight}</if>
+            <if test="volume != null  and volume != ''"> and volume = #{volume}</if>
+            <if test="specOptionIds != null  and specOptionIds != ''"> and spec_option_ids = #{specOptionIds}</if>
+            <if test="displayOrder != null "> and display_order = #{displayOrder}</if>
+        </where>
+    </select>
+    
+    <select id="selectProductSkuById" parameterType="String" resultMap="ProductSkuResult">
+        <include refid="selectProductSkuVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertProductSku" parameterType="ProductSku" useGeneratedKeys="true" keyProperty="id">
+        insert into product_sku
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="shopId != null">shop_id,</if>
+            <if test="goodsId != null and goodsId != ''">goods_id,</if>
+            <if test="title != null and title != ''">title,</if>
+            <if test="thumb != null and thumb != ''">thumb,</if>
+            <if test="price != null">price,</if>
+            <if test="costPrice != null">cost_price,</if>
+            <if test="originalPrice != null">original_price,</if>
+            <if test="productCode != null and productCode != ''">product_code,</if>
+            <if test="productSn != null and productSn != ''">product_sn,</if>
+            <if test="stock != null and stock != ''">stock,</if>
+            <if test="stockWarning != null">stock_warning,</if>
+            <if test="salesCount != null">sales_count,</if>
+            <if test="weight != null and weight != ''">weight,</if>
+            <if test="volume != null and volume != ''">volume,</if>
+            <if test="specOptionIds != null">spec_option_ids,</if>
+            <if test="displayOrder != null">display_order,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="shopId != null">#{shopId},</if>
+            <if test="goodsId != null and goodsId != ''">#{goodsId},</if>
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="thumb != null and thumb != ''">#{thumb},</if>
+            <if test="price != null">#{price},</if>
+            <if test="costPrice != null">#{costPrice},</if>
+            <if test="originalPrice != null">#{originalPrice},</if>
+            <if test="productCode != null and productCode != ''">#{productCode},</if>
+            <if test="productSn != null and productSn != ''">#{productSn},</if>
+            <if test="stock != null and stock != ''">#{stock},</if>
+            <if test="stockWarning != null">#{stockWarning},</if>
+            <if test="salesCount != null">#{salesCount},</if>
+            <if test="weight != null and weight != ''">#{weight},</if>
+            <if test="volume != null and volume != ''">#{volume},</if>
+            <if test="specOptionIds != null">#{specOptionIds},</if>
+            <if test="displayOrder != null">#{displayOrder},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProductSku" parameterType="ProductSku">
+        update product_sku
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="shopId != null">shop_id = #{shopId},</if>
+            <if test="goodsId != null and goodsId != ''">goods_id = #{goodsId},</if>
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="thumb != null and thumb != ''">thumb = #{thumb},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="costPrice != null">cost_price = #{costPrice},</if>
+            <if test="originalPrice != null">original_price = #{originalPrice},</if>
+            <if test="productCode != null and productCode != ''">product_code = #{productCode},</if>
+            <if test="productSn != null and productSn != ''">product_sn = #{productSn},</if>
+            <if test="stock != null and stock != ''">stock = #{stock},</if>
+            <if test="stockWarning != null">stock_warning = #{stockWarning},</if>
+            <if test="salesCount != null">sales_count = #{salesCount},</if>
+            <if test="weight != null and weight != ''">weight = #{weight},</if>
+            <if test="volume != null and volume != ''">volume = #{volume},</if>
+            <if test="specOptionIds != null">spec_option_ids = #{specOptionIds},</if>
+            <if test="displayOrder != null">display_order = #{displayOrder},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProductSkuById" parameterType="String">
+        delete from product_sku where id = #{id}
+    </delete>
+
+    <delete id="deleteProductSkuByIds" parameterType="String">
+        delete from product_sku where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

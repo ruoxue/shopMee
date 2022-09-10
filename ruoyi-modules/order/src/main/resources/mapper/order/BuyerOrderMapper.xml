@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.order.mapper.BuyerOrderMapper">
+    
+    <resultMap type="BuyerOrder" id="BuyerOrderResult">
+        <result property="orderId"    column="ORDER_ID"    />
+        <result property="userId"    column="USER_ID"    />
+        <result property="cartId"    column="CART_ID"    />
+        <result property="addressId"    column="ADDRESS_ID"    />
+        <result property="couponId"    column="COUPON_ID"    />
+        <result property="totalPrice"    column="TOTAL_PRICE"    />
+        <result property="couponPrice"    column="COUPON_PRICE"    />
+        <result property="payablePrice"    column="PAYABLE_PRICE"    />
+        <result property="payMethod"    column="PAY_METHOD"    />
+        <result property="invoiceTplId"    column="INVOICE_TPL_ID"    />
+        <result property="leaveComment"    column="LEAVE_COMMENT"    />
+        <result property="orderStatus"    column="ORDER_STATUS"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+    </resultMap>
+
+    <sql id="selectBuyerOrderVo">
+        select ORDER_ID, USER_ID, CART_ID, ADDRESS_ID, COUPON_ID, TOTAL_PRICE, COUPON_PRICE, PAYABLE_PRICE, PAY_METHOD, INVOICE_TPL_ID, LEAVE_COMMENT, ORDER_STATUS, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from BUYER_ORDER
+    </sql>
+
+    <select id="selectBuyerOrderList" parameterType="BuyerOrder" resultMap="BuyerOrderResult">
+        <include refid="selectBuyerOrderVo"/>
+        <where>  
+            <if test="userId != null  and userId != ''"> and USER_ID = #{userId}</if>
+            <if test="cartId != null  and cartId != ''"> and CART_ID = #{cartId}</if>
+            <if test="addressId != null  and addressId != ''"> and ADDRESS_ID = #{addressId}</if>
+            <if test="couponId != null  and couponId != ''"> and COUPON_ID = #{couponId}</if>
+            <if test="totalPrice != null "> and TOTAL_PRICE = #{totalPrice}</if>
+            <if test="couponPrice != null "> and COUPON_PRICE = #{couponPrice}</if>
+            <if test="payablePrice != null "> and PAYABLE_PRICE = #{payablePrice}</if>
+            <if test="payMethod != null  and payMethod != ''"> and PAY_METHOD = #{payMethod}</if>
+            <if test="invoiceTplId != null  and invoiceTplId != ''"> and INVOICE_TPL_ID = #{invoiceTplId}</if>
+            <if test="leaveComment != null  and leaveComment != ''"> and LEAVE_COMMENT = #{leaveComment}</if>
+            <if test="orderStatus != null  and orderStatus != ''"> and ORDER_STATUS = #{orderStatus}</if>
+            <if test="revision != null "> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectBuyerOrderByOrderId" parameterType="String" resultMap="BuyerOrderResult">
+        <include refid="selectBuyerOrderVo"/>
+        where ORDER_ID = #{orderId}
+    </select>
+        
+    <insert id="insertBuyerOrder" parameterType="OrderPO">
+        insert into BUYER_ORDER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">ORDER_ID,</if>
+            <if test="userId != null and userId != ''">USER_ID,</if>
+            <if test="cartId != null and cartId != ''">CART_ID,</if>
+            <if test="addressId != null">ADDRESS_ID,</if>
+            <if test="couponId != null">COUPON_ID,</if>
+            <if test="totalPrice != null">TOTAL_PRICE,</if>
+            <if test="couponPrice != null">COUPON_PRICE,</if>
+            <if test="payablePrice != null">PAYABLE_PRICE,</if>
+            <if test="payMethod != null">PAY_METHOD,</if>
+            <if test="invoiceTplId != null">INVOICE_TPL_ID,</if>
+            <if test="leaveComment != null">LEAVE_COMMENT,</if>
+            <if test="orderStatus != null">ORDER_STATUS,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">#{orderId},</if>
+            <if test="userId != null and userId != ''">#{userId},</if>
+            <if test="cartId != null and cartId != ''">#{cartId},</if>
+            <if test="addressId != null">#{addressId},</if>
+            <if test="couponId != null">#{couponId},</if>
+            <if test="totalPrice != null">#{totalPrice},</if>
+            <if test="couponPrice != null">#{couponPrice},</if>
+            <if test="payablePrice != null">#{payablePrice},</if>
+            <if test="payMethod != null">#{payMethod},</if>
+            <if test="invoiceTplId != null">#{invoiceTplId},</if>
+            <if test="leaveComment != null">#{leaveComment},</if>
+            <if test="orderStatus != null">#{orderStatus},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBuyerOrder" parameterType="BuyerOrder">
+        update BUYER_ORDER
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null and userId != ''">USER_ID = #{userId},</if>
+            <if test="cartId != null and cartId != ''">CART_ID = #{cartId},</if>
+            <if test="addressId != null">ADDRESS_ID = #{addressId},</if>
+            <if test="couponId != null">COUPON_ID = #{couponId},</if>
+            <if test="totalPrice != null">TOTAL_PRICE = #{totalPrice},</if>
+            <if test="couponPrice != null">COUPON_PRICE = #{couponPrice},</if>
+            <if test="payablePrice != null">PAYABLE_PRICE = #{payablePrice},</if>
+            <if test="payMethod != null">PAY_METHOD = #{payMethod},</if>
+            <if test="invoiceTplId != null">INVOICE_TPL_ID = #{invoiceTplId},</if>
+            <if test="leaveComment != null">LEAVE_COMMENT = #{leaveComment},</if>
+            <if test="orderStatus != null">ORDER_STATUS = #{orderStatus},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+        </trim>
+        where ORDER_ID = #{orderId}
+    </update>
+
+    <delete id="deleteBuyerOrderByOrderId" parameterType="String">
+        delete from BUYER_ORDER where ORDER_ID = #{orderId}
+    </delete>
+
+    <delete id="deleteBuyerOrderByOrderIds" parameterType="String">
+        delete from BUYER_ORDER where ORDER_ID in 
+        <foreach item="orderId" collection="array" open="(" separator="," close=")">
+            #{orderId}
+        </foreach>
+    </delete>
+</mapper>

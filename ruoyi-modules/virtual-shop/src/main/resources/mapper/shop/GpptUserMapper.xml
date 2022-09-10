@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.GpptUserMapper">
+    
+    <resultMap type="GpptUser" id="GpptUserResult">
+        <result property="userId"    column="USER_ID"    />
+        <result property="realName"    column="REAL_NAME"    />
+        <result property="nickName"    column="NICK_NAME"    />
+        <result property="userPass"    column="USER_PASS"    />
+        <result property="avatar"    column="AVATAR"    />
+        <result property="intro"    column="INTRO"    />
+        <result property="phone"    column="PHONE"    />
+        <result property="email"    column="EMAIL"    />
+        <result property="revision"    column="REVISION"    />
+        <result property="createdBy"    column="CREATED_BY"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedBy"    column="UPDATED_BY"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+    </resultMap>
+
+    <sql id="selectGpptUserVo">
+        select USER_ID, REAL_NAME, NICK_NAME, USER_PASS, AVATAR, INTRO, PHONE, EMAIL, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from GPPT_USER
+    </sql>
+
+    <select id="selectGpptUserList" parameterType="GpptUser" resultMap="GpptUserResult">
+        <include refid="selectGpptUserVo"/>
+        <where>  
+            <if test="realName != null  and realName != ''"> and REAL_NAME like concat('%', #{realName}, '%')</if>
+            <if test="nickName != null  and nickName != ''"> and NICK_NAME like concat('%', #{nickName}, '%')</if>
+            <if test="userPass != null  and userPass != ''"> and USER_PASS = #{userPass}</if>
+            <if test="avatar != null  and avatar != ''"> and AVATAR = #{avatar}</if>
+            <if test="intro != null  and intro != ''"> and INTRO = #{intro}</if>
+            <if test="phone != null  and phone != ''"> and PHONE = #{phone}</if>
+            <if test="email != null  and email != ''"> and EMAIL = #{email}</if>
+            <if test="revision != null "> and REVISION = #{revision}</if>
+            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
+            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
+            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
+            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectGpptUserByUserId" parameterType="String" resultMap="GpptUserResult">
+        <include refid="selectGpptUserVo"/>
+        where USER_ID = #{userId}
+    </select>
+        
+    <insert id="insertGpptUser" parameterType="GpptUser">
+        insert into GPPT_USER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">USER_ID,</if>
+            <if test="realName != null">REAL_NAME,</if>
+            <if test="nickName != null">NICK_NAME,</if>
+            <if test="userPass != null">USER_PASS,</if>
+            <if test="avatar != null">AVATAR,</if>
+            <if test="intro != null">INTRO,</if>
+            <if test="phone != null">PHONE,</if>
+            <if test="email != null">EMAIL,</if>
+            <if test="revision != null">REVISION,</if>
+            <if test="createdBy != null">CREATED_BY,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedBy != null">UPDATED_BY,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="realName != null">#{realName},</if>
+            <if test="nickName != null">#{nickName},</if>
+            <if test="userPass != null">#{userPass},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="intro != null">#{intro},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="email != null">#{email},</if>
+            <if test="revision != null">#{revision},</if>
+            <if test="createdBy != null">#{createdBy},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedBy != null">#{updatedBy},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGpptUser" parameterType="GpptUser">
+        update GPPT_USER
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="realName != null">REAL_NAME = #{realName},</if>
+            <if test="nickName != null">NICK_NAME = #{nickName},</if>
+            <if test="userPass != null">USER_PASS = #{userPass},</if>
+            <if test="avatar != null">AVATAR = #{avatar},</if>
+            <if test="intro != null">INTRO = #{intro},</if>
+            <if test="phone != null">PHONE = #{phone},</if>
+            <if test="email != null">EMAIL = #{email},</if>
+            <if test="revision != null">REVISION = #{revision},</if>
+            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+        </trim>
+        where USER_ID = #{userId}
+    </update>
+
+    <delete id="deleteGpptUserByUserId" parameterType="String">
+        delete from GPPT_USER where USER_ID = #{userId}
+    </delete>
+
+    <delete id="deleteGpptUserByUserIds" parameterType="String">
+        delete from GPPT_USER where USER_ID in 
+        <foreach item="userId" collection="array" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </delete>
+</mapper>

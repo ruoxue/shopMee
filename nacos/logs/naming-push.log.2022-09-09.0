@@ -1,0 +1,192 @@
+2022-09-09 05:13:23,474 INFO [PUSH-SUCC] 348ms, all delay time 892ms, SLA 893ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=8}, originalSize=0, DataSize=0, target=172.20.10.7
+
+2022-09-09 05:13:25,041 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=9}
+
+2022-09-09 05:13:25,559 INFO [PUSH-SUCC] 6ms, all delay time 524ms, SLA 524ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=9}, originalSize=1, DataSize=1, target=172.20.10.7
+
+2022-09-09 05:13:25,561 INFO [PUSH-SUCC] 7ms, all delay time 526ms, SLA 526ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=9}, originalSize=1, DataSize=1, target=172.20.10.7
+
+2022-09-09 05:19:12,503 INFO [PUSH-SUCC] 37ms, all delay time 575ms, SLA 575ms, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=16}, originalSize=0, DataSize=0, target=172.20.10.7
+
+2022-09-09 05:19:58,512 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=17}
+
+2022-09-09 05:19:58,955 INFO [PUSH-SUCC] 9ms, all delay time 577ms, SLA 443ms, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=17}, originalSize=1, DataSize=1, target=172.20.10.7
+
+2022-09-09 05:19:59,008 INFO [PUSH-SUCC] 62ms, all delay time 630ms, SLA 496ms, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=17}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:21:32,739 INFO [PUSH-SUCC] 24ms, all delay time 617ms, SLA 617ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=12}, originalSize=0, DataSize=0, target=172.20.10.7
+
+2022-09-09 05:22:04,621 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=13}
+
+2022-09-09 05:22:05,133 INFO [PUSH-SUCC] 70ms, all delay time 633ms, SLA 512ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=13}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:22:21,748 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-gateway', ephemeral=true, revision=9}
+
+2022-09-09 05:22:21,815 INFO [PUSH-SUCC] 51ms, all delay time 625ms, SLA 67ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-gateway', ephemeral=true, revision=9}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:22:22,076 INFO [PUSH-SUCC] 6ms, all delay time 557ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=7}, originalSize=1, DataSize=1
+
+2022-09-09 05:22:22,083 INFO [PUSH-SUCC] 13ms, all delay time 564ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=13}, originalSize=1, DataSize=1
+
+2022-09-09 05:22:22,088 INFO [PUSH-SUCC] 18ms, all delay time 564ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=17}, originalSize=1, DataSize=1
+
+2022-09-09 05:22:22,092 INFO [PUSH-SUCC] 22ms, all delay time 573ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=7}, originalSize=1, DataSize=1
+
+2022-09-09 05:22:22,097 INFO [PUSH-SUCC] 26ms, all delay time 572ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=10}, originalSize=0, DataSize=0
+
+2022-09-09 05:22:22,104 INFO [PUSH-SUCC] 33ms, all delay time 585ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=8}, originalSize=0, DataSize=0
+
+2022-09-09 05:22:37,868 INFO [PUSH-SUCC] 15ms, all delay time 521ms, SLA 521ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=8}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 05:22:59,815 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=11}
+
+2022-09-09 05:23:00,257 INFO [PUSH-SUCC] 15ms, all delay time 603ms, SLA 441ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=11}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:23:00,321 INFO [PUSH-SUCC] 78ms, all delay time 668ms, SLA 506ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=11}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:23:08,945 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=9}
+
+2022-09-09 05:23:09,345 INFO [PUSH-SUCC] 11ms, all delay time 539ms, SLA 400ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=9}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:23:09,384 INFO [PUSH-SUCC] 50ms, all delay time 578ms, SLA 439ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=9}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:23:14,383 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=9}
+
+2022-09-09 05:23:14,776 INFO [PUSH-SUCC] 15ms, all delay time 519ms, SLA 393ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=9}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:23:14,825 INFO [PUSH-SUCC] 63ms, all delay time 568ms, SLA 442ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=9}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 05:30:54,616 INFO [PUSH-SUCC] 29ms, all delay time 564ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=9}, originalSize=1, DataSize=1
+
+2022-09-09 05:38:45,962 INFO [PUSH-SUCC] 28ms, all delay time 582ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=9}, originalSize=1, DataSize=1
+
+2022-09-09 05:38:46,665 INFO [PUSH-SUCC] 9ms, all delay time 551ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=7}, originalSize=1, DataSize=1
+
+2022-09-09 07:13:17,930 INFO [PUSH-SUCC] 31ms, all delay time 601ms, SLA 602ms, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=18}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 07:13:19,474 INFO [PUSH-SUCC] 6ms, all delay time 600ms, SLA 600ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=14}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 08:48:54,439 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=1}
+
+2022-09-09 08:48:54,863 INFO [PUSH-SUCC] 175ms, all delay time 812ms, SLA 420ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 08:50:56,057 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-gateway', ephemeral=true, revision=1}
+
+2022-09-09 08:50:56,335 INFO [PUSH-SUCC] 80ms, all delay time 635ms, SLA 278ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-gateway', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 08:59:39,704 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=1}
+
+2022-09-09 08:59:40,288 INFO [PUSH-SUCC] 39ms, all delay time 598ms, SLA 600ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 08:59:40,576 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-gateway', ephemeral=true, revision=1}
+
+2022-09-09 08:59:41,177 INFO [PUSH-SUCC] 12ms, all delay time 606ms, SLA 606ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-gateway', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:01:39,630 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=1}
+
+2022-09-09 09:01:40,150 INFO [PUSH-SUCC] 56ms, all delay time 651ms, SLA 521ms, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:03:21,655 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=1}
+
+2022-09-09 09:03:22,121 INFO [PUSH-SUCC] 78ms, all delay time 605ms, SLA 467ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:06:59,293 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=1}
+
+2022-09-09 09:06:59,823 INFO [PUSH-SUCC] 77ms, all delay time 638ms, SLA 530ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:16:01,137 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=1}
+
+2022-09-09 09:16:01,716 INFO [PUSH-SUCC] 90ms, all delay time 684ms, SLA 579ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:16:08,136 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=1}
+
+2022-09-09 09:16:08,626 INFO [PUSH-SUCC] 83ms, all delay time 604ms, SLA 490ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:26:03,804 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=3}
+
+2022-09-09 09:26:04,296 INFO [PUSH-SUCC] 96ms, all delay time 612ms, SLA 492ms, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:26:47,344 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-gateway', ephemeral=true, revision=3}
+
+2022-09-09 09:26:47,685 INFO [PUSH-SUCC] 80ms, all delay time 679ms, SLA 342ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-gateway', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:26:48,120 INFO [PUSH-SUCC] 7ms, all delay time 554ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=4}, originalSize=0, DataSize=0
+
+2022-09-09 09:26:48,126 INFO [PUSH-SUCC] 13ms, all delay time 567ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2022-09-09 09:26:48,131 INFO [PUSH-SUCC] 18ms, all delay time 571ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2022-09-09 09:26:48,136 INFO [PUSH-SUCC] 23ms, all delay time 570ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2022-09-09 09:26:48,143 INFO [PUSH-SUCC] 29ms, all delay time 586ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-auth', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2022-09-09 09:26:48,149 INFO [PUSH-SUCC] 33ms, all delay time 591ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2022-09-09 09:26:55,228 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=5}
+
+2022-09-09 09:26:55,682 INFO [PUSH-SUCC] 16ms, all delay time 571ms, SLA 454ms, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=5}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:26:55,748 INFO [PUSH-SUCC] 82ms, all delay time 637ms, SLA 520ms, Service{namespace='public', group='DEFAULT_GROUP', name='mobile', ephemeral=true, revision=5}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:27:39,214 INFO [PUSH-SUCC] 13ms, all delay time 616ms, SLA 616ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 09:28:08,528 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=3}
+
+2022-09-09 09:28:08,985 INFO [PUSH-SUCC] 43ms, all delay time 595ms, SLA 457ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:28:09,048 INFO [PUSH-SUCC] 104ms, all delay time 658ms, SLA 520ms, Service{namespace='public', group='DEFAULT_GROUP', name='order', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:28:25,903 INFO [PUSH-SUCC] 16ms, all delay time 523ms, SLA 523ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 09:28:50,020 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=3}
+
+2022-09-09 09:28:50,498 INFO [PUSH-SUCC] 23ms, all delay time 611ms, SLA 478ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:28:50,561 INFO [PUSH-SUCC] 93ms, all delay time 674ms, SLA 541ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-file', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:29:29,742 INFO [PUSH-SUCC] 21ms, all delay time 578ms, SLA 579ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 09:30:09,145 INFO [PUSH-SUCC] 16ms, all delay time 586ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2022-09-09 09:30:13,476 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=3}
+
+2022-09-09 09:30:13,975 INFO [PUSH-SUCC] 28ms, all delay time 609ms, SLA 499ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:30:14,033 INFO [PUSH-SUCC] 86ms, all delay time 667ms, SLA 557ms, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 09:47:08,297 INFO [PUSH-SUCC] 41ms, all delay time 582ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=3}, originalSize=1, DataSize=1
+
+2022-09-09 10:13:42,039 INFO [PUSH-SUCC] 69ms, all delay time 670ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2022-09-09 10:14:11,669 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=3}
+
+2022-09-09 10:14:11,983 INFO [PUSH-SUCC] 53ms, all delay time 606ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=3}, originalSize=1, DataSize=1
+
+2022-09-09 10:14:12,022 INFO [PUSH-SUCC] 94ms, all delay time 645ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=3}, originalSize=1, DataSize=1
+
+2022-09-09 10:20:33,905 INFO [PUSH-SUCC] 54ms, all delay time 652ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2022-09-09 10:20:34,775 INFO [PUSH-SUCC] 6ms, all delay time 508ms for subscriber 192.168.0.3, Service{namespace='public', group='DEFAULT_GROUP', name='ruoyi-system', ephemeral=true, revision=3}, originalSize=1, DataSize=1
+
+2022-09-09 10:26:22,056 INFO [PUSH-SUCC] 0ms, all delay time 526ms, SLA 526ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 10:26:22,154 INFO [PUSH-SUCC] 93ms, all delay time 624ms, SLA 624ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 10:26:22,154 INFO [PUSH-SUCC] 92ms, all delay time 624ms, SLA 624ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 10:26:22,155 INFO [PUSH-SUCC] 99ms, all delay time 625ms, SLA 625ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 10:26:22,163 INFO [PUSH-SUCC] 111ms, all delay time 633ms, SLA 633ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.0.3
+
+2022-09-09 10:26:55,096 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=3}
+
+2022-09-09 10:26:55,439 INFO [PUSH-SUCC] 33ms, all delay time 583ms, SLA 342ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 10:26:55,444 INFO [PUSH-SUCC] 38ms, all delay time 589ms, SLA 348ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 10:26:55,453 INFO [PUSH-SUCC] 48ms, all delay time 598ms, SLA 357ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 10:26:55,461 INFO [PUSH-SUCC] 57ms, all delay time 606ms, SLA 365ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+
+2022-09-09 10:26:55,488 INFO [PUSH-SUCC] 83ms, all delay time 633ms, SLA 392ms, Service{namespace='public', group='DEFAULT_GROUP', name='shop', ephemeral=true, revision=3}, originalSize=1, DataSize=1, target=192.168.0.3
+

@@ -1,0 +1,32 @@
+2022-09-02 08:32:01,234 INFO initializing Raft sub-system
+
+2022-09-02 08:32:01,234 INFO Upgrade from 1X feature has closed, If you want open this feature, please set `nacos.core.support.upgrade.from.1x=true` in application.properties
+
+2022-09-02 08:32:01,659 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+
+2022-09-02 08:32:04,171 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2022-09-02 08:32:06,215 WARN start to close old raft protocol!!!
+
+2022-09-02 08:32:06,215 WARN stop old raft protocol task for notifier
+
+2022-09-02 08:32:06,216 WARN clean old cache datum for old raft
+
+2022-09-02 08:32:06,216 WARN start to move old raft protocol metadata
+
+2022-09-02 08:46:41,917 INFO initializing Raft sub-system
+
+2022-09-02 08:46:41,917 INFO Upgrade from 1X feature has closed, If you want open this feature, please set `nacos.core.support.upgrade.from.1x=true` in application.properties
+
+2022-09-02 08:46:42,170 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+
+2022-09-02 08:46:43,462 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2022-09-02 08:46:46,907 WARN start to close old raft protocol!!!
+
+2022-09-02 08:46:46,907 WARN stop old raft protocol task for notifier
+
+2022-09-02 08:46:46,907 WARN clean old cache datum for old raft
+
+2022-09-02 08:46:46,907 WARN start to move old raft protocol metadata
+
