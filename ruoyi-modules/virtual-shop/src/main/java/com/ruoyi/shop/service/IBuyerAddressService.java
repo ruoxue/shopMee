@@ -7,7 +7,7 @@ import com.ruoyi.shop.domain.BuyerAddress;
  * 地址Service接口
  * 
  * @author xiaoming
- * @date 2022-08-07
+ * @date 2022-09-11
  */
 public interface IBuyerAddressService 
 {
@@ -17,7 +17,7 @@ public interface IBuyerAddressService
      * @param addressId 地址主键
      * @return 地址
      */
-    public BuyerAddress selectBuyerAddressByAddressId(String addressId);
+    public BuyerAddress selectBuyerAddressByAddressId(Long addressId);
 
     /**
      * 查询地址列表
@@ -49,7 +49,7 @@ public interface IBuyerAddressService
      * @param addressIds 需要删除的地址主键集合
      * @return 结果
      */
-    public int deleteBuyerAddressByAddressIds(String[] addressIds);
+    public int deleteBuyerAddressByAddressIds(Long[] addressIds);
 
     /**
      * 删除地址信息
@@ -57,5 +57,5 @@ public interface IBuyerAddressService
      * @param addressId 地址主键
      * @return 结果
      */
-    public int deleteBuyerAddressByAddressId(String addressId);
+    public int deleteBuyerAddressByAddressId(Long addressId);
 }

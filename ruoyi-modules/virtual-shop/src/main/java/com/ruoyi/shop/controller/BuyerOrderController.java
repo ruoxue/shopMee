@@ -1,10 +1,12 @@
 package com.ruoyi.shop.controller;
 
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ruoyi.common.core.constant.SecurityConstants;
 import com.ruoyi.common.security.annotation.InnerAuth;
+import com.ruoyi.shop.domain.OrderBasicVO;
 import com.ruoyi.shop.domain.OrderPO;
 import com.ruoyi.shop.domain.BuyerItem;
 import com.ruoyi.shop.service.IBuyerItemService;
@@ -38,14 +40,13 @@ public class BuyerOrderController extends BaseController {
     @InnerAuth
     @GetMapping(value = "/fegin/{orderId}")
     OrderPO getInfoFegin(@PathVariable("orderId") String orderId, @RequestHeader(SecurityConstants.FROM_SOURCE) String inner) {
-        BuyerOrder buyerOrder = buyerOrderService.selectBuyerOrderByOrderId(orderId);
+        OrderPO orderPO = buyerOrderService.selectBuyerOrderByOrderId(orderId);
 
-        OrderPO orderPO = new OrderPO();
-        BeanUtils.copyProperties(buyerOrder, orderPO);
         BuyerItem buyerItem = new BuyerItem();
         buyerItem.setOrderId(orderId);
         List<BuyerItem> buyerItems = iBuyerItemService.selectBuyerItemListByOrderId(buyerItem);
         orderPO.setBuyerItems(buyerItems);
+
 
         return orderPO;
 
@@ -80,6 +81,14 @@ public class BuyerOrderController extends BaseController {
     @PutMapping(value ="/order/fegin")
     public int updateFegin(@RequestBody BuyerOrder buyerOrder, @RequestHeader(SecurityConstants.FROM_SOURCE) String inner) {
         return buyerOrderService.updateBuyerOrder(buyerOrder);
+
+    }
+
+
+    @InnerAuth
+    @PutMapping(value ="/order/basic/fegin/{uid}")
+    public List<OrderBasicVO>  basicInfo(@PathVariable("uid") String uid, @RequestHeader(SecurityConstants.FROM_SOURCE) String inner) {
+        return buyerOrderService.basicInfo(uid);
 
     }
 

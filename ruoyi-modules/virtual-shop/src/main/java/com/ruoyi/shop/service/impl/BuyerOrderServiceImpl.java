@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.ruoyi.common.redis.compent.OrderIdUtil;
 import com.ruoyi.shop.domain.OrderPO;
@@ -46,19 +47,18 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
      * @return 订单
      */
     @Override
-    public BuyerOrder selectBuyerOrderByOrderId(String orderId) {
+    public OrderPO selectBuyerOrderByOrderId(String orderId) {
         return buyerOrderMapper.selectBuyerOrderByOrderId(orderId);
     }
 
 
     @Override
-    public List<OrderPO> selectOrderList(BuyerOrder buyerOrder)
-    {
+    public List<OrderPO> selectOrderList(BuyerOrder buyerOrder) {
         return buyerOrderMapper.selectOrderList(buyerOrder);
     }
+
     @Override
-    public List<OrderPO> selectSaleOrderList(BuyerOrder buyerOrder)
-    {
+    public List<OrderPO> selectSaleOrderList(BuyerOrder buyerOrder) {
         return buyerOrderMapper.selectSaleOrderList(buyerOrder);
     }
 
@@ -100,10 +100,12 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
 
         buyerOrder.setOrderId(orderIdUtil.genOrderId());
         buyerOrder.setCreatedBy(buyerOrder.getUserId());
+
         buyerOrder.setCreatedTime(new Date());
         List<BuyerItem> buyerItems = buyerOrder.getBuyerItems();
         int type = -10;
         int auto = -1;
+        Long formateId=null;
 
 
         for (BuyerItem v : buyerItems) {
@@ -116,7 +118,7 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
             if (info.getEndTime().getTime() < new Date().getTime()) {
                 return "";
             }
-
+            formateId=info.getFormateId();
 
             if (type > 0) {
                 if (type != info.getType()) {
@@ -157,6 +159,7 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
         buyerOrder.setType(type);
         buyerOrder.setTotalPrice(total);
         buyerOrder.setAuto(auto);
+        buyerOrder.setFormateId(formateId);
         buyerOrderMapper.updateBuyerOrder(buyerOrder);
         return buyerOrder.getOrderId();
     }
@@ -222,7 +225,7 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
                 Class clazz = Class.forName(api);
                 Object o = clazz.getDeclaredConstructor().newInstance();
                 Method method = clazz.getMethod("submit", clazz);
-                method.invoke(o, buyerOrder,payCommit.getUrl(),payCommit.getParam());
+                method.invoke(o, buyerOrder, payCommit.getUrl(), payCommit.getParam());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -232,5 +235,23 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
 
 
         return null;
+    }
+
+    @Override
+    public List<OrderBasicVO>  basicInfo(String uid) {
+        List<OrderBasicVO> orderBasicVOS = buyerOrderMapper.basicSaleInfo(Long.parseLong(uid));
+
+        List<OrderBasicVO> orderBasicVOS2 = buyerOrderMapper.basicBuyInfo(Long.parseLong(uid));
+        List<OrderBasicVO> orderBasicVOS3 = buyerOrderMapper.basicCurrentInfo(Long.parseLong(uid));
+
+        List<OrderBasicVO> orderBasicVOS4 = buyerOrderMapper.basicCurrentAmountInfo(Long.parseLong(uid));
+
+        orderBasicVOS.addAll(orderBasicVOS2);
+        orderBasicVOS.addAll(orderBasicVOS3);
+        orderBasicVOS.addAll(orderBasicVOS4);
+
+
+
+        return orderBasicVOS;
     }
 }

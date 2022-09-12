@@ -83,8 +83,7 @@ public class BuyerPaymentController extends BaseController {
 
         if (orderPO.getType() == 4) {
             return AjaxResult.success("",
-                    buyerPaymentService.insertBuyerPaymentVirtual(buyerPayment.getOrderId(),buyerPayment.getRemark()));
-
+                    buyerPaymentService.insertBuyerPaymentVirtual(buyerPayment.getOrderId(),buyerPayment.getRemark(),buyerPayment.getAddressId()));
         } else {
 
             return AjaxResult.success("", buyerPaymentService.insertBuyerPayment(buyerPayment));

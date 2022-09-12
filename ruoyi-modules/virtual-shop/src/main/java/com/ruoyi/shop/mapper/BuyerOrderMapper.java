@@ -1,7 +1,9 @@
 package com.ruoyi.shop.mapper;
 
 import java.util.List;
+import java.util.Map;
 
+import com.ruoyi.shop.domain.OrderBasicVO;
 import com.ruoyi.shop.domain.OrderPO;
 import com.ruoyi.shop.domain.BuyerOrder;
 
@@ -19,7 +21,7 @@ public interface BuyerOrderMapper
      * @param orderId 订单主键
      * @return 订单
      */
-    public BuyerOrder selectBuyerOrderByOrderId(String orderId);
+    public OrderPO selectBuyerOrderByOrderId(String orderId);
 
     /**
      * 查询订单列表
@@ -64,4 +66,13 @@ public interface BuyerOrderMapper
     List<OrderPO> selectOrderList(BuyerOrder buyerOrder);
 
     List<OrderPO> selectSaleOrderList(BuyerOrder buyerOrder);
+
+    List<OrderBasicVO> basicSaleInfo(Long uid);
+
+    List<OrderBasicVO> basicBuyInfo(Long uid);
+
+    List<OrderBasicVO>  basicCurrentInfo(Long uid);
+    List<OrderBasicVO>  basicCurrentAmountInfo(Long uid);
+
+
 }

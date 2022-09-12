@@ -9,7 +9,15 @@ public class ProductPO extends Product {
     private  Long UserId;
     private Long categoryId;
 
+    private  Long formate_id;
 
+    public Long getFormate_id() {
+        return formate_id;
+    }
+
+    public void setFormate_id(Long formate_id) {
+        this.formate_id = formate_id;
+    }
 
     public Long getUserId() {
         return UserId;

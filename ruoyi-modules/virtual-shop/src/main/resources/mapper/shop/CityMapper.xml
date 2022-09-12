@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.CityMapper">
+    
+    <resultMap type="City" id="CityResult">
+        <result property="id"    column="id"    />
+        <result property="pid"    column="pid"    />
+        <result property="name"    column="name"    />
+        <result property="level"    column="level"    />
+    </resultMap>
+
+    <sql id="selectCityVo">
+        select id, pid, name, level from city
+    </sql>
+
+    <select id="selectCityList" parameterType="City" resultMap="CityResult">
+        <include refid="selectCityVo"/>
+        <where>  
+            <if test="pid != null "> and pid = #{pid}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="level != null "> and level = #{level}</if>
+        </where>
+    </select>
+    
+    <select id="selectCityById" parameterType="Long" resultMap="CityResult">
+        <include refid="selectCityVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertCity" parameterType="City">
+        insert into city
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="pid != null">pid,</if>
+            <if test="name != null">name,</if>
+            <if test="level != null">level,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="pid != null">#{pid},</if>
+            <if test="name != null">#{name},</if>
+            <if test="level != null">#{level},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCity" parameterType="City">
+        update city
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="pid != null">pid = #{pid},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="level != null">level = #{level},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteCityById" parameterType="Long">
+        delete from city where id = #{id}
+    </delete>
+
+    <delete id="deleteCityByIds" parameterType="String">
+        delete from city where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

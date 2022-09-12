@@ -1,5 +1,6 @@
 package com.ruoyi.shop.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import com.ruoyi.shop.service.IBuyerAddressService;
  * 地址Service业务层处理
  * 
  * @author xiaoming
- * @date 2022-08-07
+ * @date 2022-09-11
  */
 @Service
 public class BuyerAddressServiceImpl implements IBuyerAddressService 
@@ -26,7 +27,7 @@ public class BuyerAddressServiceImpl implements IBuyerAddressService
      * @return 地址
      */
     @Override
-    public BuyerAddress selectBuyerAddressByAddressId(String addressId)
+    public BuyerAddress selectBuyerAddressByAddressId(Long addressId)
     {
         return buyerAddressMapper.selectBuyerAddressByAddressId(addressId);
     }
@@ -52,6 +53,8 @@ public class BuyerAddressServiceImpl implements IBuyerAddressService
     @Override
     public int insertBuyerAddress(BuyerAddress buyerAddress)
     {
+        buyerAddress.setCreatedTime(new Date());
+
         return buyerAddressMapper.insertBuyerAddress(buyerAddress);
     }
 
@@ -64,6 +67,7 @@ public class BuyerAddressServiceImpl implements IBuyerAddressService
     @Override
     public int updateBuyerAddress(BuyerAddress buyerAddress)
     {
+        buyerAddress.setUpdatedTime(new Date());
         return buyerAddressMapper.updateBuyerAddress(buyerAddress);
     }
 
@@ -74,7 +78,7 @@ public class BuyerAddressServiceImpl implements IBuyerAddressService
      * @return 结果
      */
     @Override
-    public int deleteBuyerAddressByAddressIds(String[] addressIds)
+    public int deleteBuyerAddressByAddressIds(Long[] addressIds)
     {
         return buyerAddressMapper.deleteBuyerAddressByAddressIds(addressIds);
     }
@@ -86,7 +90,7 @@ public class BuyerAddressServiceImpl implements IBuyerAddressService
      * @return 结果
      */
     @Override
-    public int deleteBuyerAddressByAddressId(String addressId)
+    public int deleteBuyerAddressByAddressId(Long addressId)
     {
         return buyerAddressMapper.deleteBuyerAddressByAddressId(addressId);
     }

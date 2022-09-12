@@ -20,6 +20,10 @@ public class BuyerOrder extends BaseEntity
 
     private Long commitId;
     private  Long commit_id;
+    private  Long formate_id;
+
+
+    private Long formateId;
 
     private  Integer auto;
     private  String commitName;
@@ -62,7 +66,7 @@ public class BuyerOrder extends BaseEntity
 
     /** 地址ID */
     @Excel(name = "地址ID")
-    private String addressId;
+    private Long addressId;
 
     /** 优惠券ID */
     @Excel(name = "优惠券ID")
@@ -96,6 +100,8 @@ public class BuyerOrder extends BaseEntity
     @Excel(name = "订单状态")
     private Integer orderStatus;
 
+    private String format;
+
     /** 乐观锁 */
     @Excel(name = "乐观锁")
     private Long revision;
@@ -116,6 +122,22 @@ public class BuyerOrder extends BaseEntity
 
     private  Integer type;
     private  String info;
+
+    public Long getFormateId() {
+        return formateId;
+    }
+
+    public void setFormateId(Long formateId) {
+        this.formateId = formateId;
+    }
+
+    public Long getFormate_id() {
+        return formate_id;
+    }
+
+    public void setFormate_id(Long formate_id) {
+        this.formate_id = formate_id;
+    }
 
     public String getInfo() {
         return info;
@@ -165,12 +187,12 @@ public class BuyerOrder extends BaseEntity
     {
         return cartId;
     }
-    public void setAddressId(String addressId) 
+    public void setAddressId(Long addressId)
     {
         this.addressId = addressId;
     }
 
-    public String getAddressId() 
+    public Long getAddressId()
     {
         return addressId;
     }
@@ -306,6 +328,14 @@ public class BuyerOrder extends BaseEntity
 
     public void setAuto(Integer auto) {
         this.auto = auto;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 
     @Override

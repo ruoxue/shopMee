@@ -65,25 +65,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="categoryId"    column="category_id"    />
         <result property="auto"    column="auto"    />
 
+        <result property="formateDesc"    column="formate_desc"    />
+
+        <result property="formateId"    column="formate_id"    />
+        <result property="formateName"    column="formate_name"    />
 
     </resultMap>
 
     <sql id="selectProductVo">
-        select product.id, product.shop_id,product.auto, product.display_order, product.type, product.title, product.sub_title,
-        product.short_title, product.status, product.putaway_time, product.video, product.video_thumb,
-        product.thumb, product.thumbs, product.price, product.original_price, product.cost_price, product.price_hide,
-        product.min_price, product.max_price, product.has_option, product.product_code, product.product_sn,
-        product.stock, product.stock_warning, product.stock_hide, product.stock_cnf, product.sales_count, product.sales_hide,
-        product.virtual_sales, product.unit, product.weight, product.volume, product.auto_complete,
-        product.dispatch_type, product.dispatch_price, product.dispatch_id,
-        product.dispatch_mode, product.default_dispatch_mode, product.dispatch_hide,
-        product.is_buy_num_limit, product.max_buy_total, product.max_buy_once, product.min_buy,
-        product.content, product.view_count, product.is_refund_support, product.related_goods,
-        product.audit_status, product.refuse_reason, product.version, product.sellout_time,
-        product.delete_time, product.create_time, product.update_time, product.end_time, product_category.name category_name,product_category.id category_id, product_shop.shop_name shop_name from product
+        select product.*,formate.formate formateName, formate.formate_desc formateDesc, product_category.name category_name,product_category.id category_id, product_shop.shop_name shop_name from product
         left join product_category_map on product.id=product_category_map.goods_id and product.shop_id=product_category_map.shop_id
         left join product_category on product_category_map.category_id=product_category.id
         left join product_shop on product.shop_id=product_shop.shop_id
+        left join pay_commit_formate formate   on product.formate_id=formate.id
+
     </sql>
 
     <select id="selectProductList" parameterType="com.ruoyi.shop.param.ProductPO" resultMap="ProductResult">
@@ -144,6 +139,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="userId != null "> and product_shop.user_id = #{userId}</if>
             <if test="categoryId != null "> and product_category.id = #{categoryId}</if>
             <if test="auto != null "> and product.auto = #{auto}</if>
+            <if test="formate_id != null "> and product.formate_id = #{formateId}</if>
+
 
 
         </where>
@@ -215,6 +212,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
             <if test="endTime != null">end_time,</if>
             <if test="auto != null">auto,</if>
+            <if test="formateId != null">formate_id,</if>
+
 
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -273,7 +272,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateTime != null">#{updateTime},</if>
             <if test="endTime != null">#{endTime},</if>
             <if test="auto != null">#{auto},</if>
-         </trim>
+            <if test="formateId != null">#{formateId},</if>
+
+        </trim>
     </insert>
 
     <update id="updateProduct" parameterType="Product">
@@ -334,6 +335,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="endTime != null">end_time = #{endTime},</if>
             <if test="auto != null">auto = #{auto},</if>
+            <if test="formateId != null">formate_id = #{formateId},</if>
 
         </trim>
         where id = #{id}

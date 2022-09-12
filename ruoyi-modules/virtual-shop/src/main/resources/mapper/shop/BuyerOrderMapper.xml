@@ -28,19 +28,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="auto"    column="auto"    />
         <result property="commitName"    column="commitName"    />
         <result property="shopName"    column="shop_name"    />
-
+        <result property="formateId"    column="formate_id"    />
+        <result property="formateName"    column="formate_name"    />
+        <result property="formateDesc"    column="formate_desc"    />
         <result property="merchantName"    column="merchantName"    />
 
     </resultMap>
 
     <sql id="selectBuyerOrderVo">
-        select ORDER_ID, USER_ID, CART_ID, ADDRESS_ID, COUPON_ID, TOTAL_PRICE, COUPON_PRICE, PAYABLE_PRICE, PAY_METHOD, INVOICE_TPL_ID, LEAVE_COMMENT, ORDER_STATUS, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME,type,info,auto,commit_id from BUYER_ORDER
+        select BUYER_ORDER.*,formate.formate formate_name ,formate.formate_desc formate_desc from BUYER_ORDER
+        left join pay_commit_formate formate   on BUYER_ORDER.formate_id=formate.id
+
     </sql>
 
     <sql id="selectOrderVo">
-        select BUYER_ORDER.*,product_shop.shop_name  from BUYER_ORDER inner  join BUYER_ITEM   on BUYER_ORDER.ORDER_ID=BUYER_ITEM.ORDER_ID
+        select BUYER_ORDER.*,product_shop.shop_name,formate.formate formateName ,formate.formate_desc formateDesc
+        from BUYER_ORDER inner  join BUYER_ITEM   on BUYER_ORDER.ORDER_ID=BUYER_ITEM.ORDER_ID
         inner join product_sku on product_sku.id=BUYER_ITEM.SKU_ID
         inner join product_shop on product_shop.shop_id =product_sku.shop_id
+        left join pay_commit_formate formate   on BUYER_ORDER.formate_id=formate.id
+
     </sql>
     <sql id="selectSaleBuyerOrderVo">
         select BUYER_ORDER.*,product_shop.shop_name,pay_commit.name commitName,pay_commit.merchant merchantName from BUYER_ORDER inner
@@ -49,6 +56,46 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join product_shop on product_shop.shop_id =product_sku.shop_id
         left join pay_commit on BUYER_ORDER.commit_id =pay_commit.id
     </sql>
+
+    <sql id="selectBasicSaleInfo">
+        select COUNT( BUYER_ORDER.ORDER_STATUS) orderCount,   concat('orderStatus_',BUYER_ORDER.ORDER_STATUS)  orderStatus from BUYER_ORDER
+        inner   join BUYER_ITEM   on BUYER_ORDER.ORDER_ID=BUYER_ITEM.ORDER_ID
+        inner join product_sku on product_sku.id=BUYER_ITEM.SKU_ID
+        inner join product_shop on product_shop.shop_id =product_sku.shop_id
+        left join pay_commit on BUYER_ORDER.commit_id =pay_commit.id
+
+    </sql>
+
+    <sql id="selectBasicBuyInfo">
+        select COUNT( BUYER_ORDER.ORDER_STATUS) orderCount,   concat('buyStatus_',BUYER_ORDER.ORDER_STATUS)  orderStatus from BUYER_ORDER
+        inner   join BUYER_ITEM   on BUYER_ORDER.ORDER_ID=BUYER_ITEM.ORDER_ID
+        inner join product_sku on product_sku.id=BUYER_ITEM.SKU_ID
+        inner join product_shop on product_shop.shop_id =product_sku.shop_id
+        left join pay_commit on BUYER_ORDER.commit_id =pay_commit.id
+
+    </sql>
+
+
+
+    <sql id="selectBasicCurrentAmountInfo">
+        select SUM( BUYER_ORDER.TOTAL_PRICE)  orderCount,   concat('currentAMountStatus_',BUYER_ORDER.ORDER_STATUS)  orderStatus from BUYER_ORDER
+        inner   join BUYER_ITEM   on BUYER_ORDER.ORDER_ID=BUYER_ITEM.ORDER_ID
+        inner join product_sku on product_sku.id=BUYER_ITEM.SKU_ID
+        inner join product_shop on product_shop.shop_id =product_sku.shop_id
+        left join pay_commit on BUYER_ORDER.commit_id =pay_commit.id
+
+    </sql>
+
+    <sql id="selectBasicCurrentInfo">
+        select count( BUYER_ORDER.order_id)  orderCount,   concat('currentStatus_',BUYER_ORDER.ORDER_STATUS)  orderStatus from BUYER_ORDER
+        inner   join BUYER_ITEM   on BUYER_ORDER.ORDER_ID=BUYER_ITEM.ORDER_ID
+        inner join product_sku on product_sku.id=BUYER_ITEM.SKU_ID
+        inner join product_shop on product_shop.shop_id =product_sku.shop_id
+        left join pay_commit on BUYER_ORDER.commit_id =pay_commit.id
+
+    </sql>
+
+
     <select id="selectBuyerOrderList" parameterType="BuyerOrder" resultMap="BuyerOrderResult">
         <include refid="selectBuyerOrderVo"/>
         <where>  
@@ -71,6 +118,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
             <if test="auto != null  and auto != ''"> and auto = #{auto}</if>
             <if test="commitId != null and commitId != ''"> and commit_id = #{commitId}</if>
+            <if test="formateId != null and formateId != ''"> and formate_id = #{formateId}</if>
 
         </where>
         order by CREATED_TIME desc
@@ -101,6 +149,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
             <if test="auto != null "> and auto = #{auto}</if>
             <if test="commit_id != null "> and commit_id = #{commitId}</if>
+            <if test="formate_id != null "> and formate_id = #{formateId}</if>
 
         </where>
         order by BUYER_ORDER.ORDER_ID desc
@@ -129,9 +178,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
             <if test="auto != null "> and auto = #{auto}</if>
             <if test="commit_id != null "> and commit_id = #{commitId}</if>
+            <if test="formate_id != null "> and formate_id = #{formateId}</if>
+
         </where>
         order by BUYER_ORDER.ORDER_ID desc
 
+    </select>
+    <select id="basicSaleInfo" resultType="OrderBasicVO" parameterType="java.lang.Long">
+        <include refid="selectBasicSaleInfo"/>
+        where   product_shop.user_id=#{uid} and BUYER_ORDER.type!=4 group by BUYER_ORDER.ORDER_STATUS
+    </select>
+    <select id="basicBuyInfo" resultType="OrderBasicVO" parameterType="java.lang.Long">
+        <include refid="selectBasicBuyInfo"/>
+
+      where   product_shop.user_id=#{uid} and BUYER_ORDER.type!=4 group by BUYER_ORDER.ORDER_STATUS
+    </select>
+    <select id="basicCurrentInfo" resultType="OrderBasicVO" parameterType="java.lang.Long">
+        <include refid="selectBasicCurrentInfo"/>
+        where   product_shop.user_id=#{uid}
+        and BUYER_ORDER.CREATED_TIME>timestamp(date_add(curdate(), interval - 0 day))
+        group by BUYER_ORDER.ORDER_STATUS
+    </select>
+
+    <select id="basicCurrentAmountInfo" resultType="OrderBasicVO" parameterType="java.lang.Long">
+        <include refid="selectBasicCurrentAmountInfo"/>
+        where   product_shop.user_id=#{uid}
+        and BUYER_ORDER.CREATED_TIME>timestamp(date_add(curdate(), interval - 0 day))
+
+        group by BUYER_ORDER.ORDER_STATUS
     </select>
 
     <insert id="insertBuyerOrder" parameterType="BuyerOrder">
@@ -158,6 +232,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="info != null">info,</if>
             <if test="commitId != null">commit_id,</if>
             <if test="auto != null">auto,</if>
+            <if test="formateId != null">formate_id,</if>
+
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="orderId != null">#{orderId},</if>
@@ -181,6 +257,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="info != null">#{info},</if>
             <if test="commitId != null">#{commitId},</if>
             <if test="auto != null">#{auto},</if>
+            <if test="formateId != null">#{formateId},</if>
+
 
         </trim>
     </insert>
@@ -208,6 +286,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="info != null">info = #{info},</if>
             <if test="commitId != null">commit_id = #{commitId},</if>
             <if test="auto != null">auto = #{auto},</if>
+            <if test="formateId != null">formate_id = #{formateId},</if>
 
         </trim>
         where ORDER_ID = #{orderId}

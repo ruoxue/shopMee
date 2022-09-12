@@ -49,6 +49,7 @@ public class Product extends BaseEntity
     /** 商品状态 0:放置仓库 1:上架售卖 2:上架隐藏 3:定时上架 -1:后台删除 */
     @Excel(name = "商品状态 0:放置仓库 1:上架售卖 2:上架隐藏 3:定时上架 -1:后台删除")
     private Integer status;
+    private Long formateId;
 
     /** 上架时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -718,6 +719,14 @@ public class Product extends BaseEntity
 
     public void setAuto(Integer auto) {
         this.auto = auto;
+    }
+
+    public Long getFormateId() {
+        return formateId;
+    }
+
+    public void setFormateId(Long formateId) {
+        this.formateId = formateId;
     }
 
     @Override

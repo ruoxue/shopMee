@@ -2,6 +2,7 @@ package com.ruoyi.system.api;
 
 import com.ruoyi.common.core.constant.SecurityConstants;
 import com.ruoyi.common.core.constant.ServiceNameConstants;
+import com.ruoyi.shop.domain.OrderBasicVO;
 import com.ruoyi.shop.domain.OrderPO;
 import com.ruoyi.shop.domain.BuyerOrder;
 import com.ruoyi.system.api.factory.RemoteOrderFallbackFactory;
@@ -9,6 +10,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 文件服务
@@ -40,4 +42,7 @@ public interface RemoteOrderService
     List<OrderPO> selectOrderList(@RequestBody BuyerOrder buyerOrder, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
     @PutMapping("/buyerOrder/order/fegin")
     int update(BuyerOrder buyerOrder, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
+
+    @PutMapping(value ="/buyerOrder/order/basic/fegin/{uid}")
+    public List<OrderBasicVO>  basicInfo(@PathVariable("uid") String uid, @RequestHeader(SecurityConstants.FROM_SOURCE) String inner) ;
 }

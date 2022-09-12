@@ -1,8 +1,0 @@
-2022-09-04 04:25:24,197 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h3m3s219ms).
-
-2022-09-04 05:26:24,871 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=59m45s245ms).
-
-2022-09-04 05:27:10,706 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s871ms).
-
-2022-09-04 09:29:15,374 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h2m4s676ms).
-

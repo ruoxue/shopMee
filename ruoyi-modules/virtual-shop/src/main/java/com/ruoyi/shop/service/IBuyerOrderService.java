@@ -1,7 +1,9 @@
 package com.ruoyi.shop.service;
 
 import java.util.List;
+import java.util.Map;
 
+import com.ruoyi.shop.domain.OrderBasicVO;
 import com.ruoyi.shop.domain.OrderPO;
 import com.ruoyi.shop.domain.BuyerOrder;
 
@@ -19,7 +21,7 @@ public interface IBuyerOrderService
      * @param orderId 订单主键
      * @return 订单
      */
-    public BuyerOrder selectBuyerOrderByOrderId(String orderId);
+    public OrderPO selectBuyerOrderByOrderId(String orderId);
 
     public List<OrderPO> selectOrderList(BuyerOrder buyerOrder);
 
@@ -67,4 +69,6 @@ public interface IBuyerOrderService
     public int deleteBuyerOrderByOrderId(String orderId);
 
     String commit();
+
+    List<OrderBasicVO>  basicInfo(String uid);
 }

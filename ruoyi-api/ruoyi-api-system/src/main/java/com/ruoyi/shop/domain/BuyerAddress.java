@@ -11,18 +11,30 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
  * 地址对象 BUYER_ADDRESS
  * 
  * @author xiaoming
- * @date 2022-08-07
+ * @date 2022-09-11
  */
 public class BuyerAddress extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
     /** 地址ID */
-    private String addressId;
+    private Long addressId;
+
+
+
+    private String value;
+    private String region;
+
 
     /** 地址名称 */
     @Excel(name = "地址名称")
     private String addressName;
+    private String phone;
+
+    private String provinceName;
+    private String cityName;
+    private String countyName;
+
 
     /** 顺序号 */
     @Excel(name = "顺序号")
@@ -30,15 +42,15 @@ public class BuyerAddress extends BaseEntity
 
     /** 省 */
     @Excel(name = "省")
-    private String province;
+    private Long province;
 
     /** 市 */
     @Excel(name = "市")
-    private String city;
+    private Long city;
 
     /** 区 */
     @Excel(name = "区")
-    private String county;
+    private Long county;
 
     /** 街道 */
     @Excel(name = "街道")
@@ -49,33 +61,46 @@ public class BuyerAddress extends BaseEntity
     private String lastDetail;
 
     /** 乐观锁 */
-    @Excel(name = "乐观锁")
     private Long revision;
 
     /** 创建人 */
-    @Excel(name = "创建人")
     private String createdBy;
 
     /** 创建时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "创建时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date createdTime;
 
     /** 更新人 */
-    @Excel(name = "更新人")
     private String updatedBy;
 
     /** 更新时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "更新时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date updatedTime;
 
-    public void setAddressId(String addressId) 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    /** $column.columnComment */
+    @Excel(name = "uid", readConverterExp = "$column.readConverterExp()")
+    private Long uid;
+
+    public void setAddressId(Long addressId) 
     {
         this.addressId = addressId;
     }
 
-    public String getAddressId() 
+    public Long getAddressId() 
     {
         return addressId;
     }
@@ -97,30 +122,30 @@ public class BuyerAddress extends BaseEntity
     {
         return seqNumber;
     }
-    public void setProvince(String province) 
+    public void setProvince(Long province) 
     {
         this.province = province;
     }
 
-    public String getProvince() 
+    public Long getProvince() 
     {
         return province;
     }
-    public void setCity(String city) 
+    public void setCity(Long city) 
     {
         this.city = city;
     }
 
-    public String getCity() 
+    public Long getCity() 
     {
         return city;
     }
-    public void setCounty(String county) 
+    public void setCounty(Long county) 
     {
         this.county = county;
     }
 
-    public String getCounty() 
+    public Long getCounty() 
     {
         return county;
     }
@@ -183,9 +208,50 @@ public class BuyerAddress extends BaseEntity
         this.updatedTime = updatedTime;
     }
 
-    public Date getUpdatedTime() 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Date getUpdatedTime()
     {
         return updatedTime;
+    }
+    public void setUid(Long uid) 
+    {
+        this.uid = uid;
+    }
+
+    public Long getUid() 
+    {
+        return uid;
+    }
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getCountyName() {
+        return countyName;
+    }
+
+    public void setCountyName(String countyName) {
+        this.countyName = countyName;
     }
 
     @Override
@@ -204,6 +270,7 @@ public class BuyerAddress extends BaseEntity
             .append("createdTime", getCreatedTime())
             .append("updatedBy", getUpdatedBy())
             .append("updatedTime", getUpdatedTime())
+            .append("uid", getUid())
             .toString();
     }
 }

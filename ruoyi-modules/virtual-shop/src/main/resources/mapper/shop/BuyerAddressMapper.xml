@@ -18,33 +18,47 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="createdTime"    column="CREATED_TIME"    />
         <result property="updatedBy"    column="UPDATED_BY"    />
         <result property="updatedTime"    column="UPDATED_TIME"    />
+        <result property="uid"    column="uid"    />
+        <result property="phone"    column="phone"    />
+        <result property="provinceName"    column="PROVINCENAME"    />
+        <result property="cityName"    column="CITYNAME"    />
+        <result property="countyName"    column="COUNTYNAME"    />
+        <result property="value"    column="value"    />
+        <result property="region"    column="region"    />
+
+
+
     </resultMap>
 
     <sql id="selectBuyerAddressVo">
-        select ADDRESS_ID, ADDRESS_NAME, SEQ_NUMBER, PROVINCE, CITY, COUNTY, STREET, LAST_DETAIL, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME from BUYER_ADDRESS
+        select  BUYER_ADDRESS.*, p.name PROVINCENAME, c.name CITYNAME, cny.name COUNTYNAME
+        from BUYER_ADDRESS
+        left join city p on BUYER_ADDRESS.PROVINCE=p.id
+        left join city c on BUYER_ADDRESS.CITY=c.id
+        left join city cny on BUYER_ADDRESS.COUNTY=cny.id
+
     </sql>
 
     <select id="selectBuyerAddressList" parameterType="BuyerAddress" resultMap="BuyerAddressResult">
         <include refid="selectBuyerAddressVo"/>
         <where>  
             <if test="addressName != null  and addressName != ''"> and ADDRESS_NAME like concat('%', #{addressName}, '%')</if>
-            <if test="seqNumber != null "> and SEQ_NUMBER = #{seqNumber}</if>
-            <if test="province != null  and province != ''"> and PROVINCE = #{province}</if>
-            <if test="city != null  and city != ''"> and CITY = #{city}</if>
-            <if test="county != null  and county != ''"> and COUNTY = #{county}</if>
-            <if test="street != null  and street != ''"> and STREET = #{street}</if>
-            <if test="lastDetail != null  and lastDetail != ''"> and LAST_DETAIL = #{lastDetail}</if>
-            <if test="revision != null "> and REVISION = #{revision}</if>
-            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
-            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
-            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
-            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
+            <if test="seqNumber != null "> and BUYER_ADDRESS.SEQ_NUMBER = #{seqNumber}</if>
+            <if test="province != null "> and BUYER_ADDRESS.PROVINCE = #{province}</if>
+            <if test="city != null "> and BUYER_ADDRESS.CITY = #{city}</if>
+            <if test="county != null "> and BUYER_ADDRESS.COUNTY = #{county}</if>
+            <if test="street != null  and street != ''"> and BUYER_ADDRESS.STREET = #{street}</if>
+            <if test="lastDetail != null  and lastDetail != ''"> and BUYER_ADDRESS.LAST_DETAIL = #{lastDetail}</if>
+            <if test="uid != null "> and BUYER_ADDRESS.uid = #{uid}</if>
+            <if test="phone != null "> and BUYER_ADDRESS.phone = #{phone}</if>
+            <if test="value != null "> and BUYER_ADDRESS.value = #{value}</if>
+            <if test="region != null "> and BUYER_ADDRESS.region = #{region}</if>
         </where>
     </select>
     
-    <select id="selectBuyerAddressByAddressId" parameterType="String" resultMap="BuyerAddressResult">
+    <select id="selectBuyerAddressByAddressId" parameterType="Long" resultMap="BuyerAddressResult">
         <include refid="selectBuyerAddressVo"/>
-        where ADDRESS_ID = #{addressId}
+        where BUYER_ADDRESS.ADDRESS_ID = #{addressId}
     </select>
         
     <insert id="insertBuyerAddress" parameterType="BuyerAddress">
@@ -63,7 +77,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createdTime != null">CREATED_TIME,</if>
             <if test="updatedBy != null">UPDATED_BY,</if>
             <if test="updatedTime != null">UPDATED_TIME,</if>
-         </trim>
+            <if test="uid != null">uid,</if>
+            <if test="phone != null">phone,</if>
+            <if test="value != null">value,</if>
+            <if test="region != null">region,</if>
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="addressId != null">#{addressId},</if>
             <if test="addressName != null">#{addressName},</if>
@@ -78,7 +96,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createdTime != null">#{createdTime},</if>
             <if test="updatedBy != null">#{updatedBy},</if>
             <if test="updatedTime != null">#{updatedTime},</if>
-         </trim>
+            <if test="uid != null">#{uid},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="value != null">#{value},</if>
+            <if test="region != null">#{region},</if>
+        </trim>
     </insert>
 
     <update id="updateBuyerAddress" parameterType="BuyerAddress">
@@ -96,11 +118,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
             <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
             <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+            <if test="uid != null">uid = #{uid},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="value != null">value = #{value},</if>
+            <if test="region != null">region = #{region},</if>
+
+
         </trim>
         where ADDRESS_ID = #{addressId}
     </update>
 
-    <delete id="deleteBuyerAddressByAddressId" parameterType="String">
+    <delete id="deleteBuyerAddressByAddressId" parameterType="Long">
         delete from BUYER_ADDRESS where ADDRESS_ID = #{addressId}
     </delete>
 

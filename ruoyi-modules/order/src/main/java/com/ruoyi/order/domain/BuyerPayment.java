@@ -22,6 +22,10 @@ public class BuyerPayment extends BaseEntity
     @Excel(name = "乐观锁")
     private Long revision;
 
+
+    private  Long addressId;
+
+
     /** 创建人 */
     @Excel(name = "创建人")
     private String createdBy;
@@ -197,6 +201,14 @@ public class BuyerPayment extends BaseEntity
 
     public void setPayMethod(Long payMethod) {
         this.payMethod = payMethod;
+    }
+
+    public Long getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Long addressId) {
+        this.addressId = addressId;
     }
 
     @Override

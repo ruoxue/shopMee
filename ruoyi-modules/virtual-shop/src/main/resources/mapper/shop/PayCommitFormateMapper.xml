@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.shop.mapper.PayCommitFormateMapper">
+    
+    <resultMap type="PayCommitFormate" id="PayCommitFormateResult">
+        <result property="id"    column="id"    />
+        <result property="url"    column="url"    />
+        <result property="name"    column="name"    />
+        <result property="formate"    column="formate"    />
+        <result property="formateDesc"    column="formate_desc"    />
+        <result property="local"    column="local"    />
+        <result property="status"    column="status"    />
+        <result property="rate"    column="rate"    />
+    </resultMap>
+
+    <sql id="selectPayCommitFormateVo">
+        select id, url, name, formate, formate_desc, local, status, rate from pay_commit_formate
+    </sql>
+
+    <select id="selectPayCommitFormateList" parameterType="PayCommitFormate" resultMap="PayCommitFormateResult">
+        <include refid="selectPayCommitFormateVo"/>
+        <where>  
+            <if test="url != null  and url != ''"> and url = #{url}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="formate != null  and formate != ''"> and formate = #{formate}</if>
+            <if test="formateDesc != null  and formateDesc != ''"> and formate_desc = #{formateDesc}</if>
+            <if test="local != null  and local != ''"> and local = #{local}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="rate != null "> and rate = #{rate}</if>
+        </where>
+    </select>
+    
+    <select id="selectPayCommitFormateById" parameterType="Long" resultMap="PayCommitFormateResult">
+        <include refid="selectPayCommitFormateVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertPayCommitFormate" parameterType="PayCommitFormate" useGeneratedKeys="true" keyProperty="id">
+        insert into pay_commit_formate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="url != null">url,</if>
+            <if test="name != null">name,</if>
+            <if test="formate != null">formate,</if>
+            <if test="formateDesc != null">formate_desc,</if>
+            <if test="local != null">local,</if>
+            <if test="status != null">status,</if>
+            <if test="rate != null">rate,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="url != null">#{url},</if>
+            <if test="name != null">#{name},</if>
+            <if test="formate != null">#{formate},</if>
+            <if test="formateDesc != null">#{formateDesc},</if>
+            <if test="local != null">#{local},</if>
+            <if test="status != null">#{status},</if>
+            <if test="rate != null">#{rate},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePayCommitFormate" parameterType="PayCommitFormate">
+        update pay_commit_formate
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="url != null">url = #{url},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="formate != null">formate = #{formate},</if>
+            <if test="formateDesc != null">formate_desc = #{formateDesc},</if>
+            <if test="local != null">local = #{local},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="rate != null">rate = #{rate},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePayCommitFormateById" parameterType="Long">
+        delete from pay_commit_formate where id = #{id}
+    </delete>
+
+    <delete id="deletePayCommitFormateByIds" parameterType="String">
+        delete from pay_commit_formate where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

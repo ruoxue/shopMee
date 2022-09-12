@@ -61,6 +61,6 @@ public interface IBuyerPaymentService
      */
     public int deleteBuyerPaymentByRevision(Long revision);
 
-    OrderPO insertBuyerPaymentVirtual(String orderId, String info);
+    OrderPO insertBuyerPaymentVirtual(String orderId, String info,Long addressId);
 
 }

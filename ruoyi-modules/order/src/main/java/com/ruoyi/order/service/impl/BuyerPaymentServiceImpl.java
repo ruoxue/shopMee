@@ -72,6 +72,15 @@ public class BuyerPaymentServiceImpl implements IBuyerPaymentService {
     @Transactional(rollbackFor = Exception.class)
     public PayCommonResult<?> insertBuyerPayment(BuyerPayment query) {
         OrderPO orderPO = remoteOrderService.getInfo(query.getOrderId(), SecurityConstants.INNER);
+
+        orderPO.setUpdatedTime(new Date());
+        orderPO.setAddressId(query.getAddressId());
+        orderPO.setOrderStatus(5);
+        remoteOrderService.updateBuyerPayment(orderPO, SecurityConstants.INNER);
+
+
+
+
         BigDecimal totalPrice = orderPO.getTotalPrice();
 
 
@@ -139,11 +148,13 @@ public class BuyerPaymentServiceImpl implements IBuyerPaymentService {
     }
 
     @Override
-    public OrderPO insertBuyerPaymentVirtual(String orderId, String info) {
+    public OrderPO insertBuyerPaymentVirtual(String orderId, String info,Long addressId) {
         OrderPO orderPO = remoteOrderService.getInfo(orderId, SecurityConstants.INNER);
         BigDecimal totalPrice = orderPO.getTotalPrice();
         orderPO.setInfo(info);
         orderPO.setOrderStatus(10);
+
+        orderPO.setAddressId(addressId);
         remoteOrderService.updateBuyerPayment(orderPO, SecurityConstants.INNER);
 
         return orderPO;
