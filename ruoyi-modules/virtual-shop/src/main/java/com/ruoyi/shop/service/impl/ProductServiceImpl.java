@@ -71,7 +71,7 @@ public class ProductServiceImpl implements IProductService {
     public int insertProduct(ProductPO product, Long categoryId) {
 
         ProductShop productShop = iProductShopService.selectProductShopByShopId(product.getShopId());
-        if (!productShop.getUserId().equals(Integer.parseInt(product.getUserId() + ""))) {
+        if (!productShop.getUserId().equals((product.getUserId()))) {
             return 0;
         }
 
@@ -86,7 +86,7 @@ public class ProductServiceImpl implements IProductService {
 
         ProductSku sku = new ProductSku();
         BeanUtils.copyProperties(product, sku);
-        sku.setGoodsId(product.getId() + "");
+        sku.setGoodsId(product.getId()  );
         iProductSkuService.insertProductSku(sku);
         return i;
     }
@@ -142,11 +142,11 @@ public class ProductServiceImpl implements IProductService {
         }
 
 //todo
-        ProductSku sku = iProductSkuService.selectProductSkuByGoodsId(product.getId() + "");
+        ProductSku sku = iProductSkuService.selectProductSkuByGoodsId(product.getId()  );
         if (sku == null)
             sku = new ProductSku();
         BeanUtils.copyProperties(product, sku);
-        sku.setGoodsId(product.getId() + "");
+        sku.setGoodsId(product.getId()  );
         if (sku.getId().isEmpty()) {
             iProductSkuService.insertProductSku(sku);
         } else {

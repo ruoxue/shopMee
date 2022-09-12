@@ -58,19 +58,7 @@ public class BuyerOrderController extends BaseController {
         return getDataTable(list);
     }
 
-    /**
-     * 导出订单列表
-     */
-//    @RequiresLogin
-//
-//    @Log(title = "订单", businessType = BusinessType.EXPORT)
-//    @PostMapping("/export")
-//    public void export(HttpServletResponse response, BuyerOrder buyerOrder)
-//    {
-//        List<BuyerOrder> list = buyerOrderService.selectBuyerOrderList(buyerOrder);
-//        ExcelUtil<BuyerOrder> util = new ExcelUtil<BuyerOrder>(BuyerOrder.class);
-//        util.exportExcel(response, list, "订单数据");
-//    }
+
 
     /**
      * 获取订单详细信息
@@ -89,31 +77,11 @@ public class BuyerOrderController extends BaseController {
     @PostMapping
     public AjaxResult add(@RequestBody OrderPO buyerOrder) {
         buyerOrder.setUserId(SecurityUtils.getLoginUser().getUserid() + "");
-
-        return AjaxResult.success("", remoteOrderService.insertBuyerOrder(buyerOrder, SecurityConstants.INNER));
+        String s = remoteOrderService.insertBuyerOrder(buyerOrder, SecurityConstants.INNER);
+        if (s.startsWith("Z"))
+        return AjaxResult.success("", s);
+        else
+            return  AjaxResult.error(s);
     }
 
-//    /**
-//     * 修改订单
-//     */
-//    @RequiresLogin
-//
-//    @Log(title = "订单", businessType = BusinessType.UPDATE)
-//    @PutMapping
-//    public AjaxResult edit(@RequestBody BuyerOrder buyerOrder)
-//    {
-//        return toAjax(buyerOrderService.updateBuyerOrder(buyerOrder));
-//    }
-//
-//    /**
-//     * 删除订单
-//     */
-//    @RequiresLogin
-//
-//    @Log(title = "订单", businessType = BusinessType.DELETE)
-//	@DeleteMapping("/{orderIds}")
-//    public AjaxResult remove(@PathVariable String[] orderIds)
-//    {
-//        return toAjax(buyerOrderService.deleteBuyerOrderByOrderIds(orderIds));
-//    }
 }

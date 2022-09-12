@@ -25,7 +25,7 @@ public class ProductSku extends BaseEntity
 
     /** 商品ID */
     @Excel(name = "商品ID")
-    private String goodsId;
+    private Long goodsId;
 
     /** 规格名称 */
     @Excel(name = "规格名称")
@@ -57,7 +57,7 @@ public class ProductSku extends BaseEntity
 
     /** 库存 */
     @Excel(name = "库存")
-    private String stock;
+    private Long stock;
 
     /** 库存预警 */
     @Excel(name = "库存预警")
@@ -101,12 +101,12 @@ public class ProductSku extends BaseEntity
     {
         return shopId;
     }
-    public void setGoodsId(String goodsId) 
+    public void setGoodsId(Long goodsId)
     {
         this.goodsId = goodsId;
     }
 
-    public String getGoodsId() 
+    public Long getGoodsId()
     {
         return goodsId;
     }
@@ -173,12 +173,12 @@ public class ProductSku extends BaseEntity
     {
         return productSn;
     }
-    public void setStock(String stock) 
+    public void setStock(Long stock)
     {
         this.stock = stock;
     }
 
-    public String getStock() 
+    public Long getStock()
     {
         return stock;
     }

@@ -40,7 +40,7 @@ public class ProductBannerController extends BaseController
     /**
      * 查询【请填写功能名称】列表
      */
-    @RequiresLogin
+//    @RequiresLogin
     @GetMapping("/list")
     public TableDataInfo list(ProductBanner productBanner)
     {

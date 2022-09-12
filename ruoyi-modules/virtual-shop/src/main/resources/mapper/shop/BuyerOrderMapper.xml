@@ -100,16 +100,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectBuyerOrderVo"/>
         <where>  
             <if test="userId != null  and userId != ''"> and USER_ID = #{userId}</if>
-            <if test="cartId != null  and cartId != ''"> and CART_ID = #{cartId}</if>
-            <if test="addressId != null  and addressId != ''"> and ADDRESS_ID = #{addressId}</if>
-            <if test="couponId != null  and couponId != ''"> and COUPON_ID = #{couponId}</if>
+            <if test="cartId != null  "> and CART_ID = #{cartId}</if>
+            <if test="addressId != null  "> and ADDRESS_ID = #{addressId}</if>
+            <if test="couponId != null  "> and COUPON_ID = #{couponId}</if>
             <if test="totalPrice != null "> and TOTAL_PRICE = #{totalPrice}</if>
             <if test="couponPrice != null "> and COUPON_PRICE = #{couponPrice}</if>
             <if test="payablePrice != null "> and PAYABLE_PRICE = #{payablePrice}</if>
-            <if test="payMethod != null  and payMethod != ''"> and PAY_METHOD = #{payMethod}</if>
+            <if test="payMethod != null  and "> and PAY_METHOD = #{payMethod}</if>
             <if test="invoiceTplId != null  and invoiceTplId != ''"> and INVOICE_TPL_ID = #{invoiceTplId}</if>
             <if test="leaveComment != null  and leaveComment != ''"> and LEAVE_COMMENT = #{leaveComment}</if>
-            <if test="orderStatus != null  and orderStatus != ''"> and ORDER_STATUS = #{orderStatus}</if>
+            <if test="orderStatus != null  "> and ORDER_STATUS = #{orderStatus}</if>
             <if test="revision != null "> and REVISION = #{revision}</if>
             <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
             <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
@@ -132,16 +132,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectOrderVo"/>
         <where>
             <if test="userId != null  and userId != ''"> and BUYER_ORDER.USER_ID = #{userId}</if>
-            <if test="cartId != null  and cartId != ''"> and CART_ID = #{cartId}</if>
-            <if test="addressId != null  and addressId != ''"> and ADDRESS_ID = #{addressId}</if>
-            <if test="couponId != null  and couponId != ''"> and COUPON_ID = #{couponId}</if>
+            <if test="cartId != null  "> and CART_ID = #{cartId}</if>
+            <if test="addressId != null  "> and ADDRESS_ID = #{addressId}</if>
+            <if test="couponId != null  "> and COUPON_ID = #{couponId}</if>
             <if test="totalPrice != null "> and TOTAL_PRICE = #{totalPrice}</if>
             <if test="couponPrice != null "> and COUPON_PRICE = #{couponPrice}</if>
             <if test="payablePrice != null "> and PAYABLE_PRICE = #{payablePrice}</if>
-            <if test="payMethod != null  and payMethod != ''"> and PAY_METHOD = #{payMethod}</if>
+            <if test="payMethod != null  "> and PAY_METHOD = #{payMethod}</if>
             <if test="invoiceTplId != null  and invoiceTplId != ''"> and INVOICE_TPL_ID = #{invoiceTplId}</if>
             <if test="leaveComment != null  and leaveComment != ''"> and LEAVE_COMMENT = #{leaveComment}</if>
-            <if test="orderStatus != null  and orderStatus != ''"> and ORDER_STATUS = #{orderStatus}</if>
+            <if test="orderStatus != null  "> and ORDER_STATUS = #{orderStatus}</if>
             <if test="revision != null "> and REVISION = #{revision}</if>
             <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
             <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
@@ -161,16 +161,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectSaleBuyerOrderVo"/>
         <where>
             <if test="userId != null  and userId != ''"> and product_shop.USER_ID = #{userId}</if>
-            <if test="cartId != null  and cartId != ''"> and CART_ID = #{cartId}</if>
-            <if test="addressId != null  and addressId != ''"> and ADDRESS_ID = #{addressId}</if>
-            <if test="couponId != null  and couponId != ''"> and COUPON_ID = #{couponId}</if>
+            <if test="cartId != null  "> and CART_ID = #{cartId}</if>
+            <if test="addressId != null  "> and ADDRESS_ID = #{addressId}</if>
+            <if test="couponId != null  "> and COUPON_ID = #{couponId}</if>
             <if test="totalPrice != null "> and TOTAL_PRICE = #{totalPrice}</if>
             <if test="couponPrice != null "> and COUPON_PRICE = #{couponPrice}</if>
             <if test="payablePrice != null "> and PAYABLE_PRICE = #{payablePrice}</if>
-            <if test="payMethod != null  and payMethod != ''"> and PAY_METHOD = #{payMethod}</if>
-            <if test="invoiceTplId != null  and invoiceTplId != ''"> and INVOICE_TPL_ID = #{invoiceTplId}</if>
+            <if test="payMethod != null  "> and PAY_METHOD = #{payMethod}</if>
+            <if test="invoiceTplId != null "> and INVOICE_TPL_ID = #{invoiceTplId}</if>
             <if test="leaveComment != null  and leaveComment != ''"> and LEAVE_COMMENT = #{leaveComment}</if>
-            <if test="orderStatus != null  and orderStatus != ''"> and ORDER_STATUS = #{orderStatus}</if>
+            <if test="orderStatus != null  "> and ORDER_STATUS = #{orderStatus}</if>
             <if test="revision != null "> and REVISION = #{revision}</if>
             <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
             <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
@@ -213,7 +213,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="orderId != null">ORDER_ID,</if>
             <if test="userId != null and userId != ''">USER_ID,</if>
-            <if test="cartId != null and cartId != ''">CART_ID,</if>
+            <if test="cartId != null ">CART_ID,</if>
             <if test="addressId != null">ADDRESS_ID,</if>
             <if test="couponId != null">COUPON_ID,</if>
             <if test="totalPrice != null">TOTAL_PRICE,</if>
@@ -238,7 +238,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="orderId != null">#{orderId},</if>
             <if test="userId != null and userId != ''">#{userId},</if>
-            <if test="cartId != null and cartId != ''">#{cartId},</if>
+            <if test="cartId != null ">#{cartId},</if>
             <if test="addressId != null">#{addressId},</if>
             <if test="couponId != null">#{couponId},</if>
             <if test="totalPrice != null">#{totalPrice},</if>
@@ -267,7 +267,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update BUYER_ORDER
         <trim prefix="SET" suffixOverrides=",">
             <if test="userId != null and userId != ''">USER_ID = #{userId},</if>
-            <if test="cartId != null and cartId != ''">CART_ID = #{cartId},</if>
+            <if test="cartId != null ">CART_ID = #{cartId},</if>
             <if test="addressId != null">ADDRESS_ID = #{addressId},</if>
             <if test="couponId != null">COUPON_ID = #{couponId},</if>
             <if test="totalPrice != null">TOTAL_PRICE = #{totalPrice},</if>

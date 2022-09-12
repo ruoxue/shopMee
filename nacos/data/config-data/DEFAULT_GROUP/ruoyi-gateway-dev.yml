@@ -75,3 +75,4 @@ security:
       - /shop/*/*
       - /mobile/*/*/*
       - /mobile/*
+      - /order/productBanner/list

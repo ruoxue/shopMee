@@ -105,7 +105,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hasOption != null "> and product.has_option = #{hasOption}</if>
             <if test="productCode != null  and productCode != ''"> and product.product_code = #{productCode}</if>
             <if test="productSn != null  and productSn != ''"> and product.product_sn = #{productSn}</if>
-            <if test="stock != null  and stock != ''"> and product.stock = #{stock}</if>
+            <if test="stock != null  "> and product.stock = #{stock}</if>
             <if test="stockWarning != null "> and product.stock_warning = #{stockWarning}</if>
             <if test="stockHide != null "> and product.stock_hide = #{stockHide}</if>
             <if test="stockCnf != null "> and product.stock_cnf = #{stockCnf}</if>
@@ -177,7 +177,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hasOption != null">has_option,</if>
             <if test="productCode != null and productCode != ''">product_code,</if>
             <if test="productSn != null and productSn != ''">product_sn,</if>
-            <if test="stock != null and stock != ''">stock,</if>
+            <if test="stock != null ">stock,</if>
             <if test="stockWarning != null">stock_warning,</if>
             <if test="stockHide != null">stock_hide,</if>
             <if test="stockCnf != null">stock_cnf,</if>
@@ -238,7 +238,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hasOption != null">#{hasOption},</if>
             <if test="productCode != null and productCode != ''">#{productCode},</if>
             <if test="productSn != null and productSn != ''">#{productSn},</if>
-            <if test="stock != null and stock != ''">#{stock},</if>
+            <if test="stock != null ">#{stock},</if>
             <if test="stockWarning != null">#{stockWarning},</if>
             <if test="stockHide != null">#{stockHide},</if>
             <if test="stockCnf != null">#{stockCnf},</if>
@@ -301,7 +301,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hasOption != null">has_option = #{hasOption},</if>
             <if test="productCode != null and productCode != ''">product_code = #{productCode},</if>
             <if test="productSn != null and productSn != ''">product_sn = #{productSn},</if>
-            <if test="stock != null and stock != ''">stock = #{stock},</if>
+            <if test="stock != null ">stock = #{stock},</if>
             <if test="stockWarning != null">stock_warning = #{stockWarning},</if>
             <if test="stockHide != null">stock_hide = #{stockHide},</if>
             <if test="stockCnf != null">stock_cnf = #{stockCnf},</if>

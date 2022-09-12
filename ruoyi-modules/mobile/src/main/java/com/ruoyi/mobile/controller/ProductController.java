@@ -77,7 +77,6 @@ public class ProductController extends BaseController {
     /**
      * 新增商品基础信息
      */
-//    @RequiresPermissions("mobile:product:add")
     @RequiresLogin
     @Log(title = "商品基础信息", businessType = BusinessType.INSERT)
     @PostMapping

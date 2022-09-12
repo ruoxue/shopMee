@@ -59,6 +59,7 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
 
     @Override
     public List<OrderPO> selectSaleOrderList(BuyerOrder buyerOrder) {
+        System.out.println("buyerOrder.getOrderStatus() = " + buyerOrder.getOrderStatus());
         return buyerOrderMapper.selectSaleOrderList(buyerOrder);
     }
 
@@ -110,11 +111,9 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
 
         for (BuyerItem v : buyerItems) {
             ProductSku productSku = productSkuService.selectProductSkuById(v.getSkuId());
-            Product info = productService.selectProductById(Long.parseLong(productSku.getGoodsId()));
+            Product info = productService.selectProductById((productSku.getGoodsId()));
             auto = info.getAuto();
             productService.updateSaleCount(info.getId());
-
-
             if (info.getEndTime().getTime() < new Date().getTime()) {
                 return "";
             }
@@ -137,7 +136,7 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
         for (BuyerItem v : buyerItems) {
             ProductSku productSku = productSkuService.selectProductSkuById(v.getSkuId());
             total = total.add(productSku.getPrice());
-            Product info = productService.selectProductById(Long.parseLong(productSku.getGoodsId()));
+            Product info = productService.selectProductById((productSku.getGoodsId()));
             BuyerItem buyerItem = new BuyerItem();
             buyerItem.setOrderId(buyerOrder.getOrderId());
             buyerItem.setItemId(orderIdUtil.generateId("item", new Date()));

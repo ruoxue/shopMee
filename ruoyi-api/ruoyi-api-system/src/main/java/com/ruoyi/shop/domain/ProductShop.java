@@ -62,7 +62,7 @@ public class ProductShop extends BaseEntity
     @Excel(name = "更新人")
     private String updatedBy;
     @Excel(name = "uid")
-    private Integer userId;
+    private Long userId;
     /** 更新时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Excel(name = "更新时间", width = 30, dateFormat = "yyyy-MM-dd")
@@ -177,11 +177,11 @@ public class ProductShop extends BaseEntity
         return updatedTime;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

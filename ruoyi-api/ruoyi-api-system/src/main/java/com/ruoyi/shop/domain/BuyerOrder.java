@@ -70,7 +70,7 @@ public class BuyerOrder extends BaseEntity
 
     /** 优惠券ID */
     @Excel(name = "优惠券ID")
-    private String couponId;
+    private Long couponId;
 
     /** 总金额 */
     @Excel(name = "总金额")
@@ -90,7 +90,7 @@ public class BuyerOrder extends BaseEntity
 
     /** 开票设置ID */
     @Excel(name = "开票设置ID")
-    private String invoiceTplId;
+    private Long invoiceTplId;
 
     /** 订单留言备注 */
     @Excel(name = "订单留言备注")
@@ -196,12 +196,12 @@ public class BuyerOrder extends BaseEntity
     {
         return addressId;
     }
-    public void setCouponId(String couponId) 
+    public void setCouponId(Long couponId)
     {
         this.couponId = couponId;
     }
 
-    public String getCouponId() 
+    public Long getCouponId()
     {
         return couponId;
     }
@@ -241,12 +241,12 @@ public class BuyerOrder extends BaseEntity
         this.payMethod = payMethod;
     }
 
-    public void setInvoiceTplId(String invoiceTplId)
+    public void setInvoiceTplId(Long invoiceTplId)
     {
         this.invoiceTplId = invoiceTplId;
     }
 
-    public String getInvoiceTplId() 
+    public Long getInvoiceTplId()
     {
         return invoiceTplId;
     }

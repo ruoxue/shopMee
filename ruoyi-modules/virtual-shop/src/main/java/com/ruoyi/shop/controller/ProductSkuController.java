@@ -39,9 +39,9 @@ public class ProductSkuController extends BaseController {
 
     @InnerAuth
     @GetMapping(value = "/fegin/{goodsId}")
-    TableDataInfo getSKuByGoods(@PathVariable("goodsId") Integer goodsId) {
+    TableDataInfo getSKuByGoods(@PathVariable("goodsId") Long goodsId) {
         ProductSku sku = new ProductSku();
-        sku.setGoodsId(goodsId + "");
+        sku.setGoodsId(goodsId );
         return getDataTable(productSkuService.selectProductSkuList(sku));
     }
 

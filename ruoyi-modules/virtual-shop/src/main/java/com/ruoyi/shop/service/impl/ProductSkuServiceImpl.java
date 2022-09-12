@@ -89,7 +89,7 @@ public class ProductSkuServiceImpl implements IProductSkuService {
     }
 
     @Override
-    public ProductSku selectProductSkuByGoodsId(String goodsId) {
+    public ProductSku selectProductSkuByGoodsId(Long goodsId) {
         ProductSku query = new ProductSku();
         query.setGoodsId(goodsId);
         List<ProductSku> productSkus = productSkuMapper.selectProductSkuList(query);

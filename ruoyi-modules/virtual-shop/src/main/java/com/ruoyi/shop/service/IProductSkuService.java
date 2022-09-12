@@ -59,5 +59,5 @@ public interface IProductSkuService
      */
     public int deleteProductSkuById(String id);
 
-    ProductSku selectProductSkuByGoodsId(String goodsId);
+    ProductSku selectProductSkuByGoodsId(Long goodsId);
 }
