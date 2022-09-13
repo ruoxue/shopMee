@@ -87,9 +87,7 @@ public abstract class AbstractPayClient<Config extends PayClientConfig> implemen
         try {
             result = doUnifiedOrder(reqDTO);
         } catch (Throwable ex) {
-            // 打印异常日志
-        //    log.error("[unifiedOrder][request({}) 发起支付失败]", toJsonString(reqDTO), ex);
-            // 封装返回
+
             return PayCommonResult.error(ex);
         }
         return result;

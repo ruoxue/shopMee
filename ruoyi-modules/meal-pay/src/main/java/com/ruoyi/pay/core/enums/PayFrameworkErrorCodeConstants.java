@@ -25,5 +25,5 @@ public interface PayFrameworkErrorCodeConstants {
 
     ErrorCode EXCEPTION = new ErrorCode(2002000999, "调用异常");
 
-    ErrorCode SUCCESS =new ErrorCode(0, "调用异常") ;
+    ErrorCode SUCCESS =new ErrorCode(0, "成功") ;
 }

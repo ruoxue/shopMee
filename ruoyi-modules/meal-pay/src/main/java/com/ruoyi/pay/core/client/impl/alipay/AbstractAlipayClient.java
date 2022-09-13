@@ -1,5 +1,6 @@
 package com.ruoyi.pay.core.client.impl.alipay;
 
+import com.alipay.api.AlipayClient;
 import com.ruoyi.pay.core.client.AbstractPayCodeMapping;
 import com.ruoyi.pay.core.client.PayCommonResult;
 import com.ruoyi.pay.core.client.impl.AbstractPayClient;
@@ -24,7 +25,7 @@ import java.util.Map;
 /**
  * 支付宝抽象类， 实现支付宝统一的接口。如退款
  *
- * @author  jason
+ * @author jason
  */
 
 public abstract class AbstractAlipayClient extends AbstractPayClient<AlipayPayClientConfig> {
@@ -39,23 +40,26 @@ public abstract class AbstractAlipayClient extends AbstractPayClient<AlipayPayCl
     @Override
 
     protected void doInit() throws AlipayApiException {
-        AlipayConfig alipayConfig = new AlipayConfig();
-        BeanUtils.copyProperties(config, alipayConfig);
-        this.client = new DefaultAlipayClient(alipayConfig);
+        this.client =  new DefaultAlipayClient(config.getServerUrl(),
+                config.getAppId(),
+                config.getPrivateKey(), "json", "UTF-8", config.getAlipayPublicKey()
+                , "RSA2"); //获得初始化的AlipayClient
+
     }
 
     /**
      * 从支付宝通知返回参数中解析 PayOrderNotifyRespDTO, 通知具体参数参考
-     *  //https://opendocs.alipay.com/open/203/105286
+     * //https://opendocs.alipay.com/open/203/105286
+     *
      * @param data 通知结果
      * @return 解析结果 PayOrderNotifyRespDTO
-     * @throws Exception  解析失败，抛出异常
+     * @throws Exception 解析失败，抛出异常
      */
     @Override
     public PayOrderNotifyRespDTO parseOrderNotify(PayNotifyDataDTO data) throws Exception {
         Map<String, String> params = strToMap(data.getBody());
 
-        return  PayOrderNotifyRespDTO.builder().setOrderExtensionNo(params.get("out_trade_no"))
+        return PayOrderNotifyRespDTO.builder().setOrderExtensionNo(params.get("out_trade_no"))
                 .setChannelOrderNo(params.get("trade_no")).setChannelUserId(params.get("seller_id"))
                 .setTradeStatus(params.get("trade_status"))
                 .setSuccessTime(DateUtil.parseYYYYMMDDDate(params.get("notify_time")))
@@ -87,21 +91,22 @@ public abstract class AbstractAlipayClient extends AbstractPayClient<AlipayPayCl
     public boolean verifyNotifyData(PayNotifyDataDTO notifyData) {
         boolean verifyResult = false;
         try {
-            verifyResult =  AlipaySignature.rsaCheckV1(notifyData.getParams(), config.getAlipayPublicKey(), StandardCharsets.UTF_8.name(), "RSA2");
+            verifyResult = AlipaySignature.rsaCheckV1(notifyData.getParams(), config.getAlipayPublicKey(), StandardCharsets.UTF_8.name(), "RSA2");
         } catch (AlipayApiException e) {
-          //  log.error("[AlipayClient verifyNotifyData][(notify param is :{}) 验证失败]", toJsonString(notifyData.getParams()), e);
+            //  log.error("[AlipayClient verifyNotifyData][(notify param is :{}) 验证失败]", toJsonString(notifyData.getParams()), e);
         }
         return verifyResult;
     }
 
     /**
      * 支付宝统一的退款接口 alipay.trade.refund
+     *
      * @param reqDTO 退款请求 request DTO
      * @return 退款请求 Response
      */
     @Override
-    protected PayCommonResult<PayRefundUnifiedRespDTO> doUnifiedRefund(PayRefundUnifiedReqDTO reqDTO)  {
-        AlipayTradeRefundModel model=new AlipayTradeRefundModel();
+    protected PayCommonResult<PayRefundUnifiedRespDTO> doUnifiedRefund(PayRefundUnifiedReqDTO reqDTO) {
+        AlipayTradeRefundModel model = new AlipayTradeRefundModel();
         model.setTradeNo(reqDTO.getChannelOrderNo());
         model.setOutTradeNo(reqDTO.getPayTradeNo());
         model.setOutRequestNo(reqDTO.getMerchantRefundId());
@@ -110,8 +115,8 @@ public abstract class AbstractAlipayClient extends AbstractPayClient<AlipayPayCl
         AlipayTradeRefundRequest refundRequest = new AlipayTradeRefundRequest();
         refundRequest.setBizModel(model);
         try {
-            AlipayTradeRefundResponse response =  client.execute(refundRequest);
-           // log.info("[doUnifiedRefund][response({}) 发起退款 渠道返回", toJsonString(response));
+            AlipayTradeRefundResponse response = client.execute(refundRequest);
+            // log.info("[doUnifiedRefund][response({}) 发起退款 渠道返回", toJsonString(response));
             if (response.isSuccess()) {
                 //退款导致触发的异步通知是发送到支付接口中设置的notify_url
                 //支付宝不返回退款单号，设置为空
@@ -123,11 +128,10 @@ public abstract class AbstractAlipayClient extends AbstractPayClient<AlipayPayCl
             return PayCommonResult.build(response.getCode(), response.getMsg(), null, codeMapping);
         } catch (AlipayApiException e) {
             // TODO 记录异常日志
-         //   log.error("[doUnifiedRefund][request({}) 发起退款失败,网络读超时，退款状态未知]", toJsonString(reqDTO), e);
+            //   log.error("[doUnifiedRefund][request({}) 发起退款失败,网络读超时，退款状态未知]", toJsonString(reqDTO), e);
             return PayCommonResult.build(e.getErrCode(), e.getErrMsg(), null, codeMapping);
         }
     }
-
 
 
     /**

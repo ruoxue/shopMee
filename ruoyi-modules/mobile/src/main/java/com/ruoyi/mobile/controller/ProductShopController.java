@@ -40,14 +40,14 @@ public class ProductShopController extends BaseController {
     @GetMapping("/shop")
     public TableDataInfo getShop(ProductShop productShop) {
       //  System.out.println("productShop = " + productShop);
-        productShop.setUserId(Integer.parseInt(SecurityUtils.getLoginUser().getUserid() + ""));
+        productShop.setUserId(SecurityUtils.getLoginUser().getUserid());
         return remoteProductService.getShop(productShop, SecurityConstants.INNER);
     }
 
     @RequiresLogin
     @PostMapping("/shop")
     public AjaxResult addShop(@RequestBody  ProductShop productShop) {
-        productShop.setUserId(Integer.parseInt(SecurityUtils.getLoginUser().getUserid() + ""));
+        productShop.setUserId(  SecurityUtils.getLoginUser().getUserid() );
         productShop.setUpdatedTime(new Date());
         productShop.setCreatedTime(new Date());
         productShop.setShopStatus(null);
@@ -57,7 +57,7 @@ public class ProductShopController extends BaseController {
     @RequiresLogin
     @PutMapping("/shop")
     public AjaxResult editShop(@RequestBody  ProductShop productShop) {
-        productShop.setUserId(Integer.parseInt(SecurityUtils.getLoginUser().getUserid() + ""));
+        productShop.setUserId(SecurityUtils.getLoginUser().getUserid() );
         productShop.setUpdatedTime(new Date());
         productShop.setShopStatus(null);
         return remoteProductService.editShop(productShop, SecurityConstants.INNER);

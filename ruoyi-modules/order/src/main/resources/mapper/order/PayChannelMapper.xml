@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.order.mapper.PayChannelMapper">
-    
+
     <resultMap type="PayChannel" id="PayChannelResult">
         <result property="id"    column="id"    />
         <result property="code"    column="code"    />
@@ -13,30 +13,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="alipayPublicKey"    column="alipay_public_key"    />
         <result property="appCertContent"    column="app_cert_content"    />
         <result property="alipayPublicCertContent"    column="alipay_public_cert_content"    />
+        <result property="appId"    column="app_id"    />
+        <result property="param"    column="param"    />
+        <result property="img"    column="img"    />
+        <result property="gateWay"    column="gate_way"    />
+        <result property="notifyUrl"    column="notify_url"    />
+        <result property="returnUrl"    column="return_url"    />
     </resultMap>
 
     <sql id="selectPayChannelVo">
-        select id, code, name, config, private_key, alipay_public_key, app_cert_content, alipay_public_cert_content from pay_channel
+        select id, code, name, config, private_key, alipay_public_key, app_cert_content, alipay_public_cert_content, app_id, param, img, gate_way, notify_url, return_url from pay_channel
     </sql>
 
     <select id="selectPayChannelList" parameterType="PayChannel" resultMap="PayChannelResult">
         <include refid="selectPayChannelVo"/>
-        <where>  
+        <where>
             <if test="code != null  and code != ''"> and code = #{code}</if>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
-            <if test="config != null  and config != ''"> and config = #{config}</if>
-            <if test="privateKey != null  and privateKey != ''"> and private_key = #{privateKey}</if>
-            <if test="alipayPublicKey != null  and alipayPublicKey != ''"> and alipay_public_key = #{alipayPublicKey}</if>
-            <if test="appCertContent != null  and appCertContent != ''"> and app_cert_content = #{appCertContent}</if>
-            <if test="alipayPublicCertContent != null  and alipayPublicCertContent != ''"> and alipay_public_cert_content = #{alipayPublicCertContent}</if>
+            <if test="appId != null  and appId != ''"> and app_id = #{appId}</if>
+            <if test="gateWay != null  and gateWay != ''"> and gate_way = #{gateWay}</if>
+            <if test="notifyUrl != null  and notifyUrl != ''"> and notify_url = #{notifyUrl}</if>
+            <if test="returnUrl != null  and returnUrl != ''"> and return_url = #{returnUrl}</if>
         </where>
     </select>
-    
+
     <select id="selectPayChannelById" parameterType="Long" resultMap="PayChannelResult">
         <include refid="selectPayChannelVo"/>
         where id = #{id}
     </select>
-        
+
     <insert id="insertPayChannel" parameterType="PayChannel">
         insert into pay_channel
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -48,7 +53,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="alipayPublicKey != null">alipay_public_key,</if>
             <if test="appCertContent != null">app_cert_content,</if>
             <if test="alipayPublicCertContent != null">alipay_public_cert_content,</if>
-         </trim>
+            <if test="appId != null">app_id,</if>
+            <if test="param != null">param,</if>
+            <if test="img != null">img,</if>
+            <if test="gateWay != null">gate_way,</if>
+            <if test="notifyUrl != null">notify_url,</if>
+            <if test="returnUrl != null">return_url,</if>
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
             <if test="code != null and code != ''">#{code},</if>
@@ -58,7 +69,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="alipayPublicKey != null">#{alipayPublicKey},</if>
             <if test="appCertContent != null">#{appCertContent},</if>
             <if test="alipayPublicCertContent != null">#{alipayPublicCertContent},</if>
-         </trim>
+            <if test="appId != null">#{appId},</if>
+            <if test="param != null">#{param},</if>
+            <if test="img != null">#{img},</if>
+            <if test="gateWay != null">#{gateWay},</if>
+            <if test="notifyUrl != null">#{notifyUrl},</if>
+            <if test="returnUrl != null">#{returnUrl},</if>
+        </trim>
     </insert>
 
     <update id="updatePayChannel" parameterType="PayChannel">
@@ -71,6 +88,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="alipayPublicKey != null">alipay_public_key = #{alipayPublicKey},</if>
             <if test="appCertContent != null">app_cert_content = #{appCertContent},</if>
             <if test="alipayPublicCertContent != null">alipay_public_cert_content = #{alipayPublicCertContent},</if>
+            <if test="appId != null">app_id = #{appId},</if>
+            <if test="param != null">param = #{param},</if>
+            <if test="img != null">img = #{img},</if>
+            <if test="gateWay != null">gate_way = #{gateWay},</if>
+            <if test="notifyUrl != null">notify_url = #{notifyUrl},</if>
+            <if test="returnUrl != null">return_url = #{returnUrl},</if>
         </trim>
         where id = #{id}
     </update>
@@ -80,7 +103,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 
     <delete id="deletePayChannelByIds" parameterType="String">
-        delete from pay_channel where id in 
+        delete from pay_channel where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>

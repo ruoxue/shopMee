@@ -10,9 +10,9 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
  * 支付对象 BUYER_PAYMENT
- * 
+ *
  * @author xiaoming
- * @date 2022-08-28
+ * @date 2022-09-12
  */
 public class BuyerPayment extends BaseEntity
 {
@@ -21,10 +21,7 @@ public class BuyerPayment extends BaseEntity
     /** 乐观锁 */
     @Excel(name = "乐观锁")
     private Long revision;
-
-
-    private  Long addressId;
-
+    private  String ip;
 
     /** 创建人 */
     @Excel(name = "创建人")
@@ -67,7 +64,6 @@ public class BuyerPayment extends BaseEntity
     /** $column.columnComment */
     @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private String thirdSn;
-    private  Long payMethod;
 
     /** 状态 */
     @Excel(name = "状态")
@@ -77,123 +73,165 @@ public class BuyerPayment extends BaseEntity
     @Excel(name = "回调ip")
     private String notifyIp;
 
-    public void setRevision(Long revision) 
+    /** $column.columnComment */
+    private Long id;
+
+    public void setRevision(Long revision)
     {
         this.revision = revision;
     }
 
-    public Long getRevision() 
+    public Long getRevision()
     {
         return revision;
     }
-    public void setCreatedBy(String createdBy) 
+    public void setCreatedBy(String createdBy)
     {
         this.createdBy = createdBy;
     }
 
-    public String getCreatedBy() 
+    public String getCreatedBy()
     {
         return createdBy;
     }
-    public void setCreatedTime(Date createdTime) 
+    public void setCreatedTime(Date createdTime)
     {
         this.createdTime = createdTime;
     }
 
-    public Date getCreatedTime() 
+    public Date getCreatedTime()
     {
         return createdTime;
     }
-    public void setUpdatedBy(String updatedBy) 
+    public void setUpdatedBy(String updatedBy)
     {
         this.updatedBy = updatedBy;
     }
 
-    public String getUpdatedBy() 
+    public String getUpdatedBy()
     {
         return updatedBy;
     }
-    public void setUpdatedTime(Date updatedTime) 
+    public void setUpdatedTime(Date updatedTime)
     {
         this.updatedTime = updatedTime;
     }
 
-    public Date getUpdatedTime() 
+    public Date getUpdatedTime()
     {
         return updatedTime;
     }
-    public void setOrderId(String orderId) 
+    public void setOrderId(String orderId)
     {
         this.orderId = orderId;
     }
 
-    public String getOrderId() 
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getOrderId()
     {
         return orderId;
     }
-    public void setOrderAmount(BigDecimal orderAmount) 
+    public void setOrderAmount(BigDecimal orderAmount)
     {
         this.orderAmount = orderAmount;
     }
 
-    public BigDecimal getOrderAmount() 
+    public BigDecimal getOrderAmount()
     {
         return orderAmount;
     }
-    public void setPayAmount(BigDecimal payAmount) 
+    public void setPayAmount(BigDecimal payAmount)
     {
         this.payAmount = payAmount;
     }
 
-    public BigDecimal getPayAmount() 
+    public BigDecimal getPayAmount()
     {
         return payAmount;
     }
-    public void setPayDesc(String payDesc) 
+    public void setPayDesc(String payDesc)
     {
         this.payDesc = payDesc;
     }
 
-    public String getPayDesc() 
+    public String getPayDesc()
     {
         return payDesc;
     }
-    public void setThirdId(String thirdId) 
+    public void setThirdId(String thirdId)
     {
         this.thirdId = thirdId;
     }
 
-    public String getThirdId() 
+    public String getThirdId()
     {
         return thirdId;
     }
-    public void setThirdSn(String thirdSn) 
+    public void setThirdSn(String thirdSn)
     {
         this.thirdSn = thirdSn;
     }
 
-    public String getThirdSn() 
+    public String getThirdSn()
     {
         return thirdSn;
     }
-    public void setStatus(Long status) 
+    public void setStatus(Long status)
     {
         this.status = status;
     }
 
-    public Long getStatus() 
+    public Long getStatus()
     {
         return status;
     }
-    public void setNotifyIp(String notifyIp) 
+    public void setNotifyIp(String notifyIp)
     {
         this.notifyIp = notifyIp;
     }
 
-    public String getNotifyIp() 
+    public String getNotifyIp()
     {
         return notifyIp;
     }
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
+
+    public Long getId()
+    {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
+                .append("revision", getRevision())
+                .append("createdBy", getCreatedBy())
+                .append("createdTime", getCreatedTime())
+                .append("updatedBy", getUpdatedBy())
+                .append("updatedTime", getUpdatedTime())
+                .append("orderId", getOrderId())
+                .append("orderAmount", getOrderAmount())
+                .append("payAmount", getPayAmount())
+                .append("payDesc", getPayDesc())
+                .append("thirdId", getThirdId())
+                .append("thirdSn", getThirdSn())
+                .append("status", getStatus())
+                .append("notifyIp", getNotifyIp())
+                .append("id", getId())
+                .toString();
+    }
+
+    public Long payMethod;
 
     public Long getPayMethod() {
         return payMethod;
@@ -203,30 +241,13 @@ public class BuyerPayment extends BaseEntity
         this.payMethod = payMethod;
     }
 
+    public Long addressId;
+
     public Long getAddressId() {
         return addressId;
     }
 
     public void setAddressId(Long addressId) {
         this.addressId = addressId;
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("revision", getRevision())
-            .append("createdBy", getCreatedBy())
-            .append("createdTime", getCreatedTime())
-            .append("updatedBy", getUpdatedBy())
-            .append("updatedTime", getUpdatedTime())
-            .append("orderId", getOrderId())
-            .append("orderAmount", getOrderAmount())
-            .append("payAmount", getPayAmount())
-            .append("payDesc", getPayDesc())
-            .append("thirdId", getThirdId())
-            .append("thirdSn", getThirdSn())
-            .append("status", getStatus())
-            .append("notifyIp", getNotifyIp())
-            .toString();
     }
 }

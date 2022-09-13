@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.order.mapper.BuyerPaymentMapper">
-    
+
     <resultMap type="BuyerPayment" id="BuyerPaymentResult">
         <result property="revision"    column="REVISION"    />
         <result property="createdBy"    column="CREATED_BY"    />
@@ -18,15 +18,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="thirdSn"    column="third_sn"    />
         <result property="status"    column="status"    />
         <result property="notifyIp"    column="notify_ip"    />
+        <result property="id"    column="id"    />
     </resultMap>
 
     <sql id="selectBuyerPaymentVo">
-        select REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, order_id, order_amount, pay_amount, pay_desc, third_id, third_sn, status, notify_ip from BUYER_PAYMENT
+        select REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, order_id, order_amount, pay_amount,ip, pay_desc, third_id, third_sn, status, notify_ip, id from BUYER_PAYMENT
     </sql>
 
     <select id="selectBuyerPaymentList" parameterType="BuyerPayment" resultMap="BuyerPaymentResult">
         <include refid="selectBuyerPaymentVo"/>
-        <where>  
+        <where>
             <if test="revision != null "> and REVISION = #{revision}</if>
             <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
             <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
@@ -42,13 +43,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="notifyIp != null  and notifyIp != ''"> and notify_ip = #{notifyIp}</if>
         </where>
     </select>
-    
-    <select id="selectBuyerPaymentByRevision" parameterType="Long" resultMap="BuyerPaymentResult">
+
+    <select id="selectBuyerPaymentById" parameterType="Long" resultMap="BuyerPaymentResult">
         <include refid="selectBuyerPaymentVo"/>
-        where REVISION = #{revision}
+        where id = #{id}
     </select>
-        
-    <insert id="insertBuyerPayment" parameterType="BuyerPayment">
+
+    <insert id="insertBuyerPayment" parameterType="BuyerPayment" useGeneratedKeys="true" keyProperty="id">
         insert into BUYER_PAYMENT
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="revision != null">REVISION,</if>
@@ -64,7 +65,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="thirdSn != null">third_sn,</if>
             <if test="status != null">status,</if>
             <if test="notifyIp != null">notify_ip,</if>
-         </trim>
+            <if test="ip != null">ip,</if>
+
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="revision != null">#{revision},</if>
             <if test="createdBy != null">#{createdBy},</if>
@@ -79,12 +82,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="thirdSn != null">#{thirdSn},</if>
             <if test="status != null">#{status},</if>
             <if test="notifyIp != null">#{notifyIp},</if>
-         </trim>
+            <if test="ip != null">#{ip},</if>
+
+        </trim>
     </insert>
 
     <update id="updateBuyerPayment" parameterType="BuyerPayment">
         update BUYER_PAYMENT
         <trim prefix="SET" suffixOverrides=",">
+            <if test="revision != null">REVISION = #{revision},</if>
             <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
             <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
             <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
@@ -97,18 +103,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="thirdSn != null">third_sn = #{thirdSn},</if>
             <if test="status != null">status = #{status},</if>
             <if test="notifyIp != null">notify_ip = #{notifyIp},</if>
+            <if test="ip != null">ip = #{ip},</if>
+
         </trim>
-        where REVISION = #{revision}
+        where id = #{id}
     </update>
 
-    <delete id="deleteBuyerPaymentByRevision" parameterType="Long">
-        delete from BUYER_PAYMENT where REVISION = #{revision}
+    <delete id="deleteBuyerPaymentById" parameterType="Long">
+        delete from BUYER_PAYMENT where id = #{id}
     </delete>
 
-    <delete id="deleteBuyerPaymentByRevisions" parameterType="String">
-        delete from BUYER_PAYMENT where REVISION in 
-        <foreach item="revision" collection="array" open="(" separator="," close=")">
-            #{revision}
+    <delete id="deleteBuyerPaymentByIds" parameterType="String">
+        delete from BUYER_PAYMENT where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
         </foreach>
     </delete>
 </mapper>

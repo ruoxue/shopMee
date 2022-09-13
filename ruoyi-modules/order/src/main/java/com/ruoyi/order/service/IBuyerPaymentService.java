@@ -2,6 +2,7 @@ package com.ruoyi.order.service;
 
 import java.util.List;
 import com.ruoyi.order.domain.BuyerPayment;
+import com.ruoyi.pay.core.client.dto.PayNotifyDataDTO;
 import com.ruoyi.shop.domain.OrderPO;
 import com.ruoyi.pay.core.client.PayCommonResult;
 
@@ -35,7 +36,7 @@ public interface IBuyerPaymentService
      * @param buyerPayment 支付
      * @return 结果
      */
-    public PayCommonResult<?> insertBuyerPayment(BuyerPayment buyerPayment);
+    public PayCommonResult<?> insertBuyerPayment(BuyerPayment buyerPayment,String ip);
 
     /**
      * 修改支付
@@ -62,5 +63,7 @@ public interface IBuyerPaymentService
     public int deleteBuyerPaymentByRevision(Long revision);
 
     OrderPO insertBuyerPaymentVirtual(String orderId, String info,Long addressId);
+
+    void payNotify(PayNotifyDataDTO payNotifyDataDTO);
 
 }

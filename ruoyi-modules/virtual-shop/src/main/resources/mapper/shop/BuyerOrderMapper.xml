@@ -32,6 +32,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="formateName"    column="formate_name"    />
         <result property="formateDesc"    column="formate_desc"    />
         <result property="merchantName"    column="merchantName"    />
+        <result property="subject"    column="subject"    />
+
 
     </resultMap>
 
@@ -233,6 +235,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="commitId != null">commit_id,</if>
             <if test="auto != null">auto,</if>
             <if test="formateId != null">formate_id,</if>
+            <if test="subject != null">subject,</if>
+
 
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -258,6 +262,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="commitId != null">#{commitId},</if>
             <if test="auto != null">#{auto},</if>
             <if test="formateId != null">#{formateId},</if>
+            <if test="subject != null">#{subject},</if>
+
 
 
         </trim>
@@ -287,6 +293,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="commitId != null">commit_id = #{commitId},</if>
             <if test="auto != null">auto = #{auto},</if>
             <if test="formateId != null">formate_id = #{formateId},</if>
+            <if test="subject != null">subject = #{subject},</if>
+
 
         </trim>
         where ORDER_ID = #{orderId}

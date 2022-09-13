@@ -107,6 +107,7 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
         int type = -10;
         int auto = -1;
         Long formateId=null;
+        String subject="";
 
 
         for (BuyerItem v : buyerItems) {
@@ -117,6 +118,7 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
             if (info.getEndTime().getTime() < new Date().getTime()) {
                 return "";
             }
+            subject=productSku.getTitle()+"等";
             formateId=info.getFormateId();
 
             if (type > 0) {
@@ -157,8 +159,10 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
         }
         buyerOrder.setType(type);
         buyerOrder.setTotalPrice(total);
+        buyerOrder.setPayablePrice(total);
         buyerOrder.setAuto(auto);
         buyerOrder.setFormateId(formateId);
+        buyerOrder.setSubject(subject);
         buyerOrderMapper.updateBuyerOrder(buyerOrder);
         return buyerOrder.getOrderId();
     }

@@ -4,7 +4,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import cn.hutool.json.JSON;
+import cn.hutool.json.JSONUtil;
+import com.alipay.api.AlipayResponse;
+import com.alipay.api.response.AlipayTradePagePayResponse;
+import com.alipay.api.response.AlipayTradeWapPayResponse;
 import com.ruoyi.common.core.constant.SecurityConstants;
+import com.ruoyi.pay.core.client.dto.PayNotifyDataDTO;
 import com.ruoyi.shop.domain.OrderPO;
 import com.ruoyi.order.domain.PayChannel;
 import com.ruoyi.order.service.IPayChannelService;
@@ -70,15 +76,13 @@ public class BuyerPaymentServiceImpl implements IBuyerPaymentService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public PayCommonResult<?> insertBuyerPayment(BuyerPayment query) {
+    public PayCommonResult<?> insertBuyerPayment(BuyerPayment query,String ip) {
         OrderPO orderPO = remoteOrderService.getInfo(query.getOrderId(), SecurityConstants.INNER);
 
         orderPO.setUpdatedTime(new Date());
         orderPO.setAddressId(query.getAddressId());
         orderPO.setOrderStatus(5);
         remoteOrderService.updateBuyerPayment(orderPO, SecurityConstants.INNER);
-
-
 
 
         BigDecimal totalPrice = orderPO.getTotalPrice();
@@ -90,25 +94,39 @@ public class BuyerPaymentServiceImpl implements IBuyerPaymentService {
         buyerPayment.setOrderAmount(totalPrice);
         buyerPayment.setOrderId(orderPO.getOrderId());
         buyerPayment.setRevision(1L);
+        buyerPaymentMapper.insertBuyerPayment(buyerPayment);
         PayClientFactory payClientFactory = new PayClientFactoryImpl();
         PayChannel payChannel = payChannelService.selectPayChannelById(query.getPayMethod());
 
-        AlipayPayClientConfig alipayPayClientConfig = new AlipayPayClientConfig();
-        BeanUtils.copyProperties(payChannel, alipayPayClientConfig);
+        AlipayPayClientConfig config = new AlipayPayClientConfig();
+        BeanUtils.copyProperties(payChannel, config);
+        config.setServerUrl(payChannel.getGateWay());
+
+
         payClientFactory.createOrUpdatePayClient(payChannel.getId(), payChannel.getCode()
-                , alipayPayClientConfig);
+                , config);
         PayClient payClient = payClientFactory.getPayClient(payChannel.getId());
 
         PayOrderUnifiedReqDTO payOrderUnifiedReqDTO = new PayOrderUnifiedReqDTO();
 
         payOrderUnifiedReqDTO.setAmount(totalPrice.multiply(BigDecimal.valueOf(100L)).longValue());
-        payOrderUnifiedReqDTO.setExpireTime(new Date());
-        payOrderUnifiedReqDTO.setUserIp("127.0.0.1");
-        payOrderUnifiedReqDTO.setSubject("");
-        payOrderUnifiedReqDTO.setMerchantOrderId(buyerPayment.getOrderId());
+        Date date = new Date();
+        date.setTime(date.getTime() + 600 * 1000 * 60 * 24);
+        payOrderUnifiedReqDTO.setExpireTime(date);
+        payOrderUnifiedReqDTO.setUserIp(ip);
+
+        payOrderUnifiedReqDTO.setMerchantOrderId(buyerPayment.getId() + "");
+        payOrderUnifiedReqDTO.setAmount(orderPO.getPayablePrice().multiply(BigDecimal.valueOf(100)).longValue());
+        payOrderUnifiedReqDTO.setSubject(orderPO.getSubject() );
+        payOrderUnifiedReqDTO.setNotifyUrl(payChannel.getNotifyUrl()+"/"+payChannel.getId()+"/"+buyerPayment.getId());
+        payOrderUnifiedReqDTO.setReturnUrl(payChannel.getReturnUrl()+"/"+payChannel.getId()+"/"+buyerPayment.getId());
 
         PayCommonResult<?> payCommonResult = payClient.unifiedOrder(payOrderUnifiedReqDTO);
-        buyerPaymentMapper.insertBuyerPayment(buyerPayment);
+        AlipayResponse response = ((AlipayResponse) payCommonResult.getData());
+//        buyerPayment.setThirdId(response.getOutTradeNo());
+        buyerPayment.setPayDesc(JSONUtil.toJsonStr(response));
+        buyerPayment.setIp(ip);
+        buyerPaymentMapper.updateBuyerPayment(buyerPayment);
 
 
         return payCommonResult;
@@ -148,7 +166,7 @@ public class BuyerPaymentServiceImpl implements IBuyerPaymentService {
     }
 
     @Override
-    public OrderPO insertBuyerPaymentVirtual(String orderId, String info,Long addressId) {
+    public OrderPO insertBuyerPaymentVirtual(String orderId, String info, Long addressId) {
         OrderPO orderPO = remoteOrderService.getInfo(orderId, SecurityConstants.INNER);
         BigDecimal totalPrice = orderPO.getTotalPrice();
         orderPO.setInfo(info);
@@ -158,5 +176,10 @@ public class BuyerPaymentServiceImpl implements IBuyerPaymentService {
         remoteOrderService.updateBuyerPayment(orderPO, SecurityConstants.INNER);
 
         return orderPO;
+    }
+
+    @Override
+    public void payNotify(PayNotifyDataDTO payNotifyDataDTO) {
+
     }
 }
