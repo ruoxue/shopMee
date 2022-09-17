@@ -1,6 +1,9 @@
 package com.ruoyi.order.mapper;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
+
 import com.ruoyi.order.domain.BuyerPayment;
 
 /**
@@ -17,7 +20,7 @@ public interface BuyerPaymentMapper
      * @param revision 支付主键
      * @return 支付
      */
-    public BuyerPayment selectBuyerPaymentByRevision(Long revision);
+    public BuyerPayment selectBuyerPaymentById(Long revision);
 
     /**
      * 查询支付列表
@@ -49,7 +52,7 @@ public interface BuyerPaymentMapper
      * @param revision 支付主键
      * @return 结果
      */
-    public int deleteBuyerPaymentByRevision(Long revision);
+    public int deleteBuyerPaymentById(Long revision);
 
     /**
      * 批量删除支付
@@ -57,5 +60,8 @@ public interface BuyerPaymentMapper
      * @param revisions 需要删除的数据主键集合
      * @return 结果
      */
-    public int deleteBuyerPaymentByRevisions(Long[] revisions);
+    public int deleteBuyerPaymentById(Long[] revisions);
+
+
+    int updateShopAmount(Map<String, String> param);
 }

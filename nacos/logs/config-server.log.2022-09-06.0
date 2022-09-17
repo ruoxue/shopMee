@@ -1,2 +1,0 @@
-2022-09-06 20:04:13,051 WARN The task in ip: Member{ip='172.20.10.7', port=8848, state=UP, extendInfo={lastRefreshTime=1662359978488, raftMetaData=com.alibaba.nacos.consistency.ProtocolMetaData@3e0e810f, raftPort=7848, readyToUpgrade=true, version=2.1.1}}  did not completed in 1000ms 
-

@@ -31,7 +31,7 @@ public class BuyerItem extends BaseEntity
 
     /** 商品ID */
     @Excel(name = "商品ID")
-    private String skuId;
+    private Long skuId;
 
     /** 商品标题 */
     @Excel(name = "商品标题")
@@ -102,12 +102,12 @@ public class BuyerItem extends BaseEntity
     {
         return itemId;
     }
-    public void setSkuId(String skuId) 
+    public void setSkuId(Long skuId)
     {
         this.skuId = skuId;
     }
 
-    public String getSkuId() 
+    public Long getSkuId()
     {
         return skuId;
     }

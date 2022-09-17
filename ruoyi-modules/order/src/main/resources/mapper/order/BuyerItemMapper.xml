@@ -33,12 +33,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="skuIntro != null  and skuIntro != ''"> and SKU_INTRO = #{skuIntro}</if>
             <if test="price != null "> and PRICE = #{price}</if>
             <if test="costPrice != null "> and cost_price = #{costPrice}</if>
-            <if test="revision != null "> and REVISION = #{revision}</if>
             <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
             <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
             <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
             <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
             <if test="originalPrice != null "> and original_price = #{originalPrice}</if>
+            <if test="orderId != null "> and order_id = #{orderId}</if>
+
         </where>
     </select>
     

@@ -76,3 +76,5 @@ security:
       - /mobile/*/*/*
       - /mobile/*
       - /order/productBanner/list
+      - /order/pay/notify/*/*
+      - /order/pay/notify

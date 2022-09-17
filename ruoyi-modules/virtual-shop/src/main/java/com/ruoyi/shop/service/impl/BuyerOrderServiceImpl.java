@@ -114,10 +114,16 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
             ProductSku productSku = productSkuService.selectProductSkuById(v.getSkuId());
             Product info = productService.selectProductById((productSku.getGoodsId()));
             auto = info.getAuto();
-            productService.updateSaleCount(info.getId());
             if (info.getEndTime().getTime() < new Date().getTime()) {
                 return "";
             }
+
+            if (info.getStock()<=0){
+                return "";
+            }
+            productService.updateSaleCount(info.getId());
+
+
             subject=productSku.getTitle()+"等";
             formateId=info.getFormateId();
 

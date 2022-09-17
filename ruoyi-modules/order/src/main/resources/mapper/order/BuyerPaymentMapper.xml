@@ -108,6 +108,10 @@
         </trim>
         where id = #{id}
     </update>
+    <update id="updateShopAmount" parameterType="java.util.Map">
+
+        update product_shop set amount=amount+#{amount} where shop_id=#{shopId}
+    </update>
 
     <delete id="deleteBuyerPaymentById" parameterType="Long">
         delete from BUYER_PAYMENT where id = #{id}

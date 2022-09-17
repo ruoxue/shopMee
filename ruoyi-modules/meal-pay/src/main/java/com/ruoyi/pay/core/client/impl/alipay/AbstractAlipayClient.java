@@ -1,6 +1,7 @@
 package com.ruoyi.pay.core.client.impl.alipay;
 
 import com.alipay.api.AlipayClient;
+import com.ruoyi.common.core.utils.DateUtils;
 import com.ruoyi.pay.core.client.AbstractPayCodeMapping;
 import com.ruoyi.pay.core.client.PayCommonResult;
 import com.ruoyi.pay.core.client.impl.AbstractPayClient;
@@ -57,18 +58,19 @@ public abstract class AbstractAlipayClient extends AbstractPayClient<AlipayPayCl
      */
     @Override
     public PayOrderNotifyRespDTO parseOrderNotify(PayNotifyDataDTO data) throws Exception {
-        Map<String, String> params = strToMap(data.getBody());
+        Map<String, String> params = data.getParams();
+
 
         return PayOrderNotifyRespDTO.builder().setOrderExtensionNo(params.get("out_trade_no"))
                 .setChannelOrderNo(params.get("trade_no")).setChannelUserId(params.get("seller_id"))
                 .setTradeStatus(params.get("trade_status"))
-                .setSuccessTime(DateUtil.parseYYYYMMDDDate(params.get("notify_time")))
-                .setData(data.getBody()).build();
+                .setSuccessTime(DateUtils.parseDate(params.get("notify_time")))
+                 .build();
     }
 
     @Override
     public PayRefundNotifyDTO parseRefundNotify(PayNotifyDataDTO notifyData) {
-        Map<String, String> params = strToMap(notifyData.getBody());
+        Map<String, String> params = notifyData.getParams();
         PayRefundNotifyDTO notifyDTO = PayRefundNotifyDTO.builder().setChannelOrderNo(params.get("trade_no"))
                 .setTradeNo(params.get("out_trade_no"))
                 .setReqNo(params.get("out_biz_no"))
@@ -91,8 +93,11 @@ public abstract class AbstractAlipayClient extends AbstractPayClient<AlipayPayCl
     public boolean verifyNotifyData(PayNotifyDataDTO notifyData) {
         boolean verifyResult = false;
         try {
-            verifyResult = AlipaySignature.rsaCheckV1(notifyData.getParams(), config.getAlipayPublicKey(), StandardCharsets.UTF_8.name(), "RSA2");
+            verifyResult = AlipaySignature.rsaCheckV1(notifyData.getParams(),
+                    config.getAlipayPublicKey(),
+                    StandardCharsets.UTF_8.name(), "RSA2");
         } catch (AlipayApiException e) {
+            e.printStackTrace();
             //  log.error("[AlipayClient verifyNotifyData][(notify param is :{}) 验证失败]", toJsonString(notifyData.getParams()), e);
         }
         return verifyResult;

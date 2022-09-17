@@ -71,9 +71,9 @@ public class BuyerPaymentController extends BaseController {
      * 获取支付详细信息
      */
     @RequiresLogin
-    @GetMapping(value = "/{revision}")
-    public AjaxResult getInfo(@PathVariable("revision") Long revision) {
-        return AjaxResult.success(buyerPaymentService.selectBuyerPaymentByRevision(revision));
+    @GetMapping(value = "/{id}")
+    public AjaxResult getInfo(@PathVariable("id") Long revision) {
+        return AjaxResult.success(buyerPaymentService.selectBuyerPaymentById(revision));
     }
 
     /**

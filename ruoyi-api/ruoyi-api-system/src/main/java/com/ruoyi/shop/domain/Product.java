@@ -110,7 +110,7 @@ public class Product extends BaseEntity
 
     /** 商品库存 */
     @Excel(name = "商品库存")
-    private String stock;
+    private Long stock;
 
     /** 库存预警 */
     @Excel(name = "库存预警")
@@ -433,12 +433,12 @@ public class Product extends BaseEntity
     {
         return productSn;
     }
-    public void setStock(String stock) 
+    public void setStock(Long stock)
     {
         this.stock = stock;
     }
 
-    public String getStock() 
+    public Long getStock()
     {
         return stock;
     }

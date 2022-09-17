@@ -17,7 +17,7 @@ public class ProductSku extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 自增主键ID */
-    private String id;
+    private Long id;
 
     /** 店铺ID */
     @Excel(name = "店铺ID")
@@ -83,12 +83,12 @@ public class ProductSku extends BaseEntity
     @Excel(name = "展示顺序 越小越靠前")
     private Long displayOrder;
 
-    public void setId(String id) 
+    public void setId(Long id)
     {
         this.id = id;
     }
 
-    public String getId() 
+    public Long getId()
     {
         return id;
     }

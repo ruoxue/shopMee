@@ -157,7 +157,7 @@ public class WXPubPayClient extends AbstractPayClient<WXPayClientConfig> {
                 .setOrderExtensionNo(result.getOutTradeNo())
                 .setChannelOrderNo(result.getTradeState())
                 .setSuccessTime(DateUtil.parse(result.getSuccessTime(), "yyyy-MM-dd'T'HH:mm:ssXXX"))
-                .setData(data.getBody())
+
                 .build();
     }
 
@@ -171,7 +171,7 @@ public class WXPubPayClient extends AbstractPayClient<WXPayClientConfig> {
                 .setChannelOrderNo(notifyResult.getTransactionId())
                 .setChannelUserId(notifyResult.getOpenid())
                 .setSuccessTime(DateUtil.parse(notifyResult.getTimeEnd(), "yyyyMMddHHmmss"))
-                .setData(data.getBody())
+
                 .build();
 
     }
@@ -180,6 +180,11 @@ public class WXPubPayClient extends AbstractPayClient<WXPayClientConfig> {
     public PayRefundNotifyDTO parseRefundNotify(PayNotifyDataDTO notifyData) {
         // TODO 需要实现
         throw new UnsupportedOperationException("需要实现");
+    }
+
+    @Override
+    public boolean verifyNotifyData(PayNotifyDataDTO notifyData) {
+        return false;
     }
 
     @Override

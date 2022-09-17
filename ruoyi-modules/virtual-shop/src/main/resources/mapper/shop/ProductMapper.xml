@@ -341,7 +341,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
     <update id="updateSaleCount"  parameterType="Long">
-        update product set sales_count=sales_count+1 where id=#{id}
+        update product set sales_count=sales_count+1,stock=stock-1 where id=#{id}
 
     </update>
 

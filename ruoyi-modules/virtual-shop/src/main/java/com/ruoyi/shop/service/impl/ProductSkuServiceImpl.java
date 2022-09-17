@@ -27,7 +27,7 @@ public class ProductSkuServiceImpl implements IProductSkuService {
      * @return 商品规格信息
      */
     @Override
-    public ProductSku selectProductSkuById(String id) {
+    public ProductSku selectProductSkuById(Long id) {
         return productSkuMapper.selectProductSkuById(id);
     }
 

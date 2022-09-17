@@ -17,8 +17,9 @@ public class RemoteProductSkuFallbackFactory  implements FallbackFactory<RemoteP
     @Override
     public RemoteProductSkuService create(Throwable cause) {
         return new RemoteProductSkuService() {
+
             @Override
-            public ProductSku getInfo(String id, String source) {
+            public ProductSku getInfo(Long id, String source) {
                 return null;
             }
 

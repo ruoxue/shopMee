@@ -17,7 +17,7 @@ public interface ProductSkuMapper
      * @param id 商品规格信息主键
      * @return 商品规格信息
      */
-    public ProductSku selectProductSkuById(String id);
+    public ProductSku selectProductSkuById(Long id);
 
     /**
      * 查询商品规格信息列表

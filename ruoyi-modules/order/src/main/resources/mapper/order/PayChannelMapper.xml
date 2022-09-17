@@ -19,10 +19,12 @@
         <result property="gateWay"    column="gate_way"    />
         <result property="notifyUrl"    column="notify_url"    />
         <result property="returnUrl"    column="return_url"    />
+        <result property="showUrl"    column="show_url"    />
+
     </resultMap>
 
     <sql id="selectPayChannelVo">
-        select id, code, name, config, private_key, alipay_public_key, app_cert_content, alipay_public_cert_content, app_id, param, img, gate_way, notify_url, return_url from pay_channel
+        select id, code, name, config, private_key, alipay_public_key, app_cert_content, alipay_public_cert_content, app_id, param, img, gate_way, notify_url, return_url,show_url from pay_channel
     </sql>
 
     <select id="selectPayChannelList" parameterType="PayChannel" resultMap="PayChannelResult">
@@ -34,6 +36,8 @@
             <if test="gateWay != null  and gateWay != ''"> and gate_way = #{gateWay}</if>
             <if test="notifyUrl != null  and notifyUrl != ''"> and notify_url = #{notifyUrl}</if>
             <if test="returnUrl != null  and returnUrl != ''"> and return_url = #{returnUrl}</if>
+            <if test="showUrl != null  and showUrl != ''"> and show_url = #{showUrl}</if>
+
         </where>
     </select>
 
@@ -59,6 +63,8 @@
             <if test="gateWay != null">gate_way,</if>
             <if test="notifyUrl != null">notify_url,</if>
             <if test="returnUrl != null">return_url,</if>
+            <if test="showUrl != null">show_url,</if>
+
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
@@ -75,6 +81,8 @@
             <if test="gateWay != null">#{gateWay},</if>
             <if test="notifyUrl != null">#{notifyUrl},</if>
             <if test="returnUrl != null">#{returnUrl},</if>
+            <if test="showUrl != null">#{showUrl},</if>
+
         </trim>
     </insert>
 
@@ -94,6 +102,8 @@
             <if test="gateWay != null">gate_way = #{gateWay},</if>
             <if test="notifyUrl != null">notify_url = #{notifyUrl},</if>
             <if test="returnUrl != null">return_url = #{returnUrl},</if>
+            <if test="showUrl != null">show_url = #{showUrl},</if>
+
         </trim>
         where id = #{id}
     </update>

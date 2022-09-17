@@ -47,7 +47,7 @@ public class ProductSkuController extends BaseController {
 
 
     @GetMapping(value = "/remote/{id}")
-    public ProductSku getInfoRemote(@PathVariable("id") String id) {
+    public ProductSku getInfoRemote(@PathVariable("id") Long id) {
         return (productSkuService.selectProductSkuById(id));
     }
 
@@ -79,7 +79,7 @@ public class ProductSkuController extends BaseController {
      */
     @RequiresPermissions("shop:productSku:query")
     @GetMapping(value = "/{id}")
-    public AjaxResult getInfo(@PathVariable("id") String id) {
+    public AjaxResult getInfo(@PathVariable("id") Long id) {
         return AjaxResult.success(productSkuService.selectProductSkuById(id));
     }
 

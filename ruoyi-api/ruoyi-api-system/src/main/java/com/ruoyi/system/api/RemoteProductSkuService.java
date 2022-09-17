@@ -22,7 +22,7 @@ public interface RemoteProductSkuService {
      * 获取商品基础信息详细信息
      */
     @GetMapping(value = "/productSku/remote/{id}")
-    public ProductSku getInfo(@PathVariable("id") String id, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
+    public ProductSku getInfo(@PathVariable("id") Long id, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
 
     /**
      * 新增商品基础信息

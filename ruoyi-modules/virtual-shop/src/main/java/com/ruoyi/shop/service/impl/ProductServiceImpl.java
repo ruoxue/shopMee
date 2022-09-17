@@ -86,7 +86,7 @@ public class ProductServiceImpl implements IProductService {
 
         ProductSku sku = new ProductSku();
         BeanUtils.copyProperties(product, sku);
-        sku.setGoodsId(product.getId()  );
+        sku.setGoodsId(product.getId());
         iProductSkuService.insertProductSku(sku);
         return i;
     }
@@ -142,12 +142,12 @@ public class ProductServiceImpl implements IProductService {
         }
 
 //todo
-        ProductSku sku = iProductSkuService.selectProductSkuByGoodsId(product.getId()  );
+        ProductSku sku = iProductSkuService.selectProductSkuByGoodsId(product.getId());
         if (sku == null)
             sku = new ProductSku();
         BeanUtils.copyProperties(product, sku);
-        sku.setGoodsId(product.getId()  );
-        if (sku.getId().isEmpty()) {
+        sku.setGoodsId(product.getId());
+        if (sku.getId() <= 0) {
             iProductSkuService.insertProductSku(sku);
         } else {
             iProductSkuService.updateProductSku(sku);

@@ -64,6 +64,16 @@ public class PayChannel extends BaseEntity
     @Excel(name = "同步回调地址")
     private String returnUrl;
 
+    private  String showUrl;
+
+    public String getShowUrl() {
+        return showUrl;
+    }
+
+    public void setShowUrl(String showUrl) {
+        this.showUrl = showUrl;
+    }
+
     public void setId(Long id)
     {
         this.id = id;

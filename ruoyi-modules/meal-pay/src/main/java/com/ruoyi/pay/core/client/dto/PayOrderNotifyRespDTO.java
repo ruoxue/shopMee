@@ -28,12 +28,7 @@ public class PayOrderNotifyRespDTO {
      */
     private Date successTime;
 
-    /**
-     * 通知的原始数据
-     *
-     * 主要用于持久化，方便后续修复数据，或者排错
-     */
-    private String data;
+
 
     /**
      * TODO @jason 结合其他的渠道定义成枚举,
@@ -84,14 +79,7 @@ public class PayOrderNotifyRespDTO {
         return  this;
     }
 
-    public String getData() {
-        return data;
-    }
 
-    public PayOrderNotifyRespDTO setData(String data) {
-        this.data = data;
-        return  this;
-    }
 
     public String getTradeStatus() {
         return tradeStatus;

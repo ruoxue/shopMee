@@ -11,6 +11,7 @@ public enum PayNotifyRefundStatusEnum {
      * 退款成功
      */
     SUCCESS,
+    TRADE_SUCCESS,
 
     /**
      * 支付宝退款通知没有这个状态
