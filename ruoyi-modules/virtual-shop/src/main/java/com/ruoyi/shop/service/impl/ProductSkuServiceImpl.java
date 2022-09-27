@@ -1,8 +1,11 @@
 package com.ruoyi.shop.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ruoyi.common.core.utils.DateUtils;
+import com.ruoyi.shop.domain.ProductSpecOption;
+import com.ruoyi.shop.service.IProductSpecOptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.shop.mapper.ProductSkuMapper;
@@ -19,6 +22,9 @@ import com.ruoyi.shop.service.IProductSkuService;
 public class ProductSkuServiceImpl implements IProductSkuService {
     @Autowired
     private ProductSkuMapper productSkuMapper;
+    @Autowired
+    private IProductSpecOptionService productSpecOptionService;
+
 
     /**
      * 查询商品规格信息
@@ -28,8 +34,10 @@ public class ProductSkuServiceImpl implements IProductSkuService {
      */
     @Override
     public ProductSku selectProductSkuById(Long id) {
+
         return productSkuMapper.selectProductSkuById(id);
     }
+
 
     /**
      * 查询商品规格信息列表
@@ -39,8 +47,35 @@ public class ProductSkuServiceImpl implements IProductSkuService {
      */
     @Override
     public List<ProductSku> selectProductSkuList(ProductSku productSku) {
-        return productSkuMapper.selectProductSkuList(productSku);
+        List<ProductSku> productSkus = productSkuMapper.selectProductSkuList(productSku);
+
+        for (ProductSku sku:productSkus){
+            String specOptionIds = sku.getSpecOptionIds();
+            sku.setSpecs(getSpecsByIds(specOptionIds,sku.getGoodsId()));
+        }
+
+
+        return productSkus;
     }
+
+    public List<String>   getSpecsByIds(String  specs, Long goodsId) {
+
+        List<String> mList=new ArrayList<>();
+        String[] split = specs.split(",");
+
+        for (int i = 0; i < split.length; i++) {
+            Long specId = Long.parseLong(split[i]);
+           ProductSpecOption productSpecOption = productSpecOptionService.selectProductSpecOptionById(specId);
+
+           mList.add(productSpecOption.getName());
+        }
+
+
+        return mList;
+    }
+
+
+
 
     /**
      * 新增商品规格信息

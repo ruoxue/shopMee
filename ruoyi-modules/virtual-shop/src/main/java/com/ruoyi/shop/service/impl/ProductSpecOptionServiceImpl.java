@@ -27,7 +27,7 @@ public class ProductSpecOptionServiceImpl implements IProductSpecOptionService
      * @return 商品规格项
      */
     @Override
-    public ProductSpecOption selectProductSpecOptionById(String id)
+    public ProductSpecOption selectProductSpecOptionById(Long id)
     {
         return productSpecOptionMapper.selectProductSpecOptionById(id);
     }
@@ -92,5 +92,21 @@ public class ProductSpecOptionServiceImpl implements IProductSpecOptionService
     public int deleteProductSpecOptionById(String id)
     {
         return productSpecOptionMapper.deleteProductSpecOptionById(id);
+    }
+
+    @Override
+    public List<ProductSpecOption> selectProductSpecOptionListBy(String specName, Long goodsId) {
+        ProductSpecOption productSpecOption=new ProductSpecOption();
+        productSpecOption.setGoodsId(goodsId);
+        productSpecOption.setName(specName);
+        return productSpecOptionMapper.selectProductSpecOptionList(productSpecOption);
+    }
+
+    @Override
+    public List<ProductSpecOption> selectProductSpecOptionNameListBy(Long specId, Long goodsId) {
+        ProductSpecOption productSpecOption=new ProductSpecOption();
+        productSpecOption.setGoodsId(goodsId);
+        productSpecOption.setSpecId(specId);
+        return productSpecOptionMapper.selectProductSpecOptionList(productSpecOption);
     }
 }

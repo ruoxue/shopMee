@@ -17,7 +17,7 @@ public interface ProductSpecOptionMapper
      * @param id 商品规格项主键
      * @return 商品规格项
      */
-    public ProductSpecOption selectProductSpecOptionById(String id);
+    public ProductSpecOption selectProductSpecOptionById(Long id);
 
     /**
      * 查询商品规格项列表

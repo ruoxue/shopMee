@@ -3,6 +3,8 @@ package com.ruoyi.shop.controller;
 import java.util.List;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.security.annotation.InnerAuth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +37,10 @@ public class ProductSpecOptionController extends BaseController
     @Autowired
     private IProductSpecOptionService productSpecOptionService;
 
+
+
+
+
     /**
      * 查询商品规格项列表
      */
@@ -65,7 +71,7 @@ public class ProductSpecOptionController extends BaseController
      */
     @RequiresPermissions("shop:productSpecOption:query")
     @GetMapping(value = "/{id}")
-    public AjaxResult getInfo(@PathVariable("id") String id)
+    public AjaxResult getInfo(@PathVariable("id") Long id)
     {
         return AjaxResult.success(productSpecOptionService.selectProductSpecOptionById(id));
     }

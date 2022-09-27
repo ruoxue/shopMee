@@ -7,15 +7,13 @@ import com.ruoyi.common.core.utils.DateUtils;
 import com.ruoyi.shop.domain.*;
 import com.ruoyi.shop.mapper.ProductCategoryMapMapper;
 import com.ruoyi.shop.param.ProductPO;
-import com.ruoyi.shop.service.IProductCategoryMapService;
-import com.ruoyi.shop.service.IProductShopService;
-import com.ruoyi.shop.service.IProductSkuService;
+import com.ruoyi.shop.param.ProductSpec;
+import com.ruoyi.shop.service.*;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.shop.mapper.ProductMapper;
-import com.ruoyi.shop.service.IProductService;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -34,6 +32,10 @@ public class ProductServiceImpl implements IProductService {
     private IProductCategoryMapService productCategoryMapService;
     @Autowired
     private IProductSkuService iProductSkuService;
+    @Autowired
+    private IProductSpecTitleService productSpecTitleService;
+    @Autowired
+    private IProductSpecOptionService productSpecOptionService;
 
 
     /**
@@ -84,11 +86,63 @@ public class ProductServiceImpl implements IProductService {
         productCategoryMap.setGoodsId(product.getId());
         productCategoryMapService.insertProductCategoryMap(productCategoryMap);
 
-        ProductSku sku = new ProductSku();
-        BeanUtils.copyProperties(product, sku);
-        sku.setGoodsId(product.getId());
-        iProductSkuService.insertProductSku(sku);
+
+        List<ProductSpec> specArr = product.getSpecArr();
+        List<ProductSku> skus = product.getSkus();
+
+
+        for (int i1 = 0; i1 < specArr.size(); i1++) {
+
+            ProductSpec productSpec = specArr.get(i1);
+
+            String name = productSpec.getName();
+            List<String> conName = productSpec.getConName();
+            ProductSpecTitle productSpecTitle = new ProductSpecTitle();
+            productSpecTitle.setTitle(name);
+            productSpecTitle.setGoodsId(product.getId());
+            productSpecTitleService.insertProductSpecTitle(productSpecTitle);
+
+
+            for (int i2 = 0; i2 < conName.size(); i2++) {
+
+                String con = conName.get(i2);
+                ProductSpecOption productSpecOption = new ProductSpecOption();
+                productSpecOption.setGoodsId(product.getId());
+                productSpecOption.setName(con);
+                productSpecOption.setSpecId(productSpecTitle.getId());
+                productSpecOptionService.insertProductSpecOption(productSpecOption);
+
+            }
+        }
+
+        for (int i1 = 0; i1 < skus.size(); i1++) {
+
+            ProductSku sku = skus.get(i1);
+            List<String> specs = sku.getSpecs();
+
+            String optionIds = ((IProductService) AopContext.currentProxy()).getOptionIdsByName(specs, product.getId());
+
+            sku.setSpecOptionIds(optionIds);
+            sku.setShopId(product.getShopId());
+            sku.setGoodsId(product.getId());
+            iProductSkuService.insertProductSku(sku);
+        }
+
+
         return i;
+    }
+
+    public String getOptionIdsByName(List<String> specs, Long goodsId) {
+        StringBuilder specId = new StringBuilder();
+        for (int i = 0; i < specs.size(); i++) {
+            String specName = specs.get(i);
+            List<ProductSpecOption> productSpecOptions = productSpecOptionService.selectProductSpecOptionListBy(specName, goodsId);
+            ProductSpecOption productSpecOption = productSpecOptions.stream().findFirst().get();
+            specId.append(",").append(productSpecOption.getId());
+        }
+
+
+        return specId.substring(1);
     }
 
 

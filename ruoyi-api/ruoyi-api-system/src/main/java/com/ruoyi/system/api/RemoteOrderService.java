@@ -5,6 +5,7 @@ import com.ruoyi.common.core.constant.ServiceNameConstants;
 import com.ruoyi.shop.domain.OrderBasicVO;
 import com.ruoyi.shop.domain.OrderPO;
 import com.ruoyi.shop.domain.BuyerOrder;
+import com.ruoyi.shop.domain.ProductSpecTitle;
 import com.ruoyi.system.api.factory.RemoteOrderFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -45,4 +46,6 @@ public interface RemoteOrderService
 
     @PutMapping(value ="/buyerOrder/order/basic/fegin/{uid}")
     public List<OrderBasicVO>  basicInfo(@PathVariable("uid") String uid, @RequestHeader(SecurityConstants.FROM_SOURCE) String inner) ;
+
+
 }

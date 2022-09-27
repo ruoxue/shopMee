@@ -38,13 +38,10 @@ public class BuyerOrderController extends BaseController {
 
     @InnerAuth
     @PostMapping("/fegin")
-    public String fegin(){
+    public String fegin() {
 
         return "";
     }
-
-
-
 
 
     /**
@@ -57,7 +54,6 @@ public class BuyerOrderController extends BaseController {
         List<OrderPO> list = remoteOrderService.selectBuyerOrderList(buyerOrder, SecurityConstants.INNER);
         return getDataTable(list);
     }
-
 
 
     /**
@@ -78,10 +74,10 @@ public class BuyerOrderController extends BaseController {
     public AjaxResult add(@RequestBody OrderPO buyerOrder) {
         buyerOrder.setUserId(SecurityUtils.getLoginUser().getUserid() + "");
         String s = remoteOrderService.insertBuyerOrder(buyerOrder, SecurityConstants.INNER);
-        if (s.startsWith("Z"))
-        return AjaxResult.success("", s);
+        if (s != null && s.startsWith("Z"))
+            return AjaxResult.success("ok", s);
         else
-            return  AjaxResult.error(s);
+            return AjaxResult.error(s);
     }
 
 }

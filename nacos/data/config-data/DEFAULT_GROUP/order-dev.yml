@@ -30,3 +30,5 @@ meal:
     payNotifyUrl: https://ruoyi.vip
     refundNotifyUrl: https://ruoyi.vip
     payReturnUrl: https://ruoyi.vip
+wechat:
+   token: 6b4d95d838f411edb6b30242ac110002

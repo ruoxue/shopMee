@@ -1,6 +1,8 @@
 package com.ruoyi.shop.domain;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.annotation.Excel;
@@ -11,9 +13,13 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
  * 
  * @author xiaoming
  * @date 2022-08-07
+ *
+ *
+ *
  */
 public class ProductSku extends BaseEntity
 {
+
     private static final long serialVersionUID = 1L;
 
     /** 自增主键ID */
@@ -78,6 +84,9 @@ public class ProductSku extends BaseEntity
     /** 规格项id 多个值逗号分割 关联product_spec_option表主键ID */
     @Excel(name = "规格项id 多个值逗号分割 关联product_spec_option表主键ID")
     private String specOptionIds;
+
+    @Excel(name = "规格项")
+    private List<String> specs;
 
     /** 展示顺序 越小越靠前 */
     @Excel(name = "展示顺序 越小越靠前")
@@ -235,6 +244,14 @@ public class ProductSku extends BaseEntity
     public Long getDisplayOrder() 
     {
         return displayOrder;
+    }
+
+    public List<String> getSpecs() {
+        return specs;
+    }
+
+    public void setSpecs(List<String> specs) {
+        this.specs = specs;
     }
 
     @Override

@@ -12,16 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="promAmount"    column="prom_amount"    />
         <result property="shopStatus"    column="shop_status"    />
         <result property="userScore"    column="USER_SCORE"    />
-        <result property="lastLoginTime"    column="LAST_LOGIN_TIME"    />
-        <result property="createdBy"    column="CREATED_BY"    />
-        <result property="createdTime"    column="CREATED_TIME"    />
         <result property="updatedBy"    column="UPDATED_BY"    />
         <result property="updatedTime"    column="UPDATED_TIME"    />
         <result property="userId"    column="user_id"    />
     </resultMap>
 
     <sql id="selectProductShopVo">
-        select shop_id, shop_name, shop_info, AVATAR, prom_amount, shop_status, USER_SCORE, LAST_LOGIN_TIME, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME,user_id from product_shop
+        select * from product_shop
     </sql>
 
     <select id="selectProductShopList" parameterType="ProductShop" resultMap="ProductShopResult">
@@ -33,11 +30,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="promAmount != null "> and prom_amount = #{promAmount}</if>
             <if test="shopStatus != null  and shopStatus != ''"> and shop_status = #{shopStatus}</if>
             <if test="userScore != null "> and USER_SCORE = #{userScore}</if>
-            <if test="lastLoginTime != null "> and LAST_LOGIN_TIME = #{lastLoginTime}</if>
-            <if test="createdBy != null  and createdBy != ''"> and CREATED_BY = #{createdBy}</if>
-            <if test="createdTime != null "> and CREATED_TIME = #{createdTime}</if>
-            <if test="updatedBy != null  and updatedBy != ''"> and UPDATED_BY = #{updatedBy}</if>
-            <if test="updatedTime != null "> and UPDATED_TIME = #{updatedTime}</if>
             <if test="userId != null "> and user_id = #{userId}</if>
 
         </where>
@@ -58,11 +50,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="promAmount != null">prom_amount,</if>
             <if test="shopStatus != null">shop_status,</if>
             <if test="userScore != null">USER_SCORE,</if>
-            <if test="lastLoginTime != null">LAST_LOGIN_TIME,</if>
-            <if test="createdBy != null">CREATED_BY,</if>
-            <if test="createdTime != null">CREATED_TIME,</if>
-            <if test="updatedBy != null">UPDATED_BY,</if>
-            <if test="updatedTime != null">UPDATED_TIME,</if>
             <if test="userId != null">user_id,</if>
 
         </trim>
@@ -73,11 +60,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="promAmount != null">#{promAmount},</if>
             <if test="shopStatus != null">#{shopStatus},</if>
             <if test="userScore != null">#{userScore},</if>
-            <if test="lastLoginTime != null">#{lastLoginTime},</if>
-            <if test="createdBy != null">#{createdBy},</if>
-            <if test="createdTime != null">#{createdTime},</if>
-            <if test="updatedBy != null">#{updatedBy},</if>
-            <if test="updatedTime != null">#{updatedTime},</if>
             <if test="userId != null">#{userId},</if>
 
         </trim>
@@ -92,11 +74,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="promAmount != null">prom_amount = #{promAmount},</if>
             <if test="shopStatus != null">shop_status = #{shopStatus},</if>
             <if test="userScore != null">USER_SCORE = #{userScore},</if>
-            <if test="lastLoginTime != null">LAST_LOGIN_TIME = #{lastLoginTime},</if>
-            <if test="createdBy != null">CREATED_BY = #{createdBy},</if>
-            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
-            <if test="updatedBy != null">UPDATED_BY = #{updatedBy},</if>
-            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
             <if test="userId != null">user_id = #{userId},</if>
 
         </trim>

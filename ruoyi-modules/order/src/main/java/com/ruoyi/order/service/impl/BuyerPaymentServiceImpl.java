@@ -97,7 +97,7 @@ public class BuyerPaymentServiceImpl implements IBuyerPaymentService {
 
         orderPO.setUpdatedTime(new Date());
         orderPO.setAddressId(query.getAddressId());
-        orderPO.setOrderStatus(5);
+        orderPO.setOrderStatus(0);
         remoteOrderService.updateBuyerPayment(orderPO, SecurityConstants.INNER);
 
 

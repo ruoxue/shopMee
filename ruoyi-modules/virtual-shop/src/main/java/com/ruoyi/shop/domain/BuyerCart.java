@@ -179,4 +179,9 @@ public class BuyerCart extends BaseEntity
             .append("updatedTime", getUpdatedTime())
             .toString();
     }
+
+    public static void main(String[] args) {
+        System.out.println(79 << 2);
+    }
+
 }

@@ -250,7 +250,6 @@
         <module>ruoyi-api</module>
         <module>ruoyi-common</module>
         <module>ruoyi-modules/virtual-shop</module>
-        <module>ruoyi-modules/merchant</module>
         <module>ruoyi-modules/mobile</module>
         <module>ruoyi-modules/order</module>
     </modules>

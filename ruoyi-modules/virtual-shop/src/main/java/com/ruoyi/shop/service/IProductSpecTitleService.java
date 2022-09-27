@@ -1,6 +1,8 @@
 package com.ruoyi.shop.service;
 
 import java.util.List;
+import java.util.Map;
+
 import com.ruoyi.shop.domain.ProductSpecTitle;
 
 /**
@@ -58,4 +60,6 @@ public interface IProductSpecTitleService
      * @return 结果
      */
     public int deleteProductSpecTitleById(String id);
+
+    Map<String,List<ProductSpecTitle>> selectProductSpecTitleAndSpecList(ProductSpecTitle productSpecTitle);
 }

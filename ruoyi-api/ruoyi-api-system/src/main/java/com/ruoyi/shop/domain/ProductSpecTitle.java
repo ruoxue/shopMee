@@ -16,7 +16,7 @@ public class ProductSpecTitle extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 自增主键ID */
-    private String id;
+    private Long id;
 
     /** 店铺ID */
     @Excel(name = "店铺ID")
@@ -24,7 +24,7 @@ public class ProductSpecTitle extends BaseEntity
 
     /** 商品ID */
     @Excel(name = "商品ID")
-    private String goodsId;
+    private Long goodsId;
 
     /** 商品规格项名称 */
     @Excel(name = "商品规格项名称")
@@ -34,12 +34,41 @@ public class ProductSpecTitle extends BaseEntity
     @Excel(name = "展示顺序 越小越靠前")
     private Long displayOrder;
 
-    public void setId(String id) 
+    private Long psoSpecId ;
+    private Long psoId ;
+    private String name ;
+
+
+    public Long getPsoSpecId() {
+        return psoSpecId;
+    }
+
+    public void setPsoSpecId(Long psoSpecId) {
+        this.psoSpecId = psoSpecId;
+    }
+
+    public Long getPsoId() {
+        return psoId;
+    }
+
+    public void setPsoId(Long psoId) {
+        this.psoId = psoId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(Long id)
     {
         this.id = id;
     }
 
-    public String getId() 
+    public Long getId()
     {
         return id;
     }
@@ -52,12 +81,12 @@ public class ProductSpecTitle extends BaseEntity
     {
         return shopId;
     }
-    public void setGoodsId(String goodsId) 
+    public void setGoodsId(Long goodsId)
     {
         this.goodsId = goodsId;
     }
 
-    public String getGoodsId() 
+    public Long getGoodsId()
     {
         return goodsId;
     }

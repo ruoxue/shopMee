@@ -58,4 +58,6 @@ public interface ProductSpecTitleMapper
      * @return 结果
      */
     public int deleteProductSpecTitleByIds(String[] ids);
+
+    List<ProductSpecTitle> selectProductSpecTitleAndSpecList(ProductSpecTitle productSpecTitle);
 }

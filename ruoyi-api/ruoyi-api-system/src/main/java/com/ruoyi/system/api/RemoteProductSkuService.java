@@ -7,12 +7,14 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
 import com.ruoyi.shop.domain.ProductCategory;
 import com.ruoyi.shop.domain.ProductShop;
 import com.ruoyi.shop.domain.ProductSku;
+import com.ruoyi.shop.domain.ProductSpecTitle;
 import com.ruoyi.shop.param.ProductPO;
 import com.ruoyi.system.api.factory.RemoteProductSkuFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @FeignClient(contextId = "remoteProductSkuService", value = ServiceNameConstants.SHOP_SERVICE,fallbackFactory = RemoteProductSkuFallbackFactory.class)
 public interface RemoteProductSkuService {
@@ -45,4 +47,7 @@ public interface RemoteProductSkuService {
 
     @GetMapping(value = "/productSku/fegin/{goodsId}")
     TableDataInfo getSKuByGoods(@PathVariable("goodsId") Integer goodsId, @RequestHeader(SecurityConstants.FROM_SOURCE) String source );
+    @GetMapping("/productSpecTitle/list/fegin")
+    public Map<String,List<ProductSpecTitle>> getSpec(@RequestBody ProductSpecTitle productSpecTitle, @RequestHeader(SecurityConstants.FROM_SOURCE) String inner);
+
 }

@@ -17,7 +17,7 @@ public interface IProductSpecOptionService
      * @param id 商品规格项主键
      * @return 商品规格项
      */
-    public ProductSpecOption selectProductSpecOptionById(String id);
+    public ProductSpecOption selectProductSpecOptionById(Long id);
 
     /**
      * 查询商品规格项列表
@@ -58,4 +58,8 @@ public interface IProductSpecOptionService
      * @return 结果
      */
     public int deleteProductSpecOptionById(String id);
+
+    List<ProductSpecOption> selectProductSpecOptionListBy(String specName, Long goodsId);
+
+    List<ProductSpecOption> selectProductSpecOptionNameListBy(Long specId, Long goodsId);
 }

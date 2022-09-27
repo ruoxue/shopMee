@@ -2,16 +2,13 @@ package com.ruoyi.shop.controller;
 
 import java.util.List;
 import java.io.IOException;
+import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.core.constant.SecurityConstants;
+import com.ruoyi.common.security.annotation.InnerAuth;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.ruoyi.common.log.annotation.Log;
 import com.ruoyi.common.log.enums.BusinessType;
 import com.ruoyi.common.security.annotation.RequiresPermissions;
@@ -34,7 +31,14 @@ public class ProductSpecTitleController extends BaseController
 {
     @Autowired
     private IProductSpecTitleService productSpecTitleService;
+    @InnerAuth
+    @GetMapping("/list/fegin")
+    public Map<String,List<ProductSpecTitle>> listF( @RequestBody ProductSpecTitle productSpecTitle, @RequestHeader(SecurityConstants.FROM_SOURCE) String inner)
+    {
 
+        Map<String,List<ProductSpecTitle>> list = productSpecTitleService.selectProductSpecTitleAndSpecList(productSpecTitle);
+        return  list;
+    }
     /**
      * 查询商品规格项列表
      */

@@ -115,11 +115,11 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
             Product info = productService.selectProductById((productSku.getGoodsId()));
             auto = info.getAuto();
             if (info.getEndTime().getTime() < new Date().getTime()) {
-                return "";
+                return "商品已下架";
             }
 
-            if (info.getStock()<=0){
-                return "";
+            if (productSku.getStock()<=0){
+                return "商品库存没有了";
             }
             productService.updateSaleCount(info.getId());
 
@@ -129,7 +129,7 @@ public class BuyerOrderServiceImpl implements IBuyerOrderService {
 
             if (type > 0) {
                 if (type != info.getType()) {
-                    return "";
+                    return "虚拟商品不能同时购买";
                 }
             }
             type = info.getType();

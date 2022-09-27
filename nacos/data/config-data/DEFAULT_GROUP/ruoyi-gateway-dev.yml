@@ -78,3 +78,4 @@ security:
       - /order/productBanner/list
       - /order/pay/notify/*/*
       - /order/pay/notify
+      - /order/pay/wechat/token

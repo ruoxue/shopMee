@@ -19,7 +19,11 @@
 
     <dependencies>
 
-
+        <dependency>
+            <groupId>com.github.wechatpay-apiv3</groupId>
+            <artifactId>wechatpay-apache-httpclient</artifactId>
+            <version>0.4.8</version>
+        </dependency>
         <!-- SpringCloud Alibaba Nacos -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -99,11 +103,11 @@
             <artifactId>alipay-sdk-java</artifactId>
             <version>4.17.9.ALL</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.binarywang</groupId>
-            <artifactId>weixin-java-pay</artifactId>
-            <version>4.1.9.B</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.binarywang</groupId>-->
+<!--            <artifactId>weixin-java-pay</artifactId>-->
+<!--            <version>4.1.9.B</version>-->
+<!--        </dependency>-->
 
 
         <!-- Test 测试相关 -->

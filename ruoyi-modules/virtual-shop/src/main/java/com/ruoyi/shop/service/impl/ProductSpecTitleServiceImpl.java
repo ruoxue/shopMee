@@ -1,12 +1,16 @@
 package com.ruoyi.shop.service.impl;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import com.ruoyi.common.core.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.shop.mapper.ProductSpecTitleMapper;
 import com.ruoyi.shop.domain.ProductSpecTitle;
 import com.ruoyi.shop.service.IProductSpecTitleService;
+
 
 /**
  * 商品规格项Service业务层处理
@@ -54,6 +58,7 @@ public class ProductSpecTitleServiceImpl implements IProductSpecTitleService
     public int insertProductSpecTitle(ProductSpecTitle productSpecTitle)
     {
         productSpecTitle.setCreateTime(DateUtils.getNowDate());
+
         return productSpecTitleMapper.insertProductSpecTitle(productSpecTitle);
     }
 
@@ -92,5 +97,16 @@ public class ProductSpecTitleServiceImpl implements IProductSpecTitleService
     public int deleteProductSpecTitleById(String id)
     {
         return productSpecTitleMapper.deleteProductSpecTitleById(id);
+    }
+
+    @Override
+    public Map<String,List<ProductSpecTitle>> selectProductSpecTitleAndSpecList(ProductSpecTitle productSpecTitle) {
+        List<ProductSpecTitle> productSpecTitles = productSpecTitleMapper.selectProductSpecTitleAndSpecList(productSpecTitle);
+
+       Map<String,List<ProductSpecTitle>> ret = productSpecTitles.stream().
+                collect(Collectors.groupingBy(ProductSpecTitle::getTitle));
+        return  ret;
+
+
     }
 }

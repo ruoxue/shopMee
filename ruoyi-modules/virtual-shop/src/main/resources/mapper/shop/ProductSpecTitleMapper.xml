@@ -12,12 +12,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="displayOrder"    column="display_order"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateTime"    column="update_time"    />
+        <result property="psoSpecId"    column="pso_spec_id"    />
+        <result property="psoId"    column="pso_id"    />
+        <result property="name"    column="name"    />
+
+
     </resultMap>
 
     <sql id="selectProductSpecTitleVo">
         select id, shop_id, goods_id, title, display_order, create_time, update_time from product_spec_title
     </sql>
 
+    <sql id="selectProductSpecTitleAndSpecVo">
+        SELECT  pst.id, pst.shop_id, pst.goods_id, pst.title, pst.display_order,
+        pso.id pso_id, pso.shop_id pso_shop_id, pso.spec_id pso_spec_id, pso.name, pso.display_order pso_display_order
+        from product_spec_title pst
+        left join  product_spec_option pso  on pso.goods_id =pst.goods_id and pso.spec_id =pst.id
+    </sql>
     <select id="selectProductSpecTitleList" parameterType="ProductSpecTitle" resultMap="ProductSpecTitleResult">
         <include refid="selectProductSpecTitleVo"/>
         <where>  
@@ -32,7 +43,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectProductSpecTitleVo"/>
         where id = #{id}
     </select>
-        
+    <select id="selectProductSpecTitleAndSpecList" resultType="com.ruoyi.shop.domain.ProductSpecTitle">
+        <include refid="selectProductSpecTitleAndSpecVo"/>
+        <where>
+            <if test="shopId != null "> and pst.shop_id = #{shopId}</if>
+            <if test="goodsId != null  and goodsId != ''"> and pst.goods_id = #{goodsId}</if>
+            <if test="title != null  and title != ''"> and pst.title = #{title}</if>
+            <if test="displayOrder != null "> and pst.display_order = #{displayOrder}</if>
+        </where>
+
+    </select>
+
     <insert id="insertProductSpecTitle" parameterType="ProductSpecTitle" useGeneratedKeys="true" keyProperty="id">
         insert into product_spec_title
         <trim prefix="(" suffix=")" suffixOverrides=",">

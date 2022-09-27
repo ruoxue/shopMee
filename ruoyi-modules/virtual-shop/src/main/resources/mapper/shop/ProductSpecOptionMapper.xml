@@ -23,14 +23,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectProductSpecOptionVo"/>
         <where>  
             <if test="shopId != null "> and shop_id = #{shopId}</if>
-            <if test="goodsId != null  and goodsId != ''"> and goods_id = #{goodsId}</if>
-            <if test="specId != null  and specId != ''"> and spec_id = #{specId}</if>
+            <if test="goodsId != null   "> and goods_id = #{goodsId}</if>
+            <if test="specId != null   "> and spec_id = #{specId}</if>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
             <if test="displayOrder != null "> and display_order = #{displayOrder}</if>
         </where>
     </select>
     
-    <select id="selectProductSpecOptionById" parameterType="String" resultMap="ProductSpecOptionResult">
+    <select id="selectProductSpecOptionById" parameterType="Long" resultMap="ProductSpecOptionResult">
         <include refid="selectProductSpecOptionVo"/>
         where id = #{id}
     </select>

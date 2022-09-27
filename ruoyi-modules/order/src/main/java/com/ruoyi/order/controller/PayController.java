@@ -1,20 +1,23 @@
 package com.ruoyi.order.controller;
 
+import cn.hutool.core.collection.ListUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.SecureUtil;
 import com.ruoyi.order.domain.BuyerPayment;
 import com.ruoyi.order.domain.PayChannel;
 import com.ruoyi.order.service.IBuyerPaymentService;
 import com.ruoyi.order.service.IPayChannelService;
 import com.ruoyi.pay.core.client.dto.PayNotifyDataDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RequestMapping("/pay")
 @Controller
@@ -79,7 +82,7 @@ public class PayController {
         payNotifyDataDTO.setParams(parameterMap);
 
         int i = buyerPaymentService.payNotify(payNotifyDataDTO, payChannel);
-        if (i==0){
+        if (i == 0) {
             System.out.println("\"ok\" = " + "ok");
         }
 
@@ -89,4 +92,36 @@ public class PayController {
             throw new RuntimeException(e);
         }
     }
+
+    @Value("${wechat.token}")
+    private String token;
+
+    @GetMapping("/wechat/token")
+    @ResponseBody
+    public String wechatToken(@RequestParam("signature") String signature,
+                              @RequestParam("timestamp") String timestamp,
+                              @RequestParam("nonce") String nonce,
+                              @RequestParam("echostr") String echostr,
+
+                              HttpServletRequest req,
+                              HttpServletResponse resp) {
+
+        List<String> mList = new ArrayList<>();
+        mList.add(token);
+        mList.add(timestamp);
+        mList.add(nonce);
+
+        List<String> sort = ListUtil.sortByPinyin(mList);
+        String ret = sort.stream().collect(Collectors.joining());
+
+        String s = SecureUtil.sha1(ret);
+        if (s.equals(signature)) {
+            return echostr;
+        }
+        return null;
+
+
+    }
+
+
 }

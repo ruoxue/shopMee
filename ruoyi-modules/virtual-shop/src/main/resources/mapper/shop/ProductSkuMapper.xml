@@ -52,10 +52,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </select>
     
-    <select id="selectProductSkuById" parameterType="String" resultMap="ProductSkuResult">
+    <select id="selectProductSkuById" parameterType="Long" resultMap="ProductSkuResult">
         <include refid="selectProductSkuVo"/>
         where id = #{id}
     </select>
+
+    <update id="updateSkuSaleCount"  parameterType="Long">
+        update product_sku set sales_count=sales_count+1,stock=stock-1 where id=#{id}
+
+    </update>
         
     <insert id="insertProductSku" parameterType="ProductSku" useGeneratedKeys="true" keyProperty="id">
         insert into product_sku

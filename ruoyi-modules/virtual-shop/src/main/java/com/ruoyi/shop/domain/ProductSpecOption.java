@@ -24,11 +24,11 @@ public class ProductSpecOption extends BaseEntity
 
     /** 商品ID */
     @Excel(name = "商品ID")
-    private String goodsId;
+    private Long goodsId;
 
     /** 商品规格项id 关联product_spec_title表主键ID */
     @Excel(name = "商品规格项id 关联product_spec_title表主键ID")
-    private String specId;
+    private Long specId;
 
     /** 商品规格项取值 */
     @Excel(name = "商品规格项取值")
@@ -56,21 +56,21 @@ public class ProductSpecOption extends BaseEntity
     {
         return shopId;
     }
-    public void setGoodsId(String goodsId) 
+    public void setGoodsId(Long goodsId)
     {
         this.goodsId = goodsId;
     }
 
-    public String getGoodsId() 
+    public Long getGoodsId()
     {
         return goodsId;
     }
-    public void setSpecId(String specId) 
+    public void setSpecId(Long specId)
     {
         this.specId = specId;
     }
 
-    public String getSpecId() 
+    public Long getSpecId()
     {
         return specId;
     }
