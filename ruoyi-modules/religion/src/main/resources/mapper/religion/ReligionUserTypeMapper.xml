@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.religion.mapper.ReligionUserTypeMapper">
+    
+    <resultMap type="ReligionUserType" id="ReligionUserTypeResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="tenantId"    column="tenant_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="status"    column="status"    />
+        <result property="deleted"    column="deleted"    />
+        <result property="remake"    column="remake"    />
+    </resultMap>
+
+    <resultMap id="ReligionUserTypeReligionUserResult" type="ReligionUserType" extends="ReligionUserTypeResult">
+        <collection property="religionUserList" notNullColumn="sub_id" javaType="java.util.List" resultMap="ReligionUserResult" />
+    </resultMap>
+
+    <resultMap type="ReligionUser" id="ReligionUserResult">
+        <result property="id"    column="sub_id"    />
+        <result property="name"    column="sub_name"    />
+        <result property="tenantId"    column="sub_tenant_id"    />
+        <result property="createBy"    column="sub_create_by"    />
+        <result property="createTime"    column="sub_create_time"    />
+        <result property="updateBy"    column="sub_update_by"    />
+        <result property="updateTime"    column="sub_update_time"    />
+        <result property="status"    column="sub_status"    />
+        <result property="deleted"    column="sub_deleted"    />
+        <result property="remake"    column="sub_remake"    />
+        <result property="userName"    column="sub_user_name"    />
+        <result property="nickName"    column="sub_nick_name"    />
+        <result property="email"    column="sub_email"    />
+        <result property="phonenumber"    column="sub_phonenumber"    />
+        <result property="sex"    column="sub_sex"    />
+        <result property="avatar"    column="sub_avatar"    />
+        <result property="password"    column="sub_password"    />
+        <result property="type"    column="sub_type"    />
+    </resultMap>
+
+    <sql id="selectReligionUserTypeVo">
+        select id, name, tenant_id, create_by, create_time, update_by, update_time, status, deleted, remake from religion_user_type
+    </sql>
+
+    <select id="selectReligionUserTypeList" parameterType="ReligionUserType" resultMap="ReligionUserTypeResult">
+        <include refid="selectReligionUserTypeVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectReligionUserTypeById" parameterType="Long" resultMap="ReligionUserTypeReligionUserResult">
+        select a.id, a.name, a.tenant_id, a.create_by, a.create_time, a.update_by, a.update_time, a.status, a.deleted, a.remake,
+ b.id as sub_id, b.name as sub_name, b.tenant_id as sub_tenant_id, b.create_by as sub_create_by, b.create_time as sub_create_time, b.update_by as sub_update_by, b.update_time as sub_update_time, b.status as sub_status, b.deleted as sub_deleted, b.remake as sub_remake, b.user_name as sub_user_name, b.nick_name as sub_nick_name, b.email as sub_email, b.phonenumber as sub_phonenumber, b.sex as sub_sex, b.avatar as sub_avatar, b.password as sub_password, b.type as sub_type
+        from religion_user_type a
+        left join religion_user b on b.type = a.id
+        where a.id = #{id}
+    </select>
+        
+    <insert id="insertReligionUserType" parameterType="ReligionUserType" useGeneratedKeys="true" keyProperty="id">
+        insert into religion_user_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="tenantId != null">tenant_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="status != null">status,</if>
+            <if test="deleted != null">deleted,</if>
+            <if test="remake != null">remake,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="tenantId != null">#{tenantId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="deleted != null">#{deleted},</if>
+            <if test="remake != null">#{remake},</if>
+         </trim>
+    </insert>
+
+    <update id="updateReligionUserType" parameterType="ReligionUserType">
+        update religion_user_type
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="tenantId != null">tenant_id = #{tenantId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="deleted != null">deleted = #{deleted},</if>
+            <if test="remake != null">remake = #{remake},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteReligionUserTypeById" parameterType="Long">
+        delete from religion_user_type where id = #{id}
+    </delete>
+
+    <delete id="deleteReligionUserTypeByIds" parameterType="String">
+        delete from religion_user_type where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+    <delete id="deleteReligionUserByTypes" parameterType="String">
+        delete from religion_user where type in 
+        <foreach item="type" collection="array" open="(" separator="," close=")">
+            #{type}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReligionUserByType" parameterType="Long">
+        delete from religion_user where type = #{type}
+    </delete>
+
+    <insert id="batchReligionUser">
+        insert into religion_user( id, name, tenant_id, create_by, create_time, update_by, update_time, status, deleted, remake, user_name, nick_name, email, phonenumber, sex, avatar, password, type) values
+		<foreach item="item" index="index" collection="list" separator=",">
+            ( #{item.id}, #{item.name}, #{item.tenantId}, #{item.createBy}, #{item.createTime}, #{item.updateBy}, #{item.updateTime}, #{item.status}, #{item.deleted}, #{item.remake}, #{item.userName}, #{item.nickName}, #{item.email}, #{item.phonenumber}, #{item.sex}, #{item.avatar}, #{item.password}, #{item.type})
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.religion.mapper.ReligionAreaMapper">
+    
+    <resultMap type="ReligionArea" id="ReligionAreaResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="tenantId"    column="tenant_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="status"    column="status"    />
+        <result property="introduce"    column="introduce"    />
+        <result property="thumb"    column="thumb"    />
+        <result property="religionType"    column="religion_type"    />
+        <result property="longitude"    column="longitude"    />
+        <result property="latitude"    column="latitude"    />
+        <result property="scenicLevel"    column="scenic_level"    />
+        <result property="securityLevel"    column="security_level"    />
+        <result property="ticket"    column="ticket"    />
+        <result property="initialTime"    column="initial_time"    />
+        <result property="devTime"    column="dev_time"    />
+        <result property="mainSpot"    column="main_spot"    />
+        <result property="niceTime"    column="nice_time"    />
+        <result property="religionThing"    column="religion_thing"    />
+        <result property="deleted"    column="deleted"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectReligionAreaVo">
+        select id, name, tenant_id, create_by, create_time, update_by, update_time, status, introduce, thumb, religion_type, longitude, latitude, scenic_level, security_level, ticket, initial_time, dev_time, main_spot, nice_time, religion_thing, deleted, remark from religion_area
+    </sql>
+
+    <select id="selectReligionAreaList" parameterType="ReligionArea" resultMap="ReligionAreaResult">
+        <include refid="selectReligionAreaVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="introduce != null  and introduce != ''"> and introduce = #{introduce}</if>
+            <if test="thumb != null  and thumb != ''"> and thumb = #{thumb}</if>
+            <if test="religionType != null  and religionType != ''"> and religion_type = #{religionType}</if>
+            <if test="longitude != null "> and longitude = #{longitude}</if>
+            <if test="latitude != null "> and latitude = #{latitude}</if>
+            <if test="scenicLevel != null "> and scenic_level = #{scenicLevel}</if>
+            <if test="securityLevel != null "> and security_level = #{securityLevel}</if>
+            <if test="ticket != null "> and ticket = #{ticket}</if>
+            <if test="initialTime != null  and initialTime != ''"> and initial_time = #{initialTime}</if>
+            <if test="devTime != null  and devTime != ''"> and dev_time = #{devTime}</if>
+            <if test="mainSpot != null  and mainSpot != ''"> and main_spot = #{mainSpot}</if>
+            <if test="niceTime != null  and niceTime != ''"> and nice_time = #{niceTime}</if>
+            <if test="religionThing != null  and religionThing != ''"> and religion_thing = #{religionThing}</if>
+        </where>
+    </select>
+    
+    <select id="selectReligionAreaById" parameterType="Long" resultMap="ReligionAreaResult">
+        <include refid="selectReligionAreaVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertReligionArea" parameterType="ReligionArea" useGeneratedKeys="true" keyProperty="id">
+        insert into religion_area
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">name,</if>
+            <if test="tenantId != null">tenant_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="status != null">status,</if>
+            <if test="introduce != null">introduce,</if>
+            <if test="thumb != null">thumb,</if>
+            <if test="religionType != null">religion_type,</if>
+            <if test="longitude != null">longitude,</if>
+            <if test="latitude != null">latitude,</if>
+            <if test="scenicLevel != null">scenic_level,</if>
+            <if test="securityLevel != null">security_level,</if>
+            <if test="ticket != null">ticket,</if>
+            <if test="initialTime != null">initial_time,</if>
+            <if test="devTime != null">dev_time,</if>
+            <if test="mainSpot != null">main_spot,</if>
+            <if test="niceTime != null">nice_time,</if>
+            <if test="religionThing != null">religion_thing,</if>
+            <if test="deleted != null">deleted,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="tenantId != null">#{tenantId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="introduce != null">#{introduce},</if>
+            <if test="thumb != null">#{thumb},</if>
+            <if test="religionType != null">#{religionType},</if>
+            <if test="longitude != null">#{longitude},</if>
+            <if test="latitude != null">#{latitude},</if>
+            <if test="scenicLevel != null">#{scenicLevel},</if>
+            <if test="securityLevel != null">#{securityLevel},</if>
+            <if test="ticket != null">#{ticket},</if>
+            <if test="initialTime != null">#{initialTime},</if>
+            <if test="devTime != null">#{devTime},</if>
+            <if test="mainSpot != null">#{mainSpot},</if>
+            <if test="niceTime != null">#{niceTime},</if>
+            <if test="religionThing != null">#{religionThing},</if>
+            <if test="deleted != null">#{deleted},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateReligionArea" parameterType="ReligionArea">
+        update religion_area
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="tenantId != null">tenant_id = #{tenantId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="introduce != null">introduce = #{introduce},</if>
+            <if test="thumb != null">thumb = #{thumb},</if>
+            <if test="religionType != null">religion_type = #{religionType},</if>
+            <if test="longitude != null">longitude = #{longitude},</if>
+            <if test="latitude != null">latitude = #{latitude},</if>
+            <if test="scenicLevel != null">scenic_level = #{scenicLevel},</if>
+            <if test="securityLevel != null">security_level = #{securityLevel},</if>
+            <if test="ticket != null">ticket = #{ticket},</if>
+            <if test="initialTime != null">initial_time = #{initialTime},</if>
+            <if test="devTime != null">dev_time = #{devTime},</if>
+            <if test="mainSpot != null">main_spot = #{mainSpot},</if>
+            <if test="niceTime != null">nice_time = #{niceTime},</if>
+            <if test="religionThing != null">religion_thing = #{religionThing},</if>
+            <if test="deleted != null">deleted = #{deleted},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteReligionAreaById" parameterType="Long">
+        delete from religion_area where id = #{id}
+    </delete>
+
+    <delete id="deleteReligionAreaByIds" parameterType="String">
+        delete from religion_area where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

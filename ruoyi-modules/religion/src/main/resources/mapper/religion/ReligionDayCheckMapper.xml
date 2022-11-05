@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.religion.mapper.ReligionDayCheckMapper">
+    
+    <resultMap type="ReligionDayCheck" id="ReligionDayCheckResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="thumb"    column="thumb"    />
+        <result property="tenantId"    column="tenant_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="deleted"    column="deleted"    />
+        <result property="route"    column="route"    />
+        <result property="status"    column="status"    />
+        <result property="remark"    column="remark"    />
+        <result property="subFile"    column="sub_file"    />
+    </resultMap>
+
+    <sql id="selectReligionDayCheckVo">
+        select id, name, thumb, tenant_id, create_by, create_time, update_by, update_time, deleted, route, status, remark, sub_file from religion_day_check
+    </sql>
+
+    <select id="selectReligionDayCheckList" parameterType="ReligionDayCheck" resultMap="ReligionDayCheckResult">
+        <include refid="selectReligionDayCheckVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectReligionDayCheckById" parameterType="Long" resultMap="ReligionDayCheckResult">
+        <include refid="selectReligionDayCheckVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertReligionDayCheck" parameterType="ReligionDayCheck" useGeneratedKeys="true" keyProperty="id">
+        insert into religion_day_check
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">name,</if>
+            <if test="thumb != null">thumb,</if>
+            <if test="tenantId != null">tenant_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="deleted != null">deleted,</if>
+            <if test="route != null">route,</if>
+            <if test="status != null">status,</if>
+            <if test="remark != null">remark,</if>
+            <if test="subFile != null">sub_file,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="thumb != null">#{thumb},</if>
+            <if test="tenantId != null">#{tenantId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="deleted != null">#{deleted},</if>
+            <if test="route != null">#{route},</if>
+            <if test="status != null">#{status},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="subFile != null">#{subFile},</if>
+         </trim>
+    </insert>
+
+    <update id="updateReligionDayCheck" parameterType="ReligionDayCheck">
+        update religion_day_check
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="thumb != null">thumb = #{thumb},</if>
+            <if test="tenantId != null">tenant_id = #{tenantId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="deleted != null">deleted = #{deleted},</if>
+            <if test="route != null">route = #{route},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="subFile != null">sub_file = #{subFile},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteReligionDayCheckById" parameterType="Long">
+        delete from religion_day_check where id = #{id}
+    </delete>
+
+    <delete id="deleteReligionDayCheckByIds" parameterType="String">
+        delete from religion_day_check where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

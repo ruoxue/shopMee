@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.religion.mapper.ReligionOutuserManagerMapper">
+    
+    <resultMap type="ReligionOutuserManager" id="ReligionOutuserManagerResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="tenantId"    column="tenant_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="status"    column="status"    />
+        <result property="userId"    column="user_id"    />
+        <result property="startTime"    column="start_time"    />
+        <result property="limitDay"    column="limit_day"    />
+        <result property="deleted"    column="deleted"    />
+        <result property="remark"    column="remark"    />
+        <result property="reason"    column="reason"    />
+    </resultMap>
+
+    <sql id="selectReligionOutuserManagerVo">
+        select id, name, tenant_id, create_by, create_time, update_by, update_time, status, user_id, start_time, limit_day, deleted, remark, reason from religion_outuser_manager
+    </sql>
+
+    <select id="selectReligionOutuserManagerList" parameterType="ReligionOutuserManager" resultMap="ReligionOutuserManagerResult">
+        <include refid="selectReligionOutuserManagerVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="startTime != null "> and start_time = #{startTime}</if>
+            <if test="limitDay != null "> and limit_day = #{limitDay}</if>
+            <if test="reason != null  and reason != ''"> and reason = #{reason}</if>
+        </where>
+    </select>
+    
+    <select id="selectReligionOutuserManagerById" parameterType="Long" resultMap="ReligionOutuserManagerResult">
+        <include refid="selectReligionOutuserManagerVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertReligionOutuserManager" parameterType="ReligionOutuserManager" useGeneratedKeys="true" keyProperty="id">
+        insert into religion_outuser_manager
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">name,</if>
+            <if test="tenantId != null">tenant_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="status != null">status,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="startTime != null">start_time,</if>
+            <if test="limitDay != null">limit_day,</if>
+            <if test="deleted != null">deleted,</if>
+            <if test="remark != null">remark,</if>
+            <if test="reason != null">reason,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="tenantId != null">#{tenantId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="startTime != null">#{startTime},</if>
+            <if test="limitDay != null">#{limitDay},</if>
+            <if test="deleted != null">#{deleted},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="reason != null">#{reason},</if>
+         </trim>
+    </insert>
+
+    <update id="updateReligionOutuserManager" parameterType="ReligionOutuserManager">
+        update religion_outuser_manager
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="tenantId != null">tenant_id = #{tenantId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="limitDay != null">limit_day = #{limitDay},</if>
+            <if test="deleted != null">deleted = #{deleted},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="reason != null">reason = #{reason},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteReligionOutuserManagerById" parameterType="Long">
+        delete from religion_outuser_manager where id = #{id}
+    </delete>
+
+    <delete id="deleteReligionOutuserManagerByIds" parameterType="String">
+        delete from religion_outuser_manager where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
